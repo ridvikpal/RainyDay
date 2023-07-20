@@ -58,6 +58,11 @@
             <version>${junit.version}</version>
             <scope>test</scope>
         </dependency>
+        <dependency>
+            <groupId>org.openjfx</groupId>
+            <artifactId>javafx-swing</artifactId>
+            <version>21-ea+17</version>
+        </dependency>
     </dependencies>
 
     <build>
