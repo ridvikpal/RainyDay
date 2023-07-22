@@ -1,9 +1,5 @@
 package com.rainyday.rainyday;
 
-/**
- * Sample Skeleton for 'ui_config.fxml' Controller Class
- */
-
 import javafx.fxml.FXML;
 import javafx.scene.chart.AreaChart;
 import javafx.scene.control.Button;
@@ -15,133 +11,146 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.GridPane;
+import javafx.scene.layout.HBox;
+import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
 import javafx.event.ActionEvent;
 
 public class Controller {
 
-    @FXML // fx:id="tempTab"
-    private Tab tempTab; // Value injected by FXMLLoader
+    @FXML
+    private Tab tempTab;
 
-    @FXML // fx:id="rightPaneAnchorPane"
-    private AnchorPane rightPaneAnchorPane; // Value injected by FXMLLoader
+    @FXML
+    private AnchorPane rightPaneAnchorPane;
 
-    @FXML // fx:id="windTab"
-    private Tab windTab; // Value injected by FXMLLoader
+    @FXML
+    private Tab windTab;
 
-    @FXML // fx:id="searchButton"
-    private Button searchButton; // Value injected by FXMLLoader
+    @FXML
+    private Button searchButton;
 
-    @FXML // fx:id="graphTabPane"
-    private TabPane graphTabPane; // Value injected by FXMLLoader
+    @FXML
+    private TabPane graphTabPane;
 
-    @FXML // fx:id="feelsLikeText"
-    private Text feelsLikeText; // Value injected by FXMLLoader
+    @FXML
+    private Text feelsLikeText;
 
-    @FXML // fx:id="tempGraph"
-    private AreaChart<?, ?> tempGraph; // Value injected by FXMLLoader
+    @FXML
+    private AreaChart<?, ?> tempGraph;
 
-    @FXML // fx:id="precipGraph"
-    private AreaChart<?, ?> precipGraph; // Value injected by FXMLLoader
+    @FXML
+    private AreaChart<?, ?> precipGraph;
 
-    @FXML // fx:id="loadButton"
-    private Button loadButton; // Value injected by FXMLLoader
+    @FXML
+    private Button loadButton;
 
-    @FXML // fx:id="precipitationLabel"
-    private Text precipitationLabel; // Value injected by FXMLLoader
+    @FXML
+    private Text precipitationLabel;
 
-    @FXML // fx:id="airQualityText"
-    private Text airQualityText; // Value injected by FXMLLoader
+    @FXML
+    private Text airQualityText;
 
-    @FXML // fx:id="favouritesTable"
-    private TableView<?> favouritesTable; // Value injected by FXMLLoader
+    @FXML
+    private TableView<?> favouritesTable;
 
-    @FXML // fx:id="windLabel"
-    private Text windLabel; // Value injected by FXMLLoader
+    @FXML
+    private VBox mainInfoVBox;
 
-    @FXML // fx:id="locationAndTimeText"
-    private Text locationAndTimeText; // Value injected by FXMLLoader
+    @FXML
+    private Text windLabel;
 
-    @FXML // fx:id="visibilityLabel"
-    private Text visibilityLabel; // Value injected by FXMLLoader
+    @FXML
+    private Text locationAndTimeText;
 
-    @FXML // fx:id="uvLabel"
-    private Text uvLabel; // Value injected by FXMLLoader
+    @FXML
+    private HBox favouritesHBox;
 
-    @FXML // fx:id="uvText"
-    private Text uvText; // Value injected by FXMLLoader
+    @FXML
+    private Text visibilityLabel;
 
-    @FXML // fx:id="precipTabAnchorPane"
-    private AnchorPane precipTabAnchorPane; // Value injected by FXMLLoader
+    @FXML
+    private Text uvLabel;
 
-    @FXML // fx:id="windGraphAnchorPane"
-    private AnchorPane windGraphAnchorPane; // Value injected by FXMLLoader
+    @FXML
+    private Text uvText;
 
-    @FXML // fx:id="pressureLabel"
-    private Text pressureLabel; // Value injected by FXMLLoader
+    @FXML
+    private AnchorPane precipTabAnchorPane;
 
-    @FXML // fx:id="conditionText"
-    private Text conditionText; // Value injected by FXMLLoader
+    @FXML
+    private AnchorPane windGraphAnchorPane;
 
-    @FXML // fx:id="humidityLabel"
-    private Text humidityLabel; // Value injected by FXMLLoader
+    @FXML
+    private Text pressureLabel;
 
-    @FXML // fx:id="addButton"
-    private Button addButton; // Value injected by FXMLLoader
+    @FXML
+    private Text conditionText;
 
-    @FXML // fx:id="tempTabAnchorPane"
-    private AnchorPane tempTabAnchorPane; // Value injected by FXMLLoader
+    @FXML
+    private Text humidityLabel;
 
-    @FXML // fx:id="visibilityText"
-    private Text visibilityText; // Value injected by FXMLLoader
+    @FXML
+    private Button addButton;
 
-    @FXML // fx:id="windText"
-    private Text windText; // Value injected by FXMLLoader
+    @FXML
+    private AnchorPane tempTabAnchorPane;
 
-    @FXML // fx:id="humidityText"
-    private Text humidityText; // Value injected by FXMLLoader
+    @FXML
+    private Text windText;
 
-    @FXML // fx:id="citySearchBar"
-    private TextField citySearchBar; // Value injected by FXMLLoader
+    @FXML
+    private Text visibilityText;
 
-    @FXML // fx:id="leftPaneAnchorPane"
-    private AnchorPane leftPaneAnchorPane; // Value injected by FXMLLoader
+    @FXML
+    private Text humidityText;
 
-    @FXML // fx:id="pressureText"
-    private Text pressureText; // Value injected by FXMLLoader
+    @FXML
+    private TextField citySearchBar;
 
-    @FXML // fx:id="removeButton"
-    private Button removeButton; // Value injected by FXMLLoader
+    @FXML
+    private GridPane additionalInfoGridPane;
 
-    @FXML // fx:id="precipTab"
-    private Tab precipTab; // Value injected by FXMLLoader
+    @FXML
+    private AnchorPane leftPaneAnchorPane;
 
-    @FXML // fx:id="airQualityLabel"
-    private Text airQualityLabel; // Value injected by FXMLLoader
+    @FXML
+    private Text pressureText;
 
-    @FXML // fx:id="weatherBackground"
-    private ImageView weatherBackground; // Value injected by FXMLLoader
+    @FXML
+    private Button removeButton;
 
-    @FXML // fx:id="precipitationText"
-    private Text precipitationText; // Value injected by FXMLLoader
+    @FXML
+    private Tab precipTab;
 
-    @FXML // fx:id="currentTempText"
-    private Text currentTempText; // Value injected by FXMLLoader
+    @FXML
+    private Text airQualityLabel;
 
-    @FXML // fx:id="splitPaneScene"
-    private SplitPane splitPaneScene; // Value injected by FXMLLoader
+    @FXML
+    private ImageView weatherBackground;
 
-    @FXML // fx:id="windGraph"
-    private AreaChart<?, ?> windGraph; // Value injected by FXMLLoader
+    @FXML
+    private Text precipitationText;
 
-    @FXML // fx:id="alertText"
-    private Text alertText; // Value injected by FXMLLoader
+    @FXML
+    private Text currentTempText;
 
-    @FXML // fx:id="favouritesColumn"
-    private TableColumn<?, ?> favouritesColumn; // Value injected by FXMLLoader
+    @FXML
+    private SplitPane splitPaneScene;
+
+    @FXML
+    private AreaChart<?, ?> windGraph;
+
+    @FXML
+    private Text alertText;
+
+    @FXML
+    private TableColumn<?, ?> favouritesColumn;
 
     @FXML
     void dd0000(ActionEvent event) {
 
     }
+
 }
