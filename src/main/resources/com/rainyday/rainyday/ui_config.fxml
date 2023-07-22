@@ -169,10 +169,14 @@
                 <TableColumn fx:id="favouritesColumn" prefWidth="267.0" resizable="false" text="Favourites" />
               </columns>
             </TableView>
-            <Button fx:id="searchButton" layoutX="249.0" layoutY="14.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="33.0" text="🔍" />
-            <Button fx:id="loadButton" layoutX="14.0" layoutY="615.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="81.0" text="Load" />
-            <Button fx:id="addButton" layoutX="108.0" layoutY="615.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="81.0" text="Add" />
-            <Button fx:id="removeButton" layoutX="200.0" layoutY="615.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="81.0" text="Remove" />
+            <Button fx:id="searchButton" layoutX="249.0" layoutY="14.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="33.0" text="🔍" AnchorPane.bottomAnchor="600.0" AnchorPane.rightAnchor="14.0" AnchorPane.topAnchor="14.0" />
+            <HBox fx:id="favouritesHBox" alignment="CENTER" layoutX="14.0" layoutY="615.0" prefHeight="27.0" prefWidth="268.0" spacing="12.0" AnchorPane.bottomAnchor="6.0" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="14.0" AnchorPane.topAnchor="615.0">
+               <children>
+                  <Button fx:id="loadButton" mnemonicParsing="false" prefHeight="25.0" prefWidth="81.0" text="Load" />
+                  <Button fx:id="addButton" mnemonicParsing="false" prefHeight="25.0" prefWidth="81.0" text="Add" />
+                  <Button fx:id="removeButton" mnemonicParsing="false" prefHeight="25.0" prefWidth="81.0" text="Remove" />
+               </children>
+            </HBox>
          </children></AnchorPane>
   </items>
 </SplitPane>
