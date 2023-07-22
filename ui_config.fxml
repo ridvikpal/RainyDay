@@ -163,12 +163,16 @@
          </children></AnchorPane>
     <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
          <children>
-            <TextField fx:id="citySearchBar" layoutX="14.0" layoutY="14.0" prefHeight="25.0" prefWidth="252.0" promptText="Search for city..." AnchorPane.bottomAnchor="600.0" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="14.0" AnchorPane.topAnchor="14.0" />
-            <TableView fx:id="favouritesTable" layoutX="14.0" layoutY="59.0" prefHeight="575.0" prefWidth="261.0" AnchorPane.bottomAnchor="14.0" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="14.0" AnchorPane.topAnchor="60.0">
+            <TextField fx:id="citySearchBar" layoutX="14.0" layoutY="14.0" prefHeight="34.0" prefWidth="226.0" promptText="Search for city..." AnchorPane.bottomAnchor="600.0" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="56.0" AnchorPane.topAnchor="14.0" />
+            <TableView fx:id="favouritesTable" layoutX="14.0" layoutY="59.0" prefHeight="548.0" prefWidth="268.0" AnchorPane.bottomAnchor="40.0" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="14.0" AnchorPane.topAnchor="60.0">
               <columns>
                 <TableColumn fx:id="favouritesColumn" prefWidth="267.0" resizable="false" text="Favourites" />
               </columns>
             </TableView>
+            <Button fx:id="searchButton" layoutX="249.0" layoutY="14.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="33.0" text="🔍" />
+            <Button fx:id="loadButton" layoutX="14.0" layoutY="615.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="81.0" text="Load" />
+            <Button fx:id="addButton" layoutX="108.0" layoutY="615.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="81.0" text="Add" />
+            <Button fx:id="removeButton" layoutX="200.0" layoutY="615.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="81.0" text="Remove" />
          </children></AnchorPane>
   </items>
 </SplitPane>
