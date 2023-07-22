@@ -9,7 +9,7 @@ public class Main extends Application {
 
     @Override
     public void start(Stage stage) throws Exception {
-
+        FXMLLoader fxmlLoader = new FXMLLoader();
     }
 
     public static void main(String args[]){
