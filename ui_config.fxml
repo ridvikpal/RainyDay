@@ -1,117 +1,149 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.chart.*?>
+<?import javafx.geometry.*?>
 <?import javafx.scene.text.*?>
-<?import javafx.scene.control.*?>
+<?import javafx.scene.chart.*?>
 <?import javafx.scene.image.*?>
-<?import java.lang.*?>
 <?import javafx.scene.layout.*?>
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
 
-
-<AnchorPane id="MainScene" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="614.0" prefWidth="948.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
-   <children>
-      <ImageView id="backgroundImage" fitHeight="614.0" fitWidth="948.0" layoutY="-1.0" pickOnBounds="true" preserveRatio="true" />
-      <TextField id="weatherSearch" layoutX="566.0" layoutY="14.0" prefHeight="31.0" prefWidth="368.0" promptText="Search for City">
-         <font>
-            <Font name="Segoe UI" size="12.0" />
-         </font>
-      </TextField>
-      <Text id="currentWeatherInformation" layoutX="38.0" layoutY="136.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Current" wrappingWidth="397.0">
-         <font>
-            <Font name="Segoe UI" size="96.0" />
-         </font>
-      </Text>
-      <Text id="locationInformation" fill="#5b5b5b" layoutX="38.0" layoutY="261.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Location and Time" wrappingWidth="336.13671875">
-         <font>
-            <Font size="32.0" />
-         </font>
-      </Text>
-      <TabPane layoutY="309.0" prefHeight="308.0" prefWidth="948.0" side="BOTTOM" tabClosingPolicy="UNAVAILABLE">
-        <tabs>
-          <Tab text="Temperature">
-            <content>
-              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="262.0" prefWidth="935.0">
-                     <children>
-                        <AreaChart id="temperatureChart" horizontalGridLinesVisible="false" prefHeight="280.0" prefWidth="948.0">
-                          <xAxis>
-                            <CategoryAxis side="BOTTOM" />
-                          </xAxis>
-                          <yAxis>
-                            <NumberAxis side="LEFT" />
-                          </yAxis>
-                        </AreaChart>
-                     </children>
-                  </AnchorPane>
-            </content>
-          </Tab>
-          <Tab text="Precipitation">
-            <content>
-              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
-                     <children>
-                        <AreaChart id="precipitationChart" horizontalGridLinesVisible="false" prefHeight="280.0" prefWidth="948.0">
-                           <xAxis>
-                              <CategoryAxis side="BOTTOM" />
-                           </xAxis>
-                           <yAxis>
-                              <NumberAxis side="LEFT" />
-                           </yAxis>
-                        </AreaChart>
-                     </children>
-                  </AnchorPane>
-            </content>
-          </Tab>
-            <Tab text="Wind">
-               <content>
-                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
-                     <children>
-                        <AreaChart id="windChart" horizontalGridLinesVisible="false" prefHeight="280.0" prefWidth="948.0">
-                           <xAxis>
-                              <CategoryAxis side="BOTTOM" />
-                           </xAxis>
-                           <yAxis>
-                              <NumberAxis side="LEFT" />
-                           </yAxis>
-                        </AreaChart>
-                     </children>
-                  </AnchorPane>
-               </content>
-            </Tab>
-        </tabs>
-      </TabPane>
-      <Text id="precipitationInformation" layoutX="38.0" layoutY="214.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Condition" wrappingWidth="317.13671875">
-         <font>
-            <Font name="Segoe UI" size="50.0" />
-         </font>
-      </Text>
-      <Text id="humidityInformation" fill="#5b5b5b" layoutX="697.0" layoutY="117.0" strokeType="OUTSIDE" strokeWidth="0.0" text="UV" wrappingWidth="220.13671875">
-         <font>
-            <Font name="Segoe UI" size="32.0" />
-         </font>
-      </Text>
-      <Text id="precipitationInformation" fill="#5b5b5b" layoutX="435.0" layoutY="117.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Feels Like" wrappingWidth="262.13671875">
-         <font>
-            <Font name="Segoe UI" size="32.0" />
-         </font>
-      </Text>
-      <Text id="precipitationInformation" fill="#5b5b5b" layoutX="435.0" layoutY="179.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Precipitation" wrappingWidth="262.13671875">
-         <font>
-            <Font name="Segoe UI" size="32.0" />
-         </font>
-      </Text>
-      <Text id="humidityInformation" fill="#5b5b5b" layoutX="697.0" layoutY="179.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Pressure" wrappingWidth="220.13671875">
-         <font>
-            <Font name="Segoe UI" size="32.0" />
-         </font>
-      </Text>
-      <Text id="precipitationInformation" fill="#5b5b5b" layoutX="435.0" layoutY="236.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Humidity" wrappingWidth="262.13671875">
-         <font>
-            <Font name="Segoe UI" size="32.0" />
-         </font>
-      </Text>
-      <Text id="humidityInformation" fill="#5b5b5b" layoutX="697.0" layoutY="236.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Wind" wrappingWidth="220.13671875">
-         <font>
-            <Font name="Segoe UI" size="32.0" />
-         </font>
-      </Text>
-   </children>
-</AnchorPane>
+<SplitPane fx:id="splitPaneScene" dividerPositions="0.7" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="650.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+  <items>
+    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+         <children>
+            <TabPane fx:id="graphTabPane" layoutX="182.0" layoutY="191.0" prefHeight="233.0" prefWidth="289.0" side="BOTTOM" tabClosingPolicy="UNAVAILABLE" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="350.0">
+              <tabs>
+                <Tab fx:id="tempTab" text="Temperature">
+                  <content>
+                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                           <children>
+                              <AreaChart fx:id="tempGraph" layoutX="-79.0" layoutY="-65.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                <xAxis>
+                                  <CategoryAxis side="BOTTOM" />
+                                </xAxis>
+                                <yAxis>
+                                  <NumberAxis side="LEFT" />
+                                </yAxis>
+                              </AreaChart>
+                           </children>
+                        </AnchorPane>
+                  </content>
+                </Tab>
+                <Tab fx:id="precipTab" text="Precipitation">
+                  <content>
+                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                           <children>
+                              <AreaChart fx:id="precipGraph" layoutX="-6.0" layoutY="-77.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                <xAxis>
+                                  <CategoryAxis side="BOTTOM" />
+                                </xAxis>
+                                <yAxis>
+                                  <NumberAxis side="LEFT" />
+                                </yAxis>
+                              </AreaChart>
+                           </children>
+                        </AnchorPane>
+                  </content>
+                </Tab>
+                  <Tab fx:id="windTab" text="Wind">
+                    <content>
+                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                           <children>
+                              <AreaChart fx:id="windGraph" layoutX="-25.0" layoutY="-84.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                <xAxis>
+                                  <CategoryAxis side="BOTTOM" />
+                                </xAxis>
+                                <yAxis>
+                                  <NumberAxis side="LEFT" />
+                                </yAxis>
+                              </AreaChart>
+                           </children>
+                        </AnchorPane>
+                    </content>
+                  </Tab>
+              </tabs>
+            </TabPane>
+            <ImageView fx:id="weatherBackground" fitHeight="350.0" fitWidth="700.0" layoutY="7.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="498.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+            <Text layoutX="32.0" layoutY="282.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Feels Like" wrappingWidth="226.13671875" AnchorPane.leftAnchor="32.0" AnchorPane.rightAnchor="437.86328125" AnchorPane.topAnchor="244.0">
+               <font>
+                  <Font name="System Italic" size="35.0" />
+               </font>
+            </Text>
+            <Text layoutX="32.0" layoutY="227.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Temp" wrappingWidth="226.13671875" AnchorPane.leftAnchor="32.0" AnchorPane.rightAnchor="437.86328125" AnchorPane.topAnchor="151.462890625">
+               <font>
+                  <Font name="System Bold" size="70.0" />
+               </font>
+            </Text>
+            <Text layoutX="296.0" layoutY="159.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Location and Time" wrappingWidth="226.13671875" AnchorPane.leftAnchor="296.0" AnchorPane.rightAnchor="173.86328125">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Text>
+            <Text layoutX="296.0" layoutY="204.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Precipitation" wrappingWidth="103.13671875">
+               <font>
+                  <Font name="System Bold" size="16.0" />
+               </font>
+            </Text>
+            <Text layoutX="296.0" layoutY="229.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Wind" wrappingWidth="103.13671875">
+               <font>
+                  <Font name="System Bold" size="16.0" />
+               </font>
+            </Text>
+            <Text layoutX="296.0" layoutY="254.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Humidity" wrappingWidth="103.13671875">
+               <font>
+                  <Font name="System Bold" size="16.0" />
+               </font>
+            </Text>
+            <Text layoutX="296.0" layoutY="279.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Pressure" wrappingWidth="103.13671875">
+               <font>
+                  <Font name="System Bold" size="16.0" />
+               </font>
+            </Text>
+            <Text layoutX="32.0" layoutY="312.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Condition" wrappingWidth="226.13671875">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Text>
+            <Text layoutX="296.0" layoutY="304.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Visibility" wrappingWidth="103.13671875">
+               <font>
+                  <Font name="System Bold" size="16.0" />
+               </font>
+            </Text>
+            <Text layoutX="409.0" layoutY="304.0" strokeType="OUTSIDE" strokeWidth="0.0" text="km" wrappingWidth="81.13671875">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Text>
+            <Text layoutX="409.0" layoutY="279.0" strokeType="OUTSIDE" strokeWidth="0.0" text="kPa" wrappingWidth="81.13671875">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Text>
+            <Text layoutX="409.0" layoutY="254.0" strokeType="OUTSIDE" strokeWidth="0.0" text="\%" wrappingWidth="81.13671875">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Text>
+            <Text layoutX="409.0" layoutY="229.0" strokeType="OUTSIDE" strokeWidth="0.0" text="km/h" wrappingWidth="81.13671875">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Text>
+            <Text layoutX="409.0" layoutY="204.0" strokeType="OUTSIDE" strokeWidth="0.0" text="mm" wrappingWidth="81.13671875">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Text>
+         </children></AnchorPane>
+    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+         <children>
+            <TextField fx:id="citySearchBar" layoutX="14.0" layoutY="14.0" prefHeight="25.0" prefWidth="252.0" promptText="Search for city..." AnchorPane.bottomAnchor="600.0" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="14.0" AnchorPane.topAnchor="14.0" />
+            <TableView fx:id="favouritesTable" layoutX="14.0" layoutY="59.0" prefHeight="575.0" prefWidth="261.0" AnchorPane.bottomAnchor="14.0" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="14.0" AnchorPane.topAnchor="60.0">
+              <columns>
+                <TableColumn fx:id="favouritesColumn" prefWidth="267.0" resizable="false" text="Favourites" />
+              </columns>
+            </TableView>
+         </children></AnchorPane>
+  </items>
+</SplitPane>
