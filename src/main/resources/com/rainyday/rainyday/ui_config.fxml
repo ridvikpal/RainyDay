@@ -10,7 +10,7 @@
 
 <SplitPane fx:id="splitPaneScene" dividerPositions="0.7" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="650.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
   <items>
-    <AnchorPane fx:id="splitPaneAnchorPane" minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+    <AnchorPane fx:id="leftPaneAnchorPane" minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
          <children>
             <TabPane fx:id="graphTabPane" layoutX="182.0" layoutY="191.0" prefHeight="233.0" prefWidth="289.0" side="BOTTOM" tabClosingPolicy="UNAVAILABLE" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="350.0">
               <tabs>
@@ -161,7 +161,7 @@
                </font>
             </Text>
          </children></AnchorPane>
-    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+    <AnchorPane fx:id="rightPaneAnchorPane" minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
          <children>
             <TextField fx:id="citySearchBar" layoutX="14.0" layoutY="14.0" prefHeight="34.0" prefWidth="226.0" promptText="Search for city..." AnchorPane.bottomAnchor="600.0" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="56.0" AnchorPane.topAnchor="14.0" />
             <TableView fx:id="favouritesTable" layoutX="14.0" layoutY="59.0" prefHeight="548.0" prefWidth="268.0" AnchorPane.bottomAnchor="40.0" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="14.0" AnchorPane.topAnchor="60.0">
