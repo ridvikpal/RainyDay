@@ -148,8 +148,36 @@ public class Controller {
     @FXML
     private TableColumn<?, ?> favouritesColumn;
 
+    // This method searches WeatherAPI for city information and creates autocomplete
     @FXML
-    void dd0000(ActionEvent event) {
+    void handleSearchRequest(){
+        String text = citySearchBar.getText();
+        System.out.println(text);
+
+        // load the actual weather data
+        loadWeatherData();
+    }
+
+    // This method loads the weather data to all the text fields in the ui
+    void loadWeatherData(){
+
+    }
+
+    // This method adds the current city to the favourites table
+    @FXML
+    void handleAddFavourites(){
+
+    }
+
+    // This method removes a selected city from the favourites table
+    @FXML
+    void handleRemoveFavourites(){
+
+    }
+
+    // This method loads a selected favourite to the favourites table.
+    @FXML
+    void handleLoadFavourites(){
 
     }
 
