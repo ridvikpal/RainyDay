@@ -95,7 +95,7 @@
                   <Font name="System Bold" size="16.0" />
                </font>
             </Text>
-            <Text layoutX="296.0" layoutY="279.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Pressure" wrappingWidth="103.13671875">
+            <Text layoutX="490.0" layoutY="229.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Pressure" wrappingWidth="103.13671875">
                <font>
                   <Font name="System Bold" size="16.0" />
                </font>
@@ -105,17 +105,17 @@
                   <Font size="20.0" />
                </font>
             </Text>
-            <Text layoutX="296.0" layoutY="304.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Visibility" wrappingWidth="103.13671875">
+            <Text layoutX="490.0" layoutY="254.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Visibility" wrappingWidth="103.13671875">
                <font>
                   <Font name="System Bold" size="16.0" />
                </font>
             </Text>
-            <Text layoutX="409.0" layoutY="304.0" strokeType="OUTSIDE" strokeWidth="0.0" text="km" wrappingWidth="81.13671875">
+            <Text layoutX="603.0" layoutY="254.0" strokeType="OUTSIDE" strokeWidth="0.0" text="km" wrappingWidth="81.13671875">
                <font>
                   <Font size="16.0" />
                </font>
             </Text>
-            <Text layoutX="409.0" layoutY="279.0" strokeType="OUTSIDE" strokeWidth="0.0" text="kPa" wrappingWidth="81.13671875">
+            <Text layoutX="603.0" layoutY="229.0" strokeType="OUTSIDE" strokeWidth="0.0" text="kPa" wrappingWidth="81.13671875">
                <font>
                   <Font size="16.0" />
                </font>
@@ -131,6 +131,31 @@
                </font>
             </Text>
             <Text layoutX="409.0" layoutY="204.0" strokeType="OUTSIDE" strokeWidth="0.0" text="mm" wrappingWidth="81.13671875">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Text>
+            <Text layoutX="490.0" layoutY="204.0" strokeType="OUTSIDE" strokeWidth="0.0" text="UV" wrappingWidth="103.13671875">
+               <font>
+                  <Font name="System Bold" size="16.0" />
+               </font>
+            </Text>
+            <Text layoutX="296.0" layoutY="279.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Air Quality" wrappingWidth="103.13671875">
+               <font>
+                  <Font name="System Bold" size="16.0" />
+               </font>
+            </Text>
+            <Text fill="#dd0000" layoutX="32.0" layoutY="64.0" strokeType="OUTSIDE" strokeWidth="0.0" text="! Alert" wrappingWidth="226.13671875">
+               <font>
+                  <Font size="35.0" />
+               </font>
+            </Text>
+            <Text layoutX="409.0" layoutY="279.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Enumerate" wrappingWidth="81.13671875">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Text>
+            <Text layoutX="603.0" layoutY="204.0" strokeType="OUTSIDE" strokeWidth="0.0" text="#" wrappingWidth="81.13671875">
                <font>
                   <Font size="16.0" />
                </font>
