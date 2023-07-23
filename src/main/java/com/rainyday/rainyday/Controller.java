@@ -15,8 +15,13 @@ import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
+import org.rainyday.AirQuality;
+import org.rainyday.Alert;
 import org.rainyday.Connection;
 import org.rainyday.Weather;
+
+import java.beans.Visibility;
+import java.util.Objects;
 
 public class Controller {
 
@@ -34,6 +39,9 @@ public class Controller {
 
     @FXML
     private Button searchButton;
+
+    @FXML
+    private Button refreshButton;
 
     @FXML
     private TabPane graphTabPane;
@@ -66,7 +74,10 @@ public class Controller {
     private Text windLabel;
 
     @FXML
-    private Text locationAndTimeText;
+    private Text locationText;
+
+    @FXML
+    private Text lastUpdatedTimeText;
 
     @FXML
     private HBox favouritesHBox;
@@ -166,11 +177,61 @@ public class Controller {
         // get the current weather
         Weather weather = connection.getCurrentWeather(_city);
 
-        // set the current text
-        currentTempText.setText(String.valueOf(weather.getCurrent().getTemp_c()));
-        feelsLikeText.setText("Feels like " + String.valueOf(weather.getCurrent().getFeelslike_c()));
-        conditionText.setText(weather.getCurrent().getCondition().getText());
+        // set the labels
+//        precipitationLabel.setText("Precipitation");
+//        windLabel.setText("Wind");
+//        humidityLabel.setText("Humidity");
+//        uvLabel.setText("UV");
+//        pressureLabel.setText("Pressure");
+//        visibilityLabel.setText("Visibility");
+//        airQualityText.setText("Air Quality");
 
+        precipitationLabel.setVisible(true);
+        windLabel.setVisible(true);
+        humidityLabel.setVisible(true);
+        uvLabel.setVisible(true);
+        pressureLabel.setVisible(true);
+        visibilityLabel.setVisible(true);
+        airQualityLabel.setVisible(true);
+        refreshButton.setVisible(true);
+
+
+        // set the current weather information text
+        currentTempText.setText(String.valueOf(weather.getCurrent().getTemp_c()) + " °C");
+        feelsLikeText.setText("Feels like " + String.valueOf(weather.getCurrent().getFeelslike_c()) + " °C");
+        conditionText.setText(weather.getCurrent().getCondition().getText());
+        precipitationText.setText(String.valueOf(weather.getCurrent().getPrecip_mm()) + " mm");
+        windText.setText(String.valueOf(weather.getCurrent().getWind_kph()) + " "
+                + String.valueOf(weather.getCurrent().getWind_dir()));
+        humidityText.setText(String.valueOf(weather.getCurrent().getHumidity() + " %"));
+        uvText.setText(String.valueOf(weather.getCurrent().getUv()));
+        pressureText.setText(String.valueOf(weather.getCurrent().getPressure_mb()) + " mb");
+        visibilityText.setText(String.valueOf(weather.getCurrent().getVis_km()) + " km");
+        locationText.setText(
+                weather.getLocation().getName() + ", "
+                + weather.getLocation().getRegion() + ", "
+                + weather.getLocation().getCountry()
+        );
+        lastUpdatedTimeText.setText(weather.getCurrent().getLast_updated());
+
+        // set the air quality
+        int epaIndex = weather.getCurrent().getAir_quality().getUs_epa_index();
+        if (epaIndex == 1) airQualityText.setText("Good");
+        else if (epaIndex == 2) airQualityText.setText("Moderate");
+        else if (epaIndex == 3) airQualityText.setText("Unhealthy for sensitive groups");
+        else if (epaIndex == 4) airQualityText.setText("Unhealthy");
+        else if (epaIndex == 5) airQualityText.setText("Very Unhealthy");
+        else airQualityText.setText("Hazardous");
+
+        Alert alertObject = weather.getAlerts();
+
+        // check if there are any weather alerts
+        if (!(Objects.isNull(alertObject))){
+            alertText.setText("! " + alertObject.getAlert().get(0).getHeadline());
+        }else{
+            alertText.setText("");
+            alertText.setVisible(false);
+        }
     }
 
     // This method adds the current city to the favourites table

@@ -3,8 +3,8 @@ package org.rainyday;
 import java.util.ArrayList;
 
 public class Alert {
-    ArrayList<AlertSubClass> alert;
-    static private class AlertSubClass{
+    private ArrayList<AlertSubClass> alert;
+    public static class AlertSubClass{
         private String headline, msgtype, severity, urgency, areas, category, certainty, event, note
                 , effective, expires, desc, instruction;
 
@@ -78,6 +78,10 @@ public class Alert {
                     ", instruction='" + instruction + '\'' +
                     '}';
         }
+    }
+
+    public ArrayList<AlertSubClass> getAlert() {
+        return alert;
     }
 
     @Override
