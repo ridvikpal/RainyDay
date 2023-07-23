@@ -1,4 +1,4 @@
-package com.rainyday.rainyday;
+package org.rainyday;
 
 public class Day {
     private double maxtemp_c, maxtemp_f, mintemp_c, mintemp_f, avgtemp_c, avgtemp_f, maxwind_mph

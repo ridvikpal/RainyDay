@@ -1,4 +1,4 @@
-package com.rainyday.rainyday;
+package org.rainyday;
 
 public class Hour {
     private int time_epoch, is_day, wind_degree, humidity, cloud, will_it_rain, chance_of_rain

@@ -5,7 +5,11 @@ module com.rainyday.rainyday {
 
     requires org.kordamp.ikonli.javafx;
     requires eu.hansolo.tilesfx;
+    requires com.google.gson;
+    requires java.net.http;
+    requires javafx.graphics;
 
     opens com.rainyday.rainyday to javafx.fxml;
+    opens org.rainyday to com.google.gson;
     exports com.rainyday.rainyday;
 }

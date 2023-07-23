@@ -1,4 +1,4 @@
-package com.rainyday.rainyday;
+package org.rainyday;
 
 /*
 * This class manages all the API calls to the Weather API
@@ -24,7 +24,7 @@ public class Connection {
 
     private final HttpClient client = HttpClient.newHttpClient();
 
-    Weather getCurrentWeather(String _q) {
+    public Weather getCurrentWeather(String _q) {
         // the url to get the information from
         String url = "https://api.weatherapi.com/v1/current.json?key=" + API_KEY
                 + "&q=" + _q + "&aqi=yes";
@@ -44,7 +44,7 @@ public class Connection {
             Gson gsonObject = new GsonBuilder().setPrettyPrinting().create();
             result = gsonObject.fromJson(currentWeatherResponse.body(), Weather.class);
 
-            System.out.println(gsonObject.toJson(result));
+//            System.out.println(gsonObject.toJson(result));
         }catch (Exception e){
             e.printStackTrace();
 
@@ -54,7 +54,7 @@ public class Connection {
         return result;
     }
 
-    Weather getAstronomy(String _q, String _dt){
+    public Weather getAstronomy(String _q, String _dt){
         String url = "https://api.weatherapi.com/v1/astronomy.json?key=" + API_KEY
                 + "&q=" + _q + "&dt=" + _dt;
 
@@ -69,7 +69,7 @@ public class Connection {
             Gson gsonObject = new GsonBuilder().setPrettyPrinting().create();
             result = gsonObject.fromJson(astronomyResponse.body(), Weather.class);
 
-            System.out.println(gsonObject.toJson(result));
+//            System.out.println(gsonObject.toJson(result));
         }catch (Exception e){
             e.printStackTrace();
             result = null;
@@ -78,7 +78,7 @@ public class Connection {
         return result;
     }
 
-    Weather getForecast(String _q, int _days){
+    public Weather getForecast(String _q, int _days){
         String url = "https://api.weatherapi.com/v1/forecast.json?key=" + API_KEY
                 + "&q=" + _q + "&days=" + _days + "&aqi=yes" + "&alerts=yes";
 
@@ -93,7 +93,7 @@ public class Connection {
             Gson gsonObject = new GsonBuilder().setPrettyPrinting().create();
             result = gsonObject.fromJson(forecastResponse.body(), Weather.class);
 
-            System.out.println(gsonObject.toJson(result));
+//            System.out.println(gsonObject.toJson(result));
         }catch (Exception e){
             e.printStackTrace();
             result = null;
@@ -101,7 +101,7 @@ public class Connection {
         return result;
     }
 
-    ArrayList<AutoCompleteElement> getAutocompleteTerm(String _query){
+    public ArrayList<AutoCompleteElement> getAutocompleteTerm(String _query){
         String url = "https://api.weatherapi.com/v1/search.json?key=" + API_KEY
                 + "&q=" + _query;
 
@@ -117,7 +117,7 @@ public class Connection {
             Gson gsonObject = new GsonBuilder().setPrettyPrinting().create();
             result = gsonObject.fromJson(autocompleteResponse.body(), autocompleteType);
 
-            System.out.println(gsonObject.toJson(result));
+//            System.out.println(gsonObject.toJson(result));
         }catch (Exception e){
             e.printStackTrace();
             result = null;

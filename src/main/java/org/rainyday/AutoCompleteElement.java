@@ -1,4 +1,4 @@
-package com.rainyday.rainyday;
+package org.rainyday;
 
 public class AutoCompleteElement {
     int id;

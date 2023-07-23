@@ -1,4 +1,4 @@
-package com.rainyday.rainyday;
+package org.rainyday;
 
 public class Location{
     private String name, region, country, tz_id, localtime;

@@ -15,9 +15,13 @@ import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
-import javafx.event.ActionEvent;
+import org.rainyday.Connection;
+import org.rainyday.Weather;
 
 public class Controller {
+
+    // create the universal connector object for connection to WeatherAPI
+    Connection connection = new Connection();
 
     @FXML
     private Tab tempTab;
@@ -151,15 +155,21 @@ public class Controller {
     // This method searches WeatherAPI for city information and creates autocomplete
     @FXML
     void handleSearchRequest(){
-        String text = citySearchBar.getText();
-        System.out.println(text);
+        String city = citySearchBar.getText();
 
         // load the actual weather data
-        loadWeatherData();
+        loadWeatherData(city);
     }
 
     // This method loads the weather data to all the text fields in the ui
-    void loadWeatherData(){
+    void loadWeatherData(String _city){
+        // get the current weather
+        Weather weather = connection.getCurrentWeather(_city);
+
+        // set the current text
+        currentTempText.setText(String.valueOf(weather.getCurrent().getTemp_c()));
+        feelsLikeText.setText("Feels like " + String.valueOf(weather.getCurrent().getFeelslike_c()));
+        conditionText.setText(weather.getCurrent().getCondition().getText());
 
     }
 

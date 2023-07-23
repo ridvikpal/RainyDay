@@ -1,4 +1,4 @@
-package com.rainyday.rainyday;
+package org.rainyday;
 
 public class Astro {
     private String sunrise, sunset, moonrise, moonset;

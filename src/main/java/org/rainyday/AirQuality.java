@@ -1,4 +1,4 @@
-package com.rainyday.rainyday;
+package org.rainyday;
 
 import com.google.gson.annotations.SerializedName;
 
