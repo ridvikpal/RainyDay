@@ -177,15 +177,7 @@ public class Controller {
         // get the current weather
         Weather weather = connection.getCurrentWeather(_city);
 
-        // set the labels
-//        precipitationLabel.setText("Precipitation");
-//        windLabel.setText("Wind");
-//        humidityLabel.setText("Humidity");
-//        uvLabel.setText("UV");
-//        pressureLabel.setText("Pressure");
-//        visibilityLabel.setText("Visibility");
-//        airQualityText.setText("Air Quality");
-
+        // view the labels
         precipitationLabel.setVisible(true);
         windLabel.setVisible(true);
         humidityLabel.setVisible(true);
@@ -226,11 +218,11 @@ public class Controller {
         Alert alertObject = weather.getAlerts();
 
         // check if there are any weather alerts
+        // only set the alert text if there is an alert
         if (!(Objects.isNull(alertObject))){
             alertText.setText("! " + alertObject.getAlert().get(0).getHeadline());
         }else{
             alertText.setText("");
-            alertText.setVisible(false);
         }
     }
 

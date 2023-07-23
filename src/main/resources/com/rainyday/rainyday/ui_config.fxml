@@ -155,9 +155,9 @@
                   <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                </rowConstraints>
             </GridPane>
-            <Text fx:id="alertText" fill="#dd0000" layoutX="32.0" layoutY="64.0" strokeType="OUTSIDE" strokeWidth="0.0" visible="false" wrappingWidth="226.13671875">
+            <Text fx:id="alertText" fill="#dd0000" layoutX="14.0" layoutY="40.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="606.13671875">
                <font>
-                  <Font size="35.0" />
+                  <Font size="23.0" />
                </font>
             </Text>
             <VBox fx:id="mainInfoVBox" alignment="CENTER" layoutX="39.0" layoutY="125.0" prefHeight="199.0" prefWidth="133.0">
