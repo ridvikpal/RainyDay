@@ -14,7 +14,9 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
+import javafx.scene.paint.Color;
 import javafx.scene.text.Text;
+import javafx.scene.text.TextAlignment;
 import org.rainyday.AirQuality;
 import org.rainyday.Alert;
 import org.rainyday.Connection;
@@ -199,6 +201,8 @@ public class Controller {
         uvText.setText(String.valueOf(weather.getCurrent().getUv()));
         pressureText.setText(String.valueOf(weather.getCurrent().getPressure_mb()) + " mb");
         visibilityText.setText(String.valueOf(weather.getCurrent().getVis_km()) + " km");
+        locationText.setFill(Color.BLACK);
+        locationText.setTextAlignment(TextAlignment.LEFT);
         locationText.setText(
                 weather.getLocation().getName() + ", "
                 + weather.getLocation().getRegion() + ", "
