@@ -312,8 +312,82 @@ public class Controller {
                         weatherBackground.setImage(null);
                         break;
                 }
-            }else{ // else it is not daytime
-
+            }else{ // else it is nighttime
+                switch (_weather.getCurrent().getCondition().getCode()){
+                    case 1000:
+                        weatherBackground.setImage(new Image(getClass()
+                                .getResource("backgrounds/clear_night_scaled.jpg")
+                                .toURI().toString()));
+                        break;
+                    case 1003:
+                        weatherBackground.setImage(new Image(getClass()
+                                .getResource("backgrounds/partly_cloudy_night_scaled.jpg")
+                                .toURI().toString()));
+                        break;
+                    case 1006:
+                        weatherBackground.setImage(new Image(getClass()
+                                .getResource("backgrounds/cloudy_night_scaled.jpg")
+                                .toURI().toString()));
+                        break;
+                    case 1009:
+                        weatherBackground.setImage(new Image(getClass()
+                                .getResource("backgrounds/overcast_night_scaled.jpg")
+                                .toURI().toString()));
+                        break;
+                    case 1030: case 1135: case 1147:
+                        weatherBackground.setImage(new Image(getClass()
+                                .getResource("backgrounds/misty_night_scaled.jpg")
+                                .toURI().toString()));
+                        break;
+                    case 1063: case 1150: case 1153: case 1180: case 1183: case 1186: case 1189: case 1240: case 1243:
+                        weatherBackground.setImage(new Image(getClass()
+                                .getResource("backgrounds/light_rain_night_scaled.jpg")
+                                .toURI().toString()));
+                        break;
+                    case 1066: case 1210: case 1213: case 1216: case 1219: case 1255:
+                        weatherBackground.setImage(new Image(getClass()
+                                .getResource("backgrounds/light_snow_night_scaled.jpg")
+                                .toURI().toString()));
+                        break;
+                    case 1069: case 1204: case 1207: case 1249: case 1252:
+                        weatherBackground.setImage(new Image(getClass()
+                                .getResource("backgrounds/sleet_night_scaled.jpg")
+                                .toURI().toString()));
+                        break;
+                    case 1072: case 1168: case 1171: case 1198: case 1201:
+                        weatherBackground.setImage(new Image(getClass()
+                                .getResource("backgrounds/freezing_rain_scaled.jpg")
+                                .toURI().toString()));
+                        break;
+                    case 1087: case 1273: case 1276:
+                        weatherBackground.setImage(new Image(getClass()
+                                .getResource("backgrounds/lightning_thunder_scaled.jpeg")
+                                .toURI().toString()));
+                        break;
+                    case 1114: case 1117: case 1222: case 1225: case 1258:
+                        weatherBackground.setImage(new Image(getClass()
+                                .getResource("backgrounds/heavy_snow_night_scaled.jpg")
+                                .toURI().toString()));
+                        break;
+                    case 1192: case 1195: case 1246:
+                        weatherBackground.setImage(new Image(getClass()
+                                .getResource("backgrounds/heavy_rain_night_scaled.jpg")
+                                .toURI().toString()));
+                        break;
+                    case 1237: case 1261: case 1264:
+                        weatherBackground.setImage(new Image(getClass()
+                                .getResource("backgrounds/hail_scaled.jpg")
+                                .toURI().toString()));
+                        break;
+                    case 1279: case 1282:
+                        weatherBackground.setImage(new Image(getClass()
+                                .getResource("backgrounds/thunderstorm_snow_scaled.jpg")
+                                .toURI().toString()));
+                        break;
+                    default:
+                        weatherBackground.setImage(null);
+                        break;
+                }
             }
         }catch (Exception e){
 
