@@ -9,6 +9,9 @@ import javafx.scene.control.TabPane;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
+import javafx.scene.effect.BlendMode;
+import javafx.scene.effect.GaussianBlur;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
@@ -17,12 +20,10 @@ import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Text;
 import javafx.scene.text.TextAlignment;
-import org.rainyday.AirQuality;
 import org.rainyday.Alert;
 import org.rainyday.Connection;
 import org.rainyday.Weather;
 
-import java.beans.Visibility;
 import java.util.Objects;
 
 public class Controller {
@@ -195,7 +196,7 @@ public class Controller {
         feelsLikeText.setText("Feels like " + String.valueOf(weather.getCurrent().getFeelslike_c()) + " °C");
         conditionText.setText(weather.getCurrent().getCondition().getText());
         precipitationText.setText(String.valueOf(weather.getCurrent().getPrecip_mm()) + " mm");
-        windText.setText(String.valueOf(weather.getCurrent().getWind_kph()) + " "
+        windText.setText(String.valueOf(weather.getCurrent().getWind_kph()) + " km/h "
                 + String.valueOf(weather.getCurrent().getWind_dir()));
         humidityText.setText(String.valueOf(weather.getCurrent().getHumidity() + " %"));
         uvText.setText(String.valueOf(weather.getCurrent().getUv()));
@@ -227,6 +228,95 @@ public class Controller {
             alertText.setText("! " + alertObject.getAlert().get(0).getHeadline());
         }else{
             alertText.setText("");
+        }
+
+        setImage(weather);
+    }
+
+    void setImage(Weather _weather){
+        try{
+            // check it is daytime
+            if (_weather.getCurrent().getIs_day() == 1){
+                switch (_weather.getCurrent().getCondition().getCode()){
+                    case 1000:
+                        weatherBackground.setImage(new Image(getClass()
+                                .getResource("backgrounds/sunny_day_scaled.jpg")
+                                .toURI().toString()));
+                        break;
+                    case 1003:
+                        weatherBackground.setImage(new Image(getClass()
+                                .getResource("backgrounds/partly_cloudy_day_scaled.jpg")
+                                .toURI().toString()));
+                        break;
+                    case 1006:
+                        weatherBackground.setImage(new Image(getClass()
+                                .getResource("backgrounds/cloudy_day_scaled.jpg")
+                                .toURI().toString()));
+                        break;
+                    case 1009:
+                        weatherBackground.setImage(new Image(getClass()
+                                .getResource("backgrounds/overcast_day_scaled.jpg")
+                                .toURI().toString()));
+                        break;
+                    case 1030: case 1135: case 1147:
+                        weatherBackground.setImage(new Image(getClass()
+                                .getResource("backgrounds/misty_day_scaled.jpg")
+                                .toURI().toString()));
+                        break;
+                    case 1063: case 1150: case 1153: case 1180: case 1183: case 1186: case 1189: case 1240: case 1243:
+                        weatherBackground.setImage(new Image(getClass()
+                                .getResource("backgrounds/light_rain_day_scaled.jpg")
+                                .toURI().toString()));
+                        break;
+                    case 1066: case 1210: case 1213: case 1216: case 1219: case 1255:
+                        weatherBackground.setImage(new Image(getClass()
+                                .getResource("backgrounds/light_snow_day_scaled.jpeg")
+                                .toURI().toString()));
+                        break;
+                    case 1069: case 1204: case 1207: case 1249: case 1252:
+                        weatherBackground.setImage(new Image(getClass()
+                                .getResource("backgrounds/sleet_day_scaled.jpg")
+                                .toURI().toString()));
+                        break;
+                    case 1072: case 1168: case 1171: case 1198: case 1201:
+                        weatherBackground.setImage(new Image(getClass()
+                                .getResource("backgrounds/freezing_rain_scaled.jpg")
+                                .toURI().toString()));
+                        break;
+                    case 1087: case 1273: case 1276:
+                        weatherBackground.setImage(new Image(getClass()
+                                .getResource("backgrounds/lightning_thunder_scaled.jpeg")
+                                .toURI().toString()));
+                        break;
+                    case 1114: case 1117: case 1222: case 1225: case 1258:
+                        weatherBackground.setImage(new Image(getClass()
+                                .getResource("backgrounds/heavy_snow_day_scaled.jpg")
+                                .toURI().toString()));
+                        break;
+                    case 1192: case 1195: case 1246:
+                        weatherBackground.setImage(new Image(getClass()
+                                .getResource("backgrounds/heavy_rain_day_scaled.jpg")
+                                .toURI().toString()));
+                        break;
+                    case 1237: case 1261: case 1264:
+                        weatherBackground.setImage(new Image(getClass()
+                                .getResource("backgrounds/hail_scaled.jpg")
+                                .toURI().toString()));
+                        break;
+                    case 1279: case 1282:
+                        weatherBackground.setImage(new Image(getClass()
+                                .getResource("backgrounds/thunderstorm_snow_scaled.jpg")
+                                .toURI().toString()));
+                        break;
+                    default:
+                        weatherBackground.setImage(null);
+                        break;
+                }
+            }else{ // else it is not daytime
+
+            }
+        }catch (Exception e){
+
         }
     }
 

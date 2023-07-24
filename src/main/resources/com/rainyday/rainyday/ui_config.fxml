@@ -96,7 +96,7 @@
                         <Font size="16.0" />
                      </font>
                   </Text>
-                  <Text fx:id="windText" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="81.13671875" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                  <Text fx:id="windText" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="151.13671875" GridPane.columnIndex="1" GridPane.rowIndex="1">
                      <font>
                         <Font size="16.0" />
                      </font>
