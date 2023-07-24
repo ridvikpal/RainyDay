@@ -215,7 +215,7 @@ public class Controller {
         int epaIndex = weather.getCurrent().getAir_quality().getUs_epa_index();
         if (epaIndex == 1) airQualityText.setText("Good");
         else if (epaIndex == 2) airQualityText.setText("Moderate");
-        else if (epaIndex == 3) airQualityText.setText("Unhealthy for sensitive groups");
+        else if (epaIndex == 3) airQualityText.setText("Allergic");
         else if (epaIndex == 4) airQualityText.setText("Unhealthy");
         else if (epaIndex == 5) airQualityText.setText("Very Unhealthy");
         else airQualityText.setText("Hazardous");
