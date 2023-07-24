@@ -8,6 +8,16 @@ import javafx.scene.Scene;
 
 public class Main extends Application {
 
+    private static Main applicationInstance;
+
+    public static Main getApplicationInstance() {
+        return applicationInstance;
+    }
+    @Override
+    public void init(){
+        applicationInstance = this;
+    }
+
     @Override
     public void start(Stage stage) throws Exception {
         Parent fxmlLoader = FXMLLoader.load(getClass().getResource("ui_config.fxml"));
