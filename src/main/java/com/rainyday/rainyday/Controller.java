@@ -170,15 +170,8 @@ public class Controller {
     @FXML
     void handleSearchRequest(){
         String city = citySearchBar.getText();
-
-        // load the actual weather data
-        loadWeatherData(city);
-    }
-
-    // This method loads the weather data to all the text fields in the ui
-    void loadWeatherData(String _city){
         // get the current weather
-        Weather weather = connection.getCurrentWeather(_city);
+        Weather weather = connection.getCurrentWeather(city);
 
         // view the labels
         precipitationLabel.setVisible(true);
@@ -230,9 +223,11 @@ public class Controller {
             alertText.setText("");
         }
 
+        // set the correct image
         setImage(weather);
     }
 
+    // helper function to set the image
     void setImage(Weather _weather){
         try{
             // check it is daytime
