@@ -161,7 +161,7 @@ public class Controller {
     private AreaChart<?, ?> windGraph;
 
     @FXML
-    private Text alertText;
+    private Button alertButton;
 
     @FXML
     private TableColumn<?, ?> favouritesColumn;
@@ -171,7 +171,7 @@ public class Controller {
     void handleSearchRequest(){
         String city = citySearchBar.getText();
         // get the current weather
-        Weather weather = connection.getCurrentWeather(city);
+        Weather weather = connection.getForecast(city, 3);
 
         // view the labels
         precipitationLabel.setVisible(true);
@@ -213,18 +213,15 @@ public class Controller {
         else if (epaIndex == 5) airQualityText.setText("Very Unhealthy");
         else airQualityText.setText("Hazardous");
 
-        Alert alertObject = weather.getAlerts();
-
-        // check if there are any weather alerts
-        // only set the alert text if there is an alert
-        if (!(Objects.isNull(alertObject))){
-            alertText.setText("! " + alertObject.getAlert().get(0).getHeadline());
-        }else{
-            alertText.setText("");
-        }
+        // set the correct alert
+        setAlert(weather);
 
         // set the correct image
         setImage(weather);
+    }
+
+    void setAlert(Weather _weather){
+
     }
 
     // helper function to set the image
