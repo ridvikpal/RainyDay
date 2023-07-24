@@ -1,3 +1,4 @@
+/* MAIN SCENE */
 .root {
     -fx-base: #dcdcdc;
     -fx-accent: #e7eff7 ;
@@ -14,17 +15,20 @@
             -fx-dark-text-color 59%,
             -fx-mid-text-color 60%
     );
-    /*-fx-background-color: -fx-background;*/
     -fx-focused-mark-color : -fx-focused-text-base-color ;
 }
 
-/* Style the chart element */
+/* CHART */
 .chart {
     -fx-background-color:
             rgba(255, 255, 255, 0.55)
             linear-gradient(rgba(211, 211, 211, 0.35), rgba(204, 204, 204, 0.75));
     -fx-text-fill: black;
     -fx-stroke: black;
+}
+.chart:hover {
+    -fx-text-fill: black;
+    -fx-background-color: rgba(255, 255, 255, 0.9);
 }
 .chart-content {
     -fx-background-color: transparent;
@@ -56,7 +60,7 @@
     -fx-stroke: grey;
 }
 
-/* Style the table-view element*/
+/* TABLE-VIEW */
 .table-view {
     -fx-text-fill: black;
     -fx-background-color:
@@ -69,8 +73,12 @@
     -fx-text-fill: black;
     -fx-background-color: rgba(255, 255, 255, 0.76);
 }
+.table-view:hover {
+    -fx-text-fill: black;
+    -fx-background-color: rgba(255, 255, 255, 0.9);
+}
 
-/* Style buttons */
+/* BUTTONS */
 .button {
     -fx-text-fill: black;
     -fx-background-color:
@@ -78,18 +86,27 @@
         linear-gradient(rgba(211, 211, 211, 0.35), rgba(204, 204, 204, 0.75));
     /*-fx-border-color: rgb(150, 150, 150);*/
 }
-
 .button:hover {
     -fx-text-fill: black;
     -fx-background-color: rgba(255, 255, 255, 0.9);
 }
 
-/* Style text input fields */
+/* TEXT-INPUT */
 .text-input {
     -fx-text-fill: black;
     -fx-background-color:
             rgba(255, 255, 255, 0.55)
             linear-gradient(rgba(211, 211, 211, 0.35), rgba(204, 204, 204, 0.75));
+}
+.text-input:hover {
+    -fx-highlight-text-fill: ladder(
+            -fx-highlight-fill,
+            -fx-light-text-color 45%,
+            -fx-dark-text-color  46%,
+            -fx-dark-text-color  59%,
+            -fx-mid-text-color   60%
+    );
+    -fx-background-color: rgba(255, 255, 255, 0.9);
 }
 .text-input:focused {
     -fx-text-fill: black;
@@ -100,4 +117,5 @@
             -fx-dark-text-color  59%,
             -fx-mid-text-color   60%
     );
+    -fx-background-color: rgba(255, 255, 255, 0.9);
 }
