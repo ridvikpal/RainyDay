@@ -218,11 +218,12 @@ public class Controller {
         // set the correct alert
         setAlert(weather);
 
+        // set the correct color theme and color theme
         if (weather.getCurrent().getIs_day() == 1){
-            setDayImage(weather.getCurrent().getCondition().getCode());
+//            setDayImage(weather.getCurrent().getCondition().getCode());
             setLightTheme();
         }else{
-            setNightImage(weather.getCurrent().getCondition().getCode());
+//            setNightImage(weather.getCurrent().getCondition().getCode());
             setDarkTheme();
         }
     }
@@ -409,38 +410,16 @@ public class Controller {
 
     void setLightTheme(){
         try {
-            splitPaneScene.getStylesheets().remove(getClass()
-                    .getResource("styles/dark_theme.css")
+            splitPaneScene.getStylesheets().setAll(getClass()
+                    .getResource("styles/light_theme.css")
                     .toURI().toString());
-            lastUpdatedTimeText.setFill(Color.BLACK);
-            currentTempText.setFill(Color.BLACK);
-            feelsLikeText.setFill(Color.BLACK);
-            conditionText.setFill(Color.BLACK);
-            precipitationLabel.setFill(Color.BLACK);
-            precipitationText.setFill(Color.BLACK);
-            windLabel.setFill(Color.BLACK);
-            windText.setFill(Color.BLACK);
-            humidityLabel.setFill(Color.BLACK);
-            humidityText.setFill(Color.BLACK);
-            airQualityLabel.setFill(Color.BLACK);
-            airQualityText.setFill(Color.BLACK);
-            precipitationLabel.setFill(Color.BLACK);
-            precipitationText.setFill(Color.BLACK);
-            uvLabel.setFill(Color.BLACK);
-            uvText.setFill(Color.BLACK);
-            pressureLabel.setFill(Color.BLACK);
-            pressureText.setFill(Color.BLACK);
-            visibilityLabel.setFill(Color.BLACK);
-            visibilityText.setFill(Color.BLACK);
-            locationText.setFill(Color.BLACK);
-            lastUpdatedTimeText.setFill(Color.BLACK);
         } catch (URISyntaxException e) {
         }
     }
 
     void setDarkTheme(){
         try {
-            splitPaneScene.getStylesheets().add(getClass()
+            splitPaneScene.getStylesheets().setAll(getClass()
                     .getResource("styles/dark_theme.css")
                     .toURI().toString());
             lastUpdatedTimeText.setFill(Color.WHITE);
