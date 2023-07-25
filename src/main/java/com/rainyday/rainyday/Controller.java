@@ -14,10 +14,7 @@ import javafx.scene.effect.BlendMode;
 import javafx.scene.effect.GaussianBlur;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.GridPane;
-import javafx.scene.layout.HBox;
-import javafx.scene.layout.VBox;
+import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Text;
 import javafx.scene.text.TextAlignment;
@@ -226,6 +223,9 @@ public class Controller {
 //            setNightImage(weather.getCurrent().getCondition().getCode());
             setDarkTheme();
         }
+
+        // set the charts
+        graphTabPane.setVisible(true);
     }
 
     void setTemperatureChart(Weather _weather){
@@ -409,41 +409,70 @@ public class Controller {
     }
 
     void setLightTheme(){
+        // set the right text colours
+        lastUpdatedTimeText.setFill(Color.BLACK);
+        currentTempText.setFill(Color.BLACK);
+        feelsLikeText.setFill(Color.BLACK);
+        conditionText.setFill(Color.BLACK);
+        precipitationLabel.setFill(Color.BLACK);
+        precipitationText.setFill(Color.BLACK);
+        windLabel.setFill(Color.BLACK);
+        windText.setFill(Color.BLACK);
+        humidityLabel.setFill(Color.BLACK);
+        humidityText.setFill(Color.BLACK);
+        airQualityLabel.setFill(Color.BLACK);
+        airQualityText.setFill(Color.BLACK);
+        precipitationLabel.setFill(Color.BLACK);
+        precipitationText.setFill(Color.BLACK);
+        uvLabel.setFill(Color.BLACK);
+        uvText.setFill(Color.BLACK);
+        pressureLabel.setFill(Color.BLACK);
+        pressureText.setFill(Color.BLACK);
+        visibilityLabel.setFill(Color.BLACK);
+        visibilityText.setFill(Color.BLACK);
+        locationText.setFill(Color.BLACK);
+        lastUpdatedTimeText.setFill(Color.BLACK);
+
         try {
             splitPaneScene.getStylesheets().setAll(getClass()
                     .getResource("styles/light_theme.css")
                     .toURI().toString());
-        } catch (URISyntaxException e) {
+//            splitPaneScene.setStyle("-fx-background-image: url(backgrounds/partly_cloudy_background.jpg)");
+
+        } catch (Exception e) {
+            System.out.println("Error");
         }
     }
 
     void setDarkTheme(){
+        // set the right text colours
+        lastUpdatedTimeText.setFill(Color.WHITE);
+        currentTempText.setFill(Color.WHITE);
+        feelsLikeText.setFill(Color.WHITE);
+        conditionText.setFill(Color.WHITE);
+        precipitationLabel.setFill(Color.WHITE);
+        precipitationText.setFill(Color.WHITE);
+        windLabel.setFill(Color.WHITE);
+        windText.setFill(Color.WHITE);
+        humidityLabel.setFill(Color.WHITE);
+        humidityText.setFill(Color.WHITE);
+        airQualityLabel.setFill(Color.WHITE);
+        airQualityText.setFill(Color.WHITE);
+        precipitationLabel.setFill(Color.WHITE);
+        precipitationText.setFill(Color.WHITE);
+        uvLabel.setFill(Color.WHITE);
+        uvText.setFill(Color.WHITE);
+        pressureLabel.setFill(Color.WHITE);
+        pressureText.setFill(Color.WHITE);
+        visibilityLabel.setFill(Color.WHITE);
+        visibilityText.setFill(Color.WHITE);
+        locationText.setFill(Color.WHITE);
+        lastUpdatedTimeText.setFill(Color.WHITE);
+
         try {
             splitPaneScene.getStylesheets().setAll(getClass()
                     .getResource("styles/dark_theme.css")
                     .toURI().toString());
-            lastUpdatedTimeText.setFill(Color.WHITE);
-            currentTempText.setFill(Color.WHITE);
-            feelsLikeText.setFill(Color.WHITE);
-            conditionText.setFill(Color.WHITE);
-            precipitationLabel.setFill(Color.WHITE);
-            precipitationText.setFill(Color.WHITE);
-            windLabel.setFill(Color.WHITE);
-            windText.setFill(Color.WHITE);
-            humidityLabel.setFill(Color.WHITE);
-            humidityText.setFill(Color.WHITE);
-            airQualityLabel.setFill(Color.WHITE);
-            airQualityText.setFill(Color.WHITE);
-            precipitationLabel.setFill(Color.WHITE);
-            precipitationText.setFill(Color.WHITE);
-            uvLabel.setFill(Color.WHITE);
-            uvText.setFill(Color.WHITE);
-            pressureLabel.setFill(Color.WHITE);
-            pressureText.setFill(Color.WHITE);
-            visibilityLabel.setFill(Color.WHITE);
-            visibilityText.setFill(Color.WHITE);
-            locationText.setFill(Color.WHITE);
-            lastUpdatedTimeText.setFill(Color.WHITE);
         } catch (URISyntaxException e) {
         }
     }
