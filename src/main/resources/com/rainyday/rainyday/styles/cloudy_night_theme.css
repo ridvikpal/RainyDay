@@ -5,7 +5,7 @@
     -fx-default-button: #7f878f ;
     -fx-focus-color: #ffffff;
     -fx-background: derive(-fx-base, 26.4%);
-    -fx-background-image: url(../backgrounds/rainy_night_background.jpg);
+    -fx-background-image: url(../backgrounds/cloudy_night_background.jpg);
 
     -fx-color: -fx-base;
     -fx-faint-focus-color: #efefef22;
@@ -86,7 +86,7 @@
 }
 .button:hover {
     -fx-text-fill: white;
-    -fx-background-color: rgba(133, 133, 133, 0.3);;
+    -fx-background-color: rgba(133, 133, 133, 0.3);
 }
 
 /* TEXT-INPUT */
@@ -104,7 +104,7 @@
             -fx-dark-text-color  59%,
             -fx-mid-text-color   60%
     );
-    -fx-background-color: rgba(133, 133, 133, 0.3);;
+    -fx-background-color: rgba(133, 133, 133, 0.3);
 }
 .text-input:focused {
     -fx-text-fill: white;
@@ -115,7 +115,7 @@
             -fx-dark-text-color  59%,
             -fx-mid-text-color   60%
     );
-    -fx-background-color: rgba(133, 133, 133, 0.3);;
+    -fx-background-color: rgba(84, 84, 84, 0.51);
 }
 
 /* TABS */
