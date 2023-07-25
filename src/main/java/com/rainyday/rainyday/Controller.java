@@ -435,7 +435,7 @@ public class Controller {
 
         try {
             splitPaneScene.getStylesheets().setAll(getClass()
-                    .getResource("styles/snowy_day_theme.css")
+                    .getResource("styles/thunderstorm_day_theme.css")
                     .toURI().toString());
 
         } catch (Exception e) {
