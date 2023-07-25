@@ -207,7 +207,7 @@ public class Controller {
         int epaIndex = weather.getCurrent().getAir_quality().getUs_epa_index();
         if (epaIndex == 1) airQualityText.setText("Good");
         else if (epaIndex == 2) airQualityText.setText("Moderate");
-        else if (epaIndex == 3) airQualityText.setText("Allergic");
+        else if (epaIndex == 3) airQualityText.setText("Allergen Warning");
         else if (epaIndex == 4) airQualityText.setText("Unhealthy");
         else if (epaIndex == 5) airQualityText.setText("Very Unhealthy");
         else airQualityText.setText("Hazardous");
@@ -435,7 +435,7 @@ public class Controller {
 
         try {
             splitPaneScene.getStylesheets().setAll(getClass()
-                    .getResource("styles/rain_day_theme.css")
+                    .getResource("styles/snowy_day_theme.css")
                     .toURI().toString());
 
         } catch (Exception e) {
@@ -471,7 +471,7 @@ public class Controller {
 
         try {
             splitPaneScene.getStylesheets().setAll(getClass()
-                    .getResource("styles/rain_night_theme.css")
+                    .getResource("styles/snowy_night_theme.css")
                     .toURI().toString());
         } catch (URISyntaxException e) {
             System.out.println("Error");
