@@ -6,25 +6,16 @@ import javafx.stage.Stage;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 
+import java.util.Objects;
+
 public class Main extends Application {
-
-    private static Main applicationInstance;
-
-    public static Main getApplicationInstance() {
-        return applicationInstance;
-    }
-    @Override
-    public void init(){
-        applicationInstance = this;
-    }
-
     @Override
     public void start(Stage stage) throws Exception {
-        Parent fxmlLoader = FXMLLoader.load(getClass().getResource("ui_config.fxml"));
+        Parent fxmlLoader = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("ui_config.fxml")));
         stage.setTitle("RainyDay");
         Scene scene = new Scene(fxmlLoader);
-        scene.getStylesheets().setAll(getClass()
-                .getResource("styles/startup_theme.css")
+        scene.getStylesheets().setAll(Objects.requireNonNull(getClass()
+                .getResource("styles/startup_theme.css"))
                 .toURI().toString());
         stage.setScene(scene);
         stage.show();
