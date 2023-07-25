@@ -433,12 +433,10 @@ public class Controller {
         locationText.setFill(Color.BLACK);
         lastUpdatedTimeText.setFill(Color.BLACK);
 
-
         try {
             splitPaneScene.getStylesheets().setAll(getClass()
-                    .getResource("styles/light_theme.css")
+                    .getResource("styles/cloudy_day_theme.css")
                     .toURI().toString());
-//            splitPaneScene.setStyle("-fx-background-image: url(backgrounds/partly_cloudy_background.jpg)");
 
         } catch (Exception e) {
             System.out.println("Error");
@@ -473,7 +471,7 @@ public class Controller {
 
         try {
             splitPaneScene.getStylesheets().setAll(getClass()
-                    .getResource("styles/dark_theme.css")
+                    .getResource("styles/clear_night_theme.css")
                     .toURI().toString());
         } catch (URISyntaxException e) {
         }

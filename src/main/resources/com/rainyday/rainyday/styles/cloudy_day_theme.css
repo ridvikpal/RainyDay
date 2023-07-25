@@ -5,7 +5,7 @@
     -fx-default-button: #7f878f ;
     -fx-focus-color: #ffffff;
     -fx-background: derive(-fx-base, 26.4%);
-    -fx-background-image: url(../backgrounds/partly_cloudy_background.jpg);
+    -fx-background-image: url(../backgrounds/cloudy_day_background.jpg);
     -fx-color: -fx-base;
     -fx-text-fill: black;
     -fx-faint-focus-color: #efefef22;
