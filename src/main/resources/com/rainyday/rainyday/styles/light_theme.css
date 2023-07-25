@@ -7,6 +7,7 @@
     -fx-background: derive(-fx-base, 26.4%);
     -fx-background-image: url(../backgrounds/partly_cloudy_background.jpg);
     -fx-color: -fx-base;
+    -fx-text-fill: black;
     -fx-faint-focus-color: #efefef22;
     -fx-focused-text-base-color : ladder(
             -fx-selection-bar,
@@ -21,14 +22,14 @@
 /* CHART */
 .chart {
     -fx-background-color:
-            rgba(255, 255, 255, 0.55)
+            rgba(255, 255, 255, 0.3)
             linear-gradient(rgba(211, 211, 211, 0.35), rgba(204, 204, 204, 0.75));
     -fx-text-fill: black;
     -fx-stroke: black;
 }
 .chart:hover {
     -fx-text-fill: black;
-    -fx-background-color: rgba(255, 255, 255, 0.9);
+    -fx-background-color: rgba(255, 255, 255, 0.6);
 }
 .chart-content {
     -fx-background-color: transparent;
@@ -64,38 +65,36 @@
 .table-view {
     -fx-text-fill: black;
     -fx-background-color:
-            rgba(255, 255, 255, 0.55)
+            rgba(255, 255, 255, 0.3)
             linear-gradient(rgba(211, 211, 211, 0.35), rgba(204, 204, 204, 0.75));
 }
-.table-view .column-header,
-.table-view .column-header .filler,
-.table-view .column-header-background .filler {
-    -fx-text-fill: black;
-    -fx-background-color: rgba(255, 255, 255, 0.76);
+.table-view .column-header-background {
+    visibility: hidden;
 }
+
 .table-view:hover {
     -fx-text-fill: black;
-    -fx-background-color: rgba(255, 255, 255, 0.9);
+    -fx-background-color: rgba(255, 255, 255, 0.6);
 }
 
 /* BUTTONS */
 .button {
     -fx-text-fill: black;
     -fx-background-color:
-        rgba(255, 255, 255, 0.55)
+        rgba(255, 255, 255, 0.3)
         linear-gradient(rgba(211, 211, 211, 0.35), rgba(204, 204, 204, 0.75));
     /*-fx-border-color: rgb(150, 150, 150);*/
 }
 .button:hover {
     -fx-text-fill: black;
-    -fx-background-color: rgba(255, 255, 255, 0.9);
+    -fx-background-color: rgba(255, 255, 255, 0.6);
 }
 
 /* TEXT-INPUT */
 .text-input {
     -fx-text-fill: black;
     -fx-background-color:
-            rgba(255, 255, 255, 0.55)
+            rgba(255, 255, 255, 0.3)
             linear-gradient(rgba(211, 211, 211, 0.35), rgba(204, 204, 204, 0.75));
 }
 .text-input:hover {
@@ -106,7 +105,7 @@
             -fx-dark-text-color  59%,
             -fx-mid-text-color   60%
     );
-    -fx-background-color: rgba(255, 255, 255, 0.9);
+    -fx-background-color: rgba(255, 255, 255, 0.6);
 }
 .text-input:focused {
     -fx-text-fill: black;
@@ -117,21 +116,19 @@
             -fx-dark-text-color  59%,
             -fx-mid-text-color   60%
     );
-    -fx-background-color: rgba(255, 255, 255, 0.9);
+    -fx-background-color: rgba(255, 255, 255, 0.6);
 }
 
 /* TABS */
 .tab-pane {
-    /*-fx-background-color: rgba(255, 255, 255, 0.9);*/
     -fx-background-color: transparent;
 }
 .tab-header-area .tab-header-background {
-    /*-fx-background-color: rgba(255, 255, 255, 0.9);*/
     -fx-background-color: transparent;
 }
 .tab:selected{
     -fx-background-color:
-            rgba(255, 255, 255, 0.55)
+            rgba(255, 255, 255, 0.3)
             linear-gradient(rgba(211, 211, 211, 0.35), rgba(204, 204, 204, 0.75));
     -fx-border-color: transparent;
 }
@@ -140,5 +137,10 @@
     -fx-border-color: transparent;
 }
 .tab:hover {
-    -fx-background-color: rgba(255, 255, 255, 0.9);
+    -fx-background-color: rgba(255, 255, 255, 0.6);
+}
+
+/* TEXT */
+.text-field {
+    -fx-text-fill: black;
 }
