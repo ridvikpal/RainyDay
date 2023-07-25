@@ -474,6 +474,7 @@ public class Controller {
                     .getResource("styles/clear_night_theme.css")
                     .toURI().toString());
         } catch (URISyntaxException e) {
+            System.out.println("Error");
         }
     }
 
