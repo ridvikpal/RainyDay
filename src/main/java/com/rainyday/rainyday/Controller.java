@@ -19,6 +19,7 @@ import org.rainyday.Connection;
 import org.rainyday.Weather;
 
 import java.net.URISyntaxException;
+import java.util.Objects;
 
 public class Controller {
 
@@ -239,112 +240,6 @@ public class Controller {
 
     }
 
-    void setDayImage(int _conditionCode){
-        try{
-            switch (_conditionCode) {
-                case 1000 -> weatherBackground.setImage(new Image(getClass()
-                        .getResource("backgrounds/day/sunny_day_scaled.jpg")
-                        .toURI().toString()));
-                case 1003 -> weatherBackground.setImage(new Image(getClass()
-                        .getResource("backgrounds/day/partly_cloudy_day_scaled.jpg")
-                        .toURI().toString()));
-                case 1006 -> weatherBackground.setImage(new Image(getClass()
-                        .getResource("backgrounds/day/cloudy_day_scaled.jpg")
-                        .toURI().toString()));
-                case 1009 -> weatherBackground.setImage(new Image(getClass()
-                        .getResource("backgrounds/day/overcast_day_scaled.jpg")
-                        .toURI().toString()));
-                case 1030, 1135, 1147 -> weatherBackground.setImage(new Image(getClass()
-                        .getResource("backgrounds/day/misty_day_scaled.jpg")
-                        .toURI().toString()));
-                case 1063, 1150, 1153, 1180, 1183, 1186, 1189, 1240, 1243 ->
-                        weatherBackground.setImage(new Image(getClass()
-                                .getResource("backgrounds/day/light_rain_day_scaled.jpg")
-                                .toURI().toString()));
-                case 1066, 1210, 1213, 1216, 1219, 1255 -> weatherBackground.setImage(new Image(getClass()
-                        .getResource("backgrounds/day/light_snow_day_scaled.jpeg")
-                        .toURI().toString()));
-                case 1069, 1204, 1207, 1249, 1252 -> weatherBackground.setImage(new Image(getClass()
-                        .getResource("backgrounds/day/sleet_day_scaled.jpg")
-                        .toURI().toString()));
-                case 1072, 1168, 1171, 1198, 1201 -> weatherBackground.setImage(new Image(getClass()
-                        .getResource("backgrounds/day/freezing_rain_day_scaled.jpg")
-                        .toURI().toString()));
-                case 1087, 1273, 1276 -> weatherBackground.setImage(new Image(getClass()
-                        .getResource("backgrounds/day/lightning_thunder_day_scaled.jpeg")
-                        .toURI().toString()));
-                case 1114, 1117, 1222, 1225, 1258 -> weatherBackground.setImage(new Image(getClass()
-                        .getResource("backgrounds/day/heavy_snow_day_scaled.jpg")
-                        .toURI().toString()));
-                case 1192, 1195, 1246 -> weatherBackground.setImage(new Image(getClass()
-                        .getResource("backgrounds/day/heavy_rain_day_scaled.jpg")
-                        .toURI().toString()));
-                case 1237, 1261, 1264 -> weatherBackground.setImage(new Image(getClass()
-                        .getResource("backgrounds/day/hail_day_scaled.jpg")
-                        .toURI().toString()));
-                case 1279, 1282 -> weatherBackground.setImage(new Image(getClass()
-                        .getResource("backgrounds/day/thunderstorm_snow_day_scaled.jpg")
-                        .toURI().toString()));
-                default -> weatherBackground.setImage(null);
-            }
-        }catch (Exception e){
-
-        }
-    }
-
-    void setNightImage(int _conditionCode){
-        try {
-            switch (_conditionCode) {
-                case 1000 -> weatherBackground.setImage(new Image(getClass()
-                        .getResource("backgrounds/night/clear_night_scaled.jpg")
-                        .toURI().toString()));
-                case 1003 -> weatherBackground.setImage(new Image(getClass()
-                        .getResource("backgrounds/night/partly_cloudy_night_scaled.jpg")
-                        .toURI().toString()));
-                case 1006 -> weatherBackground.setImage(new Image(getClass()
-                        .getResource("backgrounds/night/cloudy_night_scaled.jpg")
-                        .toURI().toString()));
-                case 1009 -> weatherBackground.setImage(new Image(getClass()
-                        .getResource("backgrounds/night/overcast_night_scaled.jpg")
-                        .toURI().toString()));
-                case 1030, 1135, 1147 -> weatherBackground.setImage(new Image(getClass()
-                        .getResource("backgrounds/night/misty_night_scaled.jpg")
-                        .toURI().toString()));
-                case 1063, 1150, 1153, 1180, 1183, 1186, 1189, 1240, 1243 ->
-                        weatherBackground.setImage(new Image(getClass()
-                                .getResource("backgrounds/night/light_rain_night_scaled.jpg")
-                                .toURI().toString()));
-                case 1066, 1210, 1213, 1216, 1219, 1255 -> weatherBackground.setImage(new Image(getClass()
-                        .getResource("backgrounds/night/light_snow_night_scaled.jpg")
-                        .toURI().toString()));
-                case 1069, 1204, 1207, 1249, 1252 -> weatherBackground.setImage(new Image(getClass()
-                        .getResource("backgrounds/night/sleet_night_scaled.jpg")
-                        .toURI().toString()));
-                case 1072, 1168, 1171, 1198, 1201 -> weatherBackground.setImage(new Image(getClass()
-                        .getResource("backgrounds/night/freezing_rain_night_scaled.jpg")
-                        .toURI().toString()));
-                case 1087, 1273, 1276 -> weatherBackground.setImage(new Image(getClass()
-                        .getResource("backgrounds/night/lightning_thunder_night_scaled.jpeg")
-                        .toURI().toString()));
-                case 1114, 1117, 1222, 1225, 1258 -> weatherBackground.setImage(new Image(getClass()
-                        .getResource("backgrounds/night/heavy_snow_night_scaled.jpg")
-                        .toURI().toString()));
-                case 1192, 1195, 1246 -> weatherBackground.setImage(new Image(getClass()
-                        .getResource("backgrounds/night/heavy_rain_night_scaled.jpg")
-                        .toURI().toString()));
-                case 1237, 1261, 1264 -> weatherBackground.setImage(new Image(getClass()
-                        .getResource("backgrounds/night/hail_night_scaled.jpg")
-                        .toURI().toString()));
-                case 1279, 1282 -> weatherBackground.setImage(new Image(getClass()
-                        .getResource("backgrounds/night/thunderstorm_snow_night_scaled.jpg")
-                        .toURI().toString()));
-                default -> weatherBackground.setImage(null);
-            }
-        } catch (Exception e){
-
-        }
-    }
-
     void setLightTheme(){
         // set the right text colours
         lastUpdatedTimeText.setFill(Color.BLACK);
@@ -371,12 +266,11 @@ public class Controller {
         lastUpdatedTimeText.setFill(Color.BLACK);
 
         try {
-            splitPaneScene.getStylesheets().setAll(getClass()
-                    .getResource("styles/hail_day_theme.css")
+            splitPaneScene.getStylesheets().setAll(Objects.requireNonNull(getClass()
+                    .getResource("styles/hail_day_theme.css"))
                     .toURI().toString());
-
         } catch (Exception e) {
-            System.out.println("Error");
+            System.out.println("Error setting light theme");
         }
     }
 
@@ -410,8 +304,8 @@ public class Controller {
             splitPaneScene.getStylesheets().setAll(getClass()
                     .getResource("styles/hail_night_theme.css")
                     .toURI().toString());
-        } catch (URISyntaxException e) {
-            System.out.println("Error");
+        } catch (Exception e) {
+            System.out.println("Error setting dark theme");
         }
     }
 
