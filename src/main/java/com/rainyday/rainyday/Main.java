@@ -22,7 +22,11 @@ public class Main extends Application {
     public void start(Stage stage) throws Exception {
         Parent fxmlLoader = FXMLLoader.load(getClass().getResource("ui_config.fxml"));
         stage.setTitle("RainyDay");
-        stage.setScene(new Scene(fxmlLoader));
+        Scene scene = new Scene(fxmlLoader);
+        scene.getStylesheets().setAll(getClass()
+                .getResource("styles/startup_theme.css")
+                .toURI().toString());
+        stage.setScene(scene);
         stage.show();
     }
 
