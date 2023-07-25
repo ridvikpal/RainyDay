@@ -301,8 +301,8 @@ public class Controller {
 
 
         try {
-            splitPaneScene.getStylesheets().setAll(getClass()
-                    .getResource("styles/hail_night_theme.css")
+            splitPaneScene.getStylesheets().setAll(Objects.requireNonNull(getClass()
+                     .getResource("styles/hail_night_theme.css"))
                     .toURI().toString());
         } catch (Exception e) {
             System.out.println("Error setting dark theme");
