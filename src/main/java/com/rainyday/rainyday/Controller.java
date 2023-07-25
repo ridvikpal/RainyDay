@@ -471,7 +471,7 @@ public class Controller {
 
         try {
             splitPaneScene.getStylesheets().setAll(getClass()
-                    .getResource("styles/clear_night_theme.css")
+                    .getResource("styles/rain_night_theme.css")
                     .toURI().toString());
         } catch (URISyntaxException e) {
             System.out.println("Error");
