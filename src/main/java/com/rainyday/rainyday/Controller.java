@@ -433,6 +433,7 @@ public class Controller {
         locationText.setFill(Color.BLACK);
         lastUpdatedTimeText.setFill(Color.BLACK);
 
+
         try {
             splitPaneScene.getStylesheets().setAll(getClass()
                     .getResource("styles/light_theme.css")
@@ -468,6 +469,7 @@ public class Controller {
         visibilityText.setFill(Color.WHITE);
         locationText.setFill(Color.WHITE);
         lastUpdatedTimeText.setFill(Color.WHITE);
+
 
         try {
             splitPaneScene.getStylesheets().setAll(getClass()
