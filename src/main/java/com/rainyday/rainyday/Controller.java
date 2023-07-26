@@ -163,6 +163,7 @@ public class Controller {
 
     @FXML
     private void initialize(){
+        // prevent the split pane from being resized.
         leftPaneAnchorPane.setMinWidth(700.0);
         leftPaneAnchorPane.setMaxWidth(700.0);
     }
