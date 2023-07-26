@@ -161,6 +161,12 @@ public class Controller {
     @FXML
     private TableColumn<?, ?> favouritesColumn;
 
+    @FXML
+    private void initialize(){
+        leftPaneAnchorPane.setMinWidth(700.0);
+        leftPaneAnchorPane.setMaxWidth(700.0);
+    }
+
     // This method searches WeatherAPI for city information and creates autocomplete
     @FXML
     void handleSearchRequest(){
@@ -197,7 +203,7 @@ public class Controller {
                 + weather.getLocation().getRegion() + ", "
                 + weather.getLocation().getCountry()
         );
-        lastUpdatedTimeText.setText(weather.getCurrent().getLast_updated());
+        lastUpdatedTimeText.setText("Updated at "  + formatDateTime(weather.getCurrent().getLast_updated()));
 
         // set the air quality
         int epaIndex = weather.getCurrent().getAir_quality().getUs_epa_index();
@@ -223,8 +229,8 @@ public class Controller {
         // set the charts
         graphTabPane.setVisible(true);
 
-        // setup temperature chart
-        System.out.println(formatDateTime(weather.getCurrent().getLast_updated()));
+        // setup the favourites table buttons
+        addButton.setVisible(true);
     }
 
     String formatDateTime(String _dateTime){
@@ -232,7 +238,7 @@ public class Controller {
         DateTimeFormatter outputDateTimeFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd (hh:mm a)");
         LocalDateTime dateTime = LocalDateTime.parse(_dateTime, inputDateTimeFormatter);
         String formattedString = dateTime.format(outputDateTimeFormatter);
-        return formattedString;
+        return formattedString.toUpperCase();
     }
 
     void setPrecipitationChart(Weather _weather){

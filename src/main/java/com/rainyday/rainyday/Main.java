@@ -18,6 +18,7 @@ public class Main extends Application {
                 .getResource("styles/startup_theme.css"))
                 .toURI().toString());
         stage.setScene(scene);
+        stage.setResizable(false);
         stage.show();
     }
 
