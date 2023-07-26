@@ -140,3 +140,8 @@
 .tab:hover {
     -fx-background-color: rgba(133, 133, 133, 0.3);
 }
+
+/* SPLIT PANE */
+.split-pane-divider {
+    -fx-background-color: transparent;
+}

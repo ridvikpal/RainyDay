@@ -144,3 +144,8 @@
 .text-field {
     -fx-text-fill: black;
 }
+
+/* SPLIT PANE */
+.split-pane-divider {
+    -fx-background-color: transparent;
+}
