@@ -391,7 +391,7 @@ public class Controller {
     // This method adds the current city to the favourites table
     @FXML
     void handleAddFavourites(){
-
+        favouritesList.getItems().add(locationText.getText());
     }
 
     // This method removes a selected city from the favourites table
