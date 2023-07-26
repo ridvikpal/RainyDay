@@ -57,7 +57,7 @@ public class Controller {
     private Text airQualityText;
 
     @FXML
-    private TableView<?> favouritesTable;
+    private ListView<String> favouritesList;
 
     @FXML
     private VBox mainInfoVBox;
@@ -152,8 +152,7 @@ public class Controller {
     @FXML
     private Button alertButton;
 
-    @FXML
-    private TableColumn<?, ?> favouritesColumn;
+    Label favouritesPlaceholder = new Label("No saved favourites.");
 
     @FXML
     private void initialize(){
@@ -161,9 +160,9 @@ public class Controller {
         leftPaneAnchorPane.setMinWidth(700.0);
         leftPaneAnchorPane.setMaxWidth(700.0);
 
-        Label tablePlaceholder = new Label("No favourites saved in table.");
-        tablePlaceholder.setTextFill(Color.GRAY);
-        favouritesTable.setPlaceholder(tablePlaceholder);
+        // set a placeholder for the favourites list
+        favouritesPlaceholder.setTextFill(Color.GRAY);
+        favouritesList.setPlaceholder(favouritesPlaceholder);
     }
 
     // This method searches WeatherAPI for city information and creates autocomplete
@@ -258,6 +257,7 @@ public class Controller {
 
     void setLightTheme(int _weatherCode){
         // set the right text colours
+        favouritesPlaceholder.setTextFill(Color.GRAY);
         lastUpdatedTimeText.setFill(Color.BLACK);
         currentTempText.setFill(Color.BLACK);
         feelsLikeText.setFill(Color.BLACK);
@@ -323,6 +323,7 @@ public class Controller {
 
     void setDarkTheme(int _weatherCode){
         // set the right text colours
+        favouritesPlaceholder.setTextFill(Color.WHITE);
         lastUpdatedTimeText.setFill(Color.WHITE);
         currentTempText.setFill(Color.WHITE);
         feelsLikeText.setFill(Color.WHITE);

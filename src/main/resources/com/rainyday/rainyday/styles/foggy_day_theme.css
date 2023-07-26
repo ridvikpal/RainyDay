@@ -62,17 +62,15 @@
 }
 
 /* TABLE-VIEW */
-.table-view {
+.list-view {
     -fx-text-fill: black;
     -fx-background-color:
             rgba(255, 255, 255, 0.3)
             linear-gradient(rgba(211, 211, 211, 0.35), rgba(204, 204, 204, 0.75));
 }
-.table-view .column-header-background {
-    visibility: hidden;
-}
 
-.table-view:hover {
+
+.list-view:hover {
     -fx-text-fill: black;
     -fx-background-color: rgba(255, 255, 255, 0.6);
 }

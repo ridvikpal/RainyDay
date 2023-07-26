@@ -194,11 +194,6 @@
     <AnchorPane fx:id="rightPaneAnchorPane" minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
          <children>
             <TextField fx:id="citySearchBar" layoutX="14.0" layoutY="14.0" onAction="#handleSearchRequest" prefHeight="34.0" prefWidth="226.0" promptText="Search for city..." AnchorPane.bottomAnchor="600.0" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="56.0" AnchorPane.topAnchor="14.0" />
-            <TableView fx:id="favouritesTable" layoutX="14.0" layoutY="59.0" prefHeight="548.0" prefWidth="268.0" AnchorPane.bottomAnchor="40.0" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="14.0" AnchorPane.topAnchor="60.0">
-              <columns>
-                <TableColumn fx:id="favouritesColumn" prefWidth="267.0" resizable="false" text="Favourites" />
-              </columns>
-            </TableView>
             <Button fx:id="searchButton" layoutX="249.0" layoutY="14.0" mnemonicParsing="false" onAction="#handleSearchRequest" prefHeight="34.0" prefWidth="33.0" text="🔍" AnchorPane.bottomAnchor="600.0" AnchorPane.rightAnchor="14.0" AnchorPane.topAnchor="14.0" />
             <HBox fx:id="favouritesHBox" alignment="CENTER" layoutX="14.0" layoutY="615.0" prefHeight="27.0" prefWidth="268.0" spacing="12.0" AnchorPane.bottomAnchor="6.0" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="14.0" AnchorPane.topAnchor="615.0">
                <children>
@@ -207,6 +202,7 @@
                   <Button fx:id="removeButton" mnemonicParsing="false" onAction="#handleRemoveFavourites" prefHeight="25.0" prefWidth="81.0" text="Remove" />
                </children>
             </HBox>
+            <ListView fx:id="favouritesList" layoutX="14.0" layoutY="58.0" prefHeight="548.0" prefWidth="268.0" />
          </children></AnchorPane>
   </items>
 </SplitPane>
