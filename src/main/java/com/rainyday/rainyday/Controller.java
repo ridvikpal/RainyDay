@@ -2,13 +2,7 @@ package com.rainyday.rainyday;
 
 import javafx.fxml.FXML;
 import javafx.scene.chart.AreaChart;
-import javafx.scene.control.Button;
-import javafx.scene.control.SplitPane;
-import javafx.scene.control.Tab;
-import javafx.scene.control.TabPane;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
@@ -166,6 +160,10 @@ public class Controller {
         // prevent the split pane from being resized.
         leftPaneAnchorPane.setMinWidth(700.0);
         leftPaneAnchorPane.setMaxWidth(700.0);
+
+        Label tablePlaceholder = new Label("No favourites saved in table.");
+        tablePlaceholder.setTextFill(Color.GRAY);
+        favouritesTable.setPlaceholder(tablePlaceholder);
     }
 
     // This method searches WeatherAPI for city information and creates autocomplete
