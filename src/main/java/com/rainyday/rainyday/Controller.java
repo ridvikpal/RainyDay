@@ -132,6 +132,9 @@ public class Controller {
     private Text pressureText;
 
     @FXML
+    private Text selectCityText;
+
+    @FXML
     private Button removeButton;
 
     @FXML
@@ -139,9 +142,6 @@ public class Controller {
 
     @FXML
     private Text airQualityLabel;
-
-    @FXML
-    private ImageView weatherBackground;
 
     @FXML
     private Text precipitationText;
@@ -171,6 +171,9 @@ public class Controller {
     // This method searches WeatherAPI for city information and creates autocomplete
     @FXML
     void handleSearchRequest(){
+        // disable the greeting text
+        selectCityText.setVisible(false);
+
         String city = citySearchBar.getText();
         // get the current weather
         Weather weather = connection.getForecast(city, 3);
@@ -198,6 +201,7 @@ public class Controller {
         pressureText.setText(weather.getCurrent().getPressure_mb() + " mb");
         visibilityText.setText(weather.getCurrent().getVis_km() + " km");
         locationText.setFill(Color.BLACK);
+        locationText.setVisible(true);
         locationText.setTextAlignment(TextAlignment.LEFT);
         locationText.setText(
                 weather.getLocation().getName() + ", "

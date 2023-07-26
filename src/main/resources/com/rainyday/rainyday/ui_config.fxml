@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.*?>
 <?import javafx.geometry.*?>
 <?import javafx.scene.chart.*?>
 <?import javafx.scene.control.*?>
@@ -7,7 +8,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<SplitPane fx:id="splitPaneScene" dividerPositions="0.7" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="650.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.rainyday.rainyday.Controller">
+<SplitPane fx:id="splitPaneScene" dividerPositions="0.7" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="650.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.rainyday.rainyday.Controller">
   <items>
     <AnchorPane fx:id="leftPaneAnchorPane" minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
          <children>
@@ -63,7 +64,6 @@
                   </Tab>
               </tabs>
             </TabPane>
-            <ImageView fx:id="weatherBackground" fitHeight="350.0" fitWidth="700.0" layoutY="7.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="498.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
             <GridPane fx:id="additionalInfoGridPane" hgap="10.0" layoutX="402.0" layoutY="144.0" prefHeight="167.0" prefWidth="261.0">
                <children>
                   <Text fx:id="precipitationLabel" strokeType="OUTSIDE" strokeWidth="0.0" text="Precipitation" visible="false" wrappingWidth="103.13671875">
@@ -179,7 +179,12 @@
                </children>
             </VBox>
             <Button fx:id="refreshButton" layoutX="626.0" layoutY="14.0" mnemonicParsing="false" onAction="#handleSearchRequest" prefHeight="34.0" prefWidth="56.0" text="Refresh" visible="false" />
-            <Text fx:id="locationText" fill="#9e9e9e" layoutX="39.0" layoutY="119.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Search for city or select from the favourites table...      " textAlignment="CENTER" wrappingWidth="631.0">
+            <Text fx:id="locationText" fill="#9e9e9e" layoutX="39.0" layoutY="119.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" visible="false" wrappingWidth="631.0">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Text>
+            <Text fx:id="selectCityText" fill="#9e9e9e" layoutX="52.0" layoutY="305.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Search for city or select a favourite..." textAlignment="CENTER" wrappingWidth="605.0">
                <font>
                   <Font size="20.0" />
                </font>
