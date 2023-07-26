@@ -17,6 +17,8 @@ import javafx.scene.text.TextAlignment;
 import org.rainyday.Connection;
 import org.rainyday.Weather;
 
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.Objects;
 
 public class Controller {
@@ -207,7 +209,9 @@ public class Controller {
         else airQualityText.setText("Hazardous");
 
         // set the correct alert
-        setAlert(weather);
+//        if ((weather.getAlerts().getAlert().isEmpty())){
+//
+//        }
 
         // set the correct color theme based on the condition
         if (weather.getCurrent().getIs_day() == 1){
@@ -218,10 +222,17 @@ public class Controller {
 
         // set the charts
         graphTabPane.setVisible(true);
+
+        // setup temperature chart
+        System.out.println(formatDateTime(weather.getCurrent().getLast_updated()));
     }
 
-    void setTemperatureChart(Weather _weather){
-
+    String formatDateTime(String _dateTime){
+        DateTimeFormatter inputDateTimeFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
+        DateTimeFormatter outputDateTimeFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd (hh:mm a)");
+        LocalDateTime dateTime = LocalDateTime.parse(_dateTime, inputDateTimeFormatter);
+        String formattedString = dateTime.format(outputDateTimeFormatter);
+        return formattedString;
     }
 
     void setPrecipitationChart(Weather _weather){
