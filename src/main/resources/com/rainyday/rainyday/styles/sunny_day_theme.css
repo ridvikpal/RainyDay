@@ -73,7 +73,6 @@
     -fx-background-color: -fx-background-colour-default;
 
 }
-
 .list-cell:even {
     -fx-background-color: transparent;
 }
@@ -96,6 +95,7 @@
 }
 
 .list-cell:selected {
+    -fx-text-fill: black;
     -fx-background-color: -fx-background-colour-selected;
     -fx-border-color: -fx-border-color-selected;
 }
