@@ -1,5 +1,7 @@
 package com.rainyday.rainyday;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableSet;
 import javafx.fxml.FXML;
 import javafx.scene.chart.AreaChart;
 import javafx.scene.control.*;
@@ -153,6 +155,7 @@ public class Controller {
     private Button alertButton;
 
     Label favouritesPlaceholder = new Label("No saved favourites.");
+    ObservableSet<String> favourites = FXCollections.observableSet();
 
     @FXML
     private void initialize(){
@@ -370,12 +373,16 @@ public class Controller {
     // This method adds the current city to the favourites table
     @FXML
     void handleAddFavourites(){
-        favouritesList.getItems().add(locationText.getText());
+        favourites.add(locationText.getText());
+        favouritesList.setItems(FXCollections.observableArrayList(favourites));
     }
 
     // This method removes a selected city from the favourites table
     @FXML
     void handleRemoveFavourites(){
+        String selectedCity = favouritesList.getSelectionModel().getSelectedItem();
+        favourites.remove(selectedCity);
+        favouritesList.setItems(FXCollections.observableArrayList(favourites));
     }
 
     // This method loads a selected favourite to the favourites table.
