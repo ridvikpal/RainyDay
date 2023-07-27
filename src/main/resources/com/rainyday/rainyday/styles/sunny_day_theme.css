@@ -1,22 +1,21 @@
 /* MAIN SCENE */
 .root {
+    /* Define custom colours */
     -fx-base: #dcdcdc;
-    -fx-accent: #e7eff7 ;
-    -fx-default-button: #7f878f ;
-    -fx-focus-color: #ffffff;
+    /*-fx-background-colour-default:
+            rgba(255, 255, 255, 0.3)
+            linear-gradient(rgba(211, 211, 211, 0.35), rgba(204, 204, 204, 0.75));
+    -fx-background-colour-hover: rgba(255, 255, 255, 0.6);
+    -fx-background-colour-selected: white;
+    -fx-background-colour-list-cell-filled: rgba(255, 255, 255, 0.8);
+    -fx-border-color-selected: rgb(236, 236, 236);
+    -fx-border-width-selected: 4;*/
+
+    /* Assign globals */
     -fx-background: derive(-fx-base, 26.4%);
     -fx-background-image: url(../backgrounds/sunny_day_background.jpg);
     -fx-color: -fx-base;
     -fx-text-fill: black;
-    -fx-faint-focus-color: #efefef22;
-    -fx-focused-text-base-color : ladder(
-            -fx-selection-bar,
-            -fx-light-text-color 45%,
-            -fx-dark-text-color 46%,
-            -fx-dark-text-color 59%,
-            -fx-mid-text-color 60%
-    );
-    -fx-focused-mark-color : -fx-focused-text-base-color ;
 }
 
 /* CHART */
@@ -61,7 +60,7 @@
     -fx-stroke: grey;
 }
 
-/* TABLE-VIEW */
+/* LIST-VIEW */
 .list-view {
     -fx-text-fill: black;
     -fx-background-color:
@@ -69,9 +68,7 @@
             linear-gradient(rgba(211, 211, 211, 0.35), rgba(204, 204, 204, 0.75));
 }
 .list-cell:even{
-    -fx-background-color:
-            rgba(255, 255, 255, 0.3)
-            linear-gradient(rgba(211, 211, 211, 0.35), rgba(204, 204, 204, 0.75));
+    -fx-background-color: transparent;
 }
 .list-cell:odd{
     -fx-background-color: transparent;
@@ -80,11 +77,12 @@
     -fx-text-fill: black;
     -fx-background-color: rgba(255, 255, 255, 0.6);
 }
-.list-cell:even:hover {
+.list-cell:filled:hover {
     -fx-background-color: rgba(255, 255, 255, 0.8);
 }
-.list-cell:odd:hover {
-    -fx-background-color: rgba(255, 255, 255, 0.8);
+.list-cell:selected {
+    -fx-background-color: rgb(255, 255, 255);
+    -fx-border-color: rgb(236, 236, 236);
 }
 
 /* BUTTONS */
@@ -93,11 +91,15 @@
     -fx-background-color:
         rgba(255, 255, 255, 0.3)
         linear-gradient(rgba(211, 211, 211, 0.35), rgba(204, 204, 204, 0.75));
-    /*-fx-border-color: rgb(150, 150, 150);*/
 }
 .button:hover {
     -fx-text-fill: black;
     -fx-background-color: rgba(255, 255, 255, 0.6);
+}
+.button:pressed {
+    -fx-background-color: white;
+    -fx-border-color: rgb(236, 236, 236);
+    -fx-border-width: 4;
 }
 
 /* TEXT-INPUT */
@@ -126,7 +128,14 @@
             -fx-dark-text-color  59%,
             -fx-mid-text-color   60%
     );
-    -fx-background-color: rgba(255, 255, 255, 0.6);
+    -fx-background-color: rgb(255, 255, 255);
+    -fx-border-color: rgb(236, 236, 236);
+    -fx-border-width: 4;
+}
+.text-input:pressed {
+    -fx-background-color: white;
+    -fx-border-color: rgb(236, 236, 236);
+    -fx-border-width: 4;
 }
 
 /* TABS */
@@ -136,18 +145,25 @@
 .tab-header-area .tab-header-background {
     -fx-background-color: transparent;
 }
-.tab:selected{
+.tab{
     -fx-background-color:
             rgba(255, 255, 255, 0.3)
             linear-gradient(rgba(211, 211, 211, 0.35), rgba(204, 204, 204, 0.75));
     -fx-border-color: transparent;
+    -fx-border-width: 4;
 }
-.tab {
-    -fx-background-color: transparent;
-    -fx-border-color: transparent;
+.tab:selected {
+    -fx-background-color: white;
+    -fx-border-color: rgb(236, 236, 236);
+    -fx-border-width: 4;
 }
 .tab:hover {
     -fx-background-color: rgba(255, 255, 255, 0.6);
+}
+.tab:pressed {
+    -fx-background-color: white;
+    -fx-border-color: rgb(236, 236, 236);
+    -fx-border-width: 4;
 }
 
 /* TEXT */

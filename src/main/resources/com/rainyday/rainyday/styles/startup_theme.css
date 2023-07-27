@@ -68,22 +68,40 @@
             rgba(255, 255, 255, 0.3)
             linear-gradient(rgba(211, 211, 211, 0.35), rgba(204, 204, 204, 0.75));
 }
+.list-cell:even{
+    -fx-background-color:
+            rgba(255, 255, 255, 0.3)
+            linear-gradient(rgba(211, 211, 211, 0.35), rgba(204, 204, 204, 0.75));
+}
+.list-cell:odd{
+    -fx-background-color: transparent;
+}
 .list-view:hover {
     -fx-text-fill: black;
     -fx-background-color: rgba(255, 255, 255, 0.6);
+}
+.list-cell:hover {
+    -fx-background-color: rgba(255, 255, 255, 0.8);
+}
+.list-cell:selected {
+    -fx-background-color: rgb(255, 255, 255);
+    -fx-border-color: rgb(236, 236, 236);
 }
 
 /* BUTTONS */
 .button {
     -fx-text-fill: black;
     -fx-background-color:
-        rgba(255, 255, 255, 0.3)
-        linear-gradient(rgba(211, 211, 211, 0.35), rgba(204, 204, 204, 0.75));
+            rgba(255, 255, 255, 0.3)
+            linear-gradient(rgba(211, 211, 211, 0.35), rgba(204, 204, 204, 0.75));
     /*-fx-border-color: rgb(150, 150, 150);*/
 }
 .button:hover {
     -fx-text-fill: black;
     -fx-background-color: rgba(255, 255, 255, 0.6);
+}
+.button:pressed {
+    -fx-border-color: rgb(236, 236, 236);
 }
 
 /* TEXT-INPUT */
@@ -113,6 +131,7 @@
             -fx-mid-text-color   60%
     );
     -fx-background-color: rgba(255, 255, 255, 0.6);
+    -fx-border-color: rgb(236, 236, 236);
 }
 
 /* TABS */
