@@ -121,6 +121,7 @@
 
 /* TEXT-INPUT */
 .text-input {
+    -fx-prompt-text-fill: -fx-text-fill-inactive;
     -fx-text-fill: -fx-text-fill-default;
     -fx-background-color: -fx-background-colour-default;
 }

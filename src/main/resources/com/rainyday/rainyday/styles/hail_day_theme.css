@@ -9,23 +9,24 @@
     -fx-background-colour-list-cell-filled-hover: rgba(255, 255, 255, 0.8);
     -fx-border-color-selected: transparent;
     -fx-chart-colour-lines: grey;
+    -fx-text-fill-inactive: grey;
+    -fx-text-fill-default: black;
 
     /* Settings for root splitpane */
     -fx-background: derive(-fx-base, 26.4%);
     -fx-background-image: url(../backgrounds/hail_day_background.jpg);
     -fx-color: -fx-base;
-    -fx-text-fill: black;
 }
 
 /* CHART */
 .chart {
     -fx-background-color: -fx-background-colour-default;
-    -fx-text-fill: black;
-    -fx-stroke: black;
+    -fx-text-fill: -fx-text-fill-default;
+    -fx-stroke: -fx-text-fill-default;
 }
 
 .chart:hover {
-    -fx-text-fill: black;
+    -fx-text-fill: -fx-text-fill-default;
     -fx-background-color: -fx-background-colour-hover;
 }
 
@@ -50,12 +51,12 @@
 }
 
 .axis {
-    -fx-text-fill: black;
+    -fx-text-fill: -fx-text-fill-default;
     -fx-stroke: -fx-chart-colour-lines;
 }
 
 .axis-label {
-    -fx-text-fill: black
+    -fx-text-fill: -fx-text-fill-default
 }
 
 .axis-tick-mark {
@@ -69,21 +70,22 @@
 
 /* LIST-VIEW */
 .list-view {
-    -fx-text-fill: black;
+    -fx-text-fill: -fx-text-fill-default;
     -fx-background-color: -fx-background-colour-default;
 
 }
-
 .list-cell:even {
+    -fx-text-fill: -fx-text-fill-default;
     -fx-background-color: transparent;
 }
 
 .list-cell:odd {
+    -fx-text-fill: -fx-text-fill-default;
     -fx-background-color: transparent;
 }
 
 .list-view:hover {
-    -fx-text-fill: black;
+    -fx-text-fill: -fx-text-fill-default;
     -fx-background-color: -fx-background-colour-hover;
 }
 
@@ -96,19 +98,19 @@
 }
 
 .list-cell:selected {
-    -fx-text-fill: black;
+    -fx-text-fill: -fx-text-fill-default;
     -fx-background-color: -fx-background-colour-selected;
     -fx-border-color: -fx-border-color-selected;
 }
 
 /* BUTTONS */
 .button {
-    -fx-text-fill: black;
+    -fx-text-fill: -fx-text-fill-default;
     -fx-background-color: -fx-background-colour-default;
 }
 
 .button:hover {
-    -fx-text-fill: black;
+    -fx-text-fill: -fx-text-fill-default;
     -fx-background-color: -fx-background-colour-hover;
 }
 
@@ -119,7 +121,8 @@
 
 /* TEXT-INPUT */
 .text-input {
-    -fx-text-fill: black;
+    -fx-prompt-text-fill: -fx-text-fill-inactive;
+    -fx-text-fill: -fx-text-fill-default;
     -fx-background-color: -fx-background-colour-default;
 }
 
@@ -135,7 +138,7 @@
 }
 
 .text-input:focused {
-    -fx-text-fill: black;
+    -fx-text-fill: -fx-text-fill-default;
     -fx-highlight-text-fill: ladder(
             -fx-highlight-fill,
             -fx-light-text-color 45%,
@@ -155,12 +158,11 @@
 /* TABS */
 .tab-pane {
     -fx-background-color: transparent;
-
 }
 
 .tab-header-area .tab-header-background {
     -fx-background-color: transparent;
-
+    -fx-border-color: -fx-border-color-selected;
 }
 
 .tab {
@@ -170,6 +172,11 @@
 
 .tab:selected {
     -fx-background-color: -fx-background-colour-selected;
+    -fx-border-color: -fx-border-color-selected;
+}
+
+.tab-pane:focused>.tab-header-area>.headers-region>.tab:selected .focus-indicator {
+    /*-fx-background-color: -fx-background-colour-selected;*/
     -fx-border-color: -fx-border-color-selected;
 }
 
@@ -184,7 +191,10 @@
 
 /* TEXT */
 .text {
-    -fx-text-fill: black;
+    -fx-fill: -fx-text-fill-default;
+}
+.label {
+    -fx-text-fill: -fx-text-fill-inactive;
 }
 
 /* SPLIT PANE */

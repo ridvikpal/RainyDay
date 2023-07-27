@@ -262,7 +262,7 @@ public class Controller {
 
     String formatDateTime(String _dateTime){
         DateTimeFormatter inputDateTimeFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
-        DateTimeFormatter outputDateTimeFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd (hh:mm a)");
+        DateTimeFormatter outputDateTimeFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd (h:mm a)");
         LocalDateTime dateTime = LocalDateTime.parse(_dateTime, inputDateTimeFormatter);
         String formattedString = dateTime.format(outputDateTimeFormatter);
         return formattedString.toUpperCase();
