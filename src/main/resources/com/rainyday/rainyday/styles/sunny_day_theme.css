@@ -2,14 +2,14 @@
 .root {
     /* Define custom colours */
     -fx-base: #dcdcdc;
-    /*-fx-background-colour-default:
+    -fx-background-colour-default:
             rgba(255, 255, 255, 0.3)
             linear-gradient(rgba(211, 211, 211, 0.35), rgba(204, 204, 204, 0.75));
     -fx-background-colour-hover: rgba(255, 255, 255, 0.6);
     -fx-background-colour-selected: white;
-    -fx-background-colour-list-cell-filled: rgba(255, 255, 255, 0.8);
+    -fx-background-colour-list-cell-filled-hover: rgba(255, 255, 255, 0.8);
     -fx-border-color-selected: rgb(236, 236, 236);
-    -fx-border-width-selected: 4;*/
+    -fx-border-width-selected: 4;
 
     /* Assign globals */
     -fx-background: derive(-fx-base, 26.4%);
@@ -20,15 +20,13 @@
 
 /* CHART */
 .chart {
-    -fx-background-color:
-            rgba(255, 255, 255, 0.3)
-            linear-gradient(rgba(211, 211, 211, 0.35), rgba(204, 204, 204, 0.75));
+    -fx-background-color: -fx-background-colour-default;
     -fx-text-fill: black;
     -fx-stroke: black;
 }
 .chart:hover {
     -fx-text-fill: black;
-    -fx-background-color: rgba(255, 255, 255, 0.6);
+    -fx-background-color: -fx-background-colour-hover;
 }
 .chart-content {
     -fx-background-color: transparent;
@@ -63,9 +61,7 @@
 /* LIST-VIEW */
 .list-view {
     -fx-text-fill: black;
-    -fx-background-color:
-            rgba(255, 255, 255, 0.3)
-            linear-gradient(rgba(211, 211, 211, 0.35), rgba(204, 204, 204, 0.75));
+    -fx-background-color: -fx-background-colour-default;
 }
 .list-cell:even{
     -fx-background-color: transparent;
@@ -75,39 +71,35 @@
 }
 .list-view:hover {
     -fx-text-fill: black;
-    -fx-background-color: rgba(255, 255, 255, 0.6);
+    -fx-background-color: -fx-background-colour-hover;
 }
 .list-cell:filled:hover {
-    -fx-background-color: rgba(255, 255, 255, 0.8);
+    -fx-background-color: -fx-background-colour-list-cell-filled-hover;
 }
 .list-cell:selected {
-    -fx-background-color: rgb(255, 255, 255);
-    -fx-border-color: rgb(236, 236, 236);
+    -fx-background-color: -fx-background-colour-selected;
+    -fx-border-color: -fx-border-color-selected;
 }
 
 /* BUTTONS */
 .button {
     -fx-text-fill: black;
-    -fx-background-color:
-        rgba(255, 255, 255, 0.3)
-        linear-gradient(rgba(211, 211, 211, 0.35), rgba(204, 204, 204, 0.75));
+    -fx-background-color: -fx-background-colour-default;
 }
 .button:hover {
     -fx-text-fill: black;
-    -fx-background-color: rgba(255, 255, 255, 0.6);
+    -fx-background-color: -fx-background-colour-hover;
 }
 .button:pressed {
-    -fx-background-color: white;
-    -fx-border-color: rgb(236, 236, 236);
+    -fx-background-color: -fx-background-colour-selected;
+    -fx-border-color: -fx-border-color-selected;
     -fx-border-width: 4;
 }
 
 /* TEXT-INPUT */
 .text-input {
     -fx-text-fill: black;
-    -fx-background-color:
-            rgba(255, 255, 255, 0.3)
-            linear-gradient(rgba(211, 211, 211, 0.35), rgba(204, 204, 204, 0.75));
+    -fx-background-color: -fx-background-colour-default;
 }
 .text-input:hover {
     -fx-highlight-text-fill: ladder(
@@ -117,7 +109,7 @@
             -fx-dark-text-color  59%,
             -fx-mid-text-color   60%
     );
-    -fx-background-color: rgba(255, 255, 255, 0.6);
+    -fx-background-color: -fx-background-colour-hover;
 }
 .text-input:focused {
     -fx-text-fill: black;
@@ -128,13 +120,13 @@
             -fx-dark-text-color  59%,
             -fx-mid-text-color   60%
     );
-    -fx-background-color: rgb(255, 255, 255);
-    -fx-border-color: rgb(236, 236, 236);
+    -fx-background-color: -fx-background-colour-selected;
+    -fx-border-color: -fx-border-color-selected;
     -fx-border-width: 4;
 }
 .text-input:pressed {
-    -fx-background-color: white;
-    -fx-border-color: rgb(236, 236, 236);
+    -fx-background-color: -fx-background-colour-selected;
+    -fx-border-color: -fx-border-color-selected;
     -fx-border-width: 4;
 }
 
@@ -146,28 +138,26 @@
     -fx-background-color: transparent;
 }
 .tab{
-    -fx-background-color:
-            rgba(255, 255, 255, 0.3)
-            linear-gradient(rgba(211, 211, 211, 0.35), rgba(204, 204, 204, 0.75));
+    -fx-background-color: -fx-background-colour-default;
     -fx-border-color: transparent;
     -fx-border-width: 4;
 }
 .tab:selected {
-    -fx-background-color: white;
-    -fx-border-color: rgb(236, 236, 236);
+    -fx-background-color: -fx-background-colour-selected;
+    -fx-border-color: -fx-border-color-selected;
     -fx-border-width: 4;
 }
 .tab:hover {
-    -fx-background-color: rgba(255, 255, 255, 0.6);
+    -fx-background-color: -fx-background-colour-hover;
 }
 .tab:pressed {
-    -fx-background-color: white;
-    -fx-border-color: rgb(236, 236, 236);
+    -fx-background-color: -fx-background-colour-selected;
+    -fx-border-color: -fx-border-color-selected;
     -fx-border-width: 4;
 }
 
 /* TEXT */
-.text-field {
+.text {
     -fx-text-fill: black;
 }
 
