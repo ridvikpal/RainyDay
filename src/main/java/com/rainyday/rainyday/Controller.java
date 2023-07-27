@@ -197,8 +197,13 @@ public class Controller {
         selectCityText.setVisible(false);
 
         String city = citySearchBar.getText();
+
+        updateData(city);
+    }
+
+    void updateData(String _city){
         // get the current weather
-        Weather weather = connection.getForecast(city, 3);
+        Weather weather = connection.getForecast(_city, 3);
 
         // view the labels
         precipitationLabel.setVisible(true);
@@ -227,8 +232,8 @@ public class Controller {
         locationText.setTextAlignment(TextAlignment.LEFT);
         locationText.setText(
                 weather.getLocation().getName() + ", "
-                + weather.getLocation().getRegion() + ", "
-                + weather.getLocation().getCountry()
+                        + weather.getLocation().getRegion() + ", "
+                        + weather.getLocation().getCountry()
         );
         lastUpdatedTimeText.setText("Updated at "  + formatDateTime(weather.getCurrent().getLast_updated()));
 
@@ -371,13 +376,14 @@ public class Controller {
     // This method removes a selected city from the favourites table
     @FXML
     void handleRemoveFavourites(){
-
     }
 
     // This method loads a selected favourite to the favourites table.
     @FXML
     void handleLoadFavourites(){
-
+        String selectedCity = favouritesList.getSelectionModel().getSelectedItem();
+        selectedCity = selectedCity.replace(" ", "-");
+        updateData(selectedCity);
     }
 
 }
