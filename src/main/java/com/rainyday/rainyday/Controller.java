@@ -193,15 +193,15 @@ public class Controller {
     // This method searches WeatherAPI for city information and creates autocomplete
     @FXML
     void handleSearchRequest(){
-        // disable the greeting text
-        selectCityText.setVisible(false);
-
         String city = citySearchBar.getText();
-
+        city = city.replace(" ", "-");
         updateData(city);
     }
 
     void updateData(String _city){
+        // disable the greeting text
+        selectCityText.setVisible(false);
+
         // get the current weather
         Weather weather = connection.getForecast(_city, 3);
 
