@@ -161,8 +161,33 @@ public class Controller {
         leftPaneAnchorPane.setMaxWidth(700.0);
 
         // set a placeholder for the favourites list
-        favouritesPlaceholder.setTextFill(Color.GRAY);
+        favouritesPlaceholder.setTextFill(Color.GRAY); // need to change
         favouritesList.setPlaceholder(favouritesPlaceholder);
+
+        // allow text to be formatted via css
+        favouritesPlaceholder.getStyleClass().add("text");
+        lastUpdatedTimeText.getStyleClass().add("text");
+        currentTempText.getStyleClass().add("text");
+        feelsLikeText.getStyleClass().add("text");
+        conditionText.getStyleClass().add("text");
+        precipitationLabel.getStyleClass().add("text");
+        precipitationText.getStyleClass().add("text");
+        windLabel.getStyleClass().add("text");
+        windText.getStyleClass().add("text");
+        humidityLabel.getStyleClass().add("text");
+        humidityText.getStyleClass().add("text");
+        airQualityLabel.getStyleClass().add("text");
+        airQualityText.getStyleClass().add("text");
+        precipitationLabel.getStyleClass().add("text");
+        precipitationText.getStyleClass().add("text");
+        uvLabel.getStyleClass().add("text");
+        uvText.getStyleClass().add("text");
+        pressureLabel.getStyleClass().add("text");
+        pressureText.getStyleClass().add("text");
+        visibilityLabel.getStyleClass().add("text");
+        visibilityText.getStyleClass().add("text");
+        locationText.getStyleClass().add("text");
+        lastUpdatedTimeText.getStyleClass().add("text");
     }
 
     // This method searches WeatherAPI for city information and creates autocomplete
@@ -256,31 +281,6 @@ public class Controller {
     }
 
     void setLightTheme(int _weatherCode){
-        // set the right text colours
-        favouritesPlaceholder.setTextFill(Color.GRAY);
-        lastUpdatedTimeText.setFill(Color.BLACK);
-        currentTempText.setFill(Color.BLACK);
-        feelsLikeText.setFill(Color.BLACK);
-        conditionText.setFill(Color.BLACK);
-        precipitationLabel.setFill(Color.BLACK);
-        precipitationText.setFill(Color.BLACK);
-        windLabel.setFill(Color.BLACK);
-        windText.setFill(Color.BLACK);
-        humidityLabel.setFill(Color.BLACK);
-        humidityText.setFill(Color.BLACK);
-        airQualityLabel.setFill(Color.BLACK);
-        airQualityText.setFill(Color.BLACK);
-        precipitationLabel.setFill(Color.BLACK);
-        precipitationText.setFill(Color.BLACK);
-        uvLabel.setFill(Color.BLACK);
-        uvText.setFill(Color.BLACK);
-        pressureLabel.setFill(Color.BLACK);
-        pressureText.setFill(Color.BLACK);
-        visibilityLabel.setFill(Color.BLACK);
-        visibilityText.setFill(Color.BLACK);
-        locationText.setFill(Color.BLACK);
-        lastUpdatedTimeText.setFill(Color.BLACK);
-
         try {
             switch (_weatherCode){
                 // set sunny day theme
@@ -322,32 +322,6 @@ public class Controller {
     }
 
     void setDarkTheme(int _weatherCode){
-        // set the right text colours
-        favouritesPlaceholder.setTextFill(Color.WHITE);
-        lastUpdatedTimeText.setFill(Color.WHITE);
-        currentTempText.setFill(Color.WHITE);
-        feelsLikeText.setFill(Color.WHITE);
-        conditionText.setFill(Color.WHITE);
-        precipitationLabel.setFill(Color.WHITE);
-        precipitationText.setFill(Color.WHITE);
-        windLabel.setFill(Color.WHITE);
-        windText.setFill(Color.WHITE);
-        humidityLabel.setFill(Color.WHITE);
-        humidityText.setFill(Color.WHITE);
-        airQualityLabel.setFill(Color.WHITE);
-        airQualityText.setFill(Color.WHITE);
-        precipitationLabel.setFill(Color.WHITE);
-        precipitationText.setFill(Color.WHITE);
-        uvLabel.setFill(Color.WHITE);
-        uvText.setFill(Color.WHITE);
-        pressureLabel.setFill(Color.WHITE);
-        pressureText.setFill(Color.WHITE);
-        visibilityLabel.setFill(Color.WHITE);
-        visibilityText.setFill(Color.WHITE);
-        locationText.setFill(Color.WHITE);
-        lastUpdatedTimeText.setFill(Color.WHITE);
-
-
         try {
             switch (_weatherCode){
                 // set clear night theme
