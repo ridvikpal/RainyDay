@@ -12,7 +12,7 @@
     -fx-border-color-selected: transparent;
     -fx-chart-colour-lines: grey;
 
-    /* Assign globals */
+    /* Settings for root splitpane */
     -fx-background: derive(-fx-base, 26.4%);
     -fx-background-image: url(../backgrounds/sunny_day_background.jpg);
     -fx-color: -fx-base;
@@ -24,6 +24,7 @@
     -fx-background-color: -fx-background-colour-default;
     -fx-text-fill: black;
     -fx-stroke: black;
+    -fx-background-radius: 10 10 10 10;
 }
 .chart:hover {
     -fx-text-fill: black;
@@ -31,12 +32,15 @@
 }
 .chart-content {
     -fx-background-color: transparent;
+    -fx-background-radius: 10 10 10 10;
 }
 .chart-plot-background {
     -fx-background-color: transparent;
+    -fx-background-radius: 10 10 10 10;
 }
 .chart-legend {
     -fx-background-color: transparent;
+    -fx-background-radius: 10 10 10 10;
 }
 .chart-vertical-grid-lines {
     -fx-stroke: -fx-chart-colour-lines;
@@ -63,6 +67,10 @@
 .list-view {
     -fx-text-fill: black;
     -fx-background-color: -fx-background-colour-default;
+    -fx-background-radius: 10 10 10 10;
+}
+.list-cell {
+    -fx-background-radius: 10 10 10 10;
 }
 .list-cell:even{
     -fx-background-color: transparent;
@@ -90,6 +98,7 @@
 .button {
     -fx-text-fill: black;
     -fx-background-color: -fx-background-colour-default;
+    -fx-background-radius: 10 10 10 10;
 }
 .button:hover {
     -fx-text-fill: black;
@@ -104,6 +113,7 @@
 .text-input {
     -fx-text-fill: black;
     -fx-background-color: -fx-background-colour-default;
+    -fx-background-radius: 10 10 10 10;
 }
 .text-input:hover {
     -fx-highlight-text-fill: ladder(
@@ -135,13 +145,16 @@
 /* TABS */
 .tab-pane {
     -fx-background-color: transparent;
+    -fx-background-radius: 10 10 10 10;
 }
 .tab-header-area .tab-header-background {
     -fx-background-color: transparent;
+    -fx-background-radius: 10 10 10 10;
 }
 .tab{
     -fx-background-color: -fx-background-colour-default;
     -fx-border-color: transparent;
+    -fx-background-radius: 10 10 10 10;
 }
 .tab:selected {
     -fx-background-color: -fx-background-colour-selected;
