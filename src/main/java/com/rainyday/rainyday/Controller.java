@@ -3,6 +3,7 @@ package com.rainyday.rainyday;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.JsonElement;
+import com.google.gson.reflect.TypeToken;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableSet;
 import javafx.fxml.FXML;
@@ -17,14 +18,14 @@ import org.rainyday.Connection;
 import org.rainyday.Weather;
 
 import java.awt.event.ActionEvent;
-import java.io.FileWriter;
-import java.io.IOException;
-import java.io.Writer;
+import java.io.*;
+import java.lang.reflect.Type;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.util.HashSet;
 import java.util.Objects;
 
 public class Controller {
@@ -176,6 +177,9 @@ public class Controller {
         // set a placeholder for the favourites list
         favouritesPlaceholder.setTextFill(Color.GRAY); // need to change
         favouritesList.setPlaceholder(favouritesPlaceholder);
+
+        // import the favourites list
+        importFavourites();
 
         // allow text to be formatted via css
         favouritesPlaceholder.getStyleClass().add("text");
@@ -381,7 +385,16 @@ public class Controller {
     }
 
     void importFavourites(){
+        try (Reader reader = new FileReader("src/main/resources/com/rainyday/rainyday/favourites.json")) {
+            Gson gson = new GsonBuilder().setPrettyPrinting().create();
+            Type stringType = new TypeToken<HashSet<String>>(){}.getType();;
+            HashSet<String> favouritesHashSet = gson.fromJson(reader, stringType);
 
+            favourites = FXCollections.observableSet(favouritesHashSet);
+            favouritesList.setItems(FXCollections.observableArrayList(favourites));
+        } catch (IOException e) {
+            System.out.println("Error importing favourites from Json!");
+        }
     }
 
     void exportFavourites(){
@@ -389,7 +402,7 @@ public class Controller {
             Gson gson = new GsonBuilder().setPrettyPrinting().create();
             gson.toJson(favourites, writer);
         } catch (IOException e) {
-            System.out.println("Error exporting files to Json!");
+            System.out.println("Error exporting favourites to Json!");
         }
     }
 
