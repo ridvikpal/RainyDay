@@ -166,7 +166,7 @@ public class Controller {
     private Button alertButton;
 
     Label favouritesPlaceholder = new Label("No saved favourites.");
-    ObservableSet<String> favourites = FXCollections.observableSet();
+    HashSet<String> favourites = new HashSet<>();
 
     @FXML
     private void initialize(){
@@ -388,9 +388,7 @@ public class Controller {
         try (Reader reader = new FileReader("src/main/resources/com/rainyday/rainyday/favourites.json")) {
             Gson gson = new GsonBuilder().setPrettyPrinting().create();
             Type stringType = new TypeToken<HashSet<String>>(){}.getType();;
-            HashSet<String> favouritesHashSet = gson.fromJson(reader, stringType);
-
-            favourites = FXCollections.observableSet(favouritesHashSet);
+            favourites = gson.fromJson(reader, stringType);
             favouritesList.setItems(FXCollections.observableArrayList(favourites));
         } catch (IOException e) {
             System.out.println("Error importing favourites from Json!");
@@ -427,5 +425,6 @@ public class Controller {
         String selectedCity = favouritesList.getSelectionModel().getSelectedItem();
         selectedCity = selectedCity.replace(" ", "-");
         updateData(selectedCity);
+        favouritesList.getSelectionModel().clearSelection();
     }
 }
