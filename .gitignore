@@ -36,3 +36,6 @@ build/
 
 ### Mac OS ###
 .DS_Store
+
+### Application Files ###
+/src/main/resources/com/rainyday/rainyday/favourites.json
