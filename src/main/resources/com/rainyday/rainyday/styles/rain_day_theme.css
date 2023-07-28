@@ -11,11 +11,39 @@
     -fx-chart-colour-lines: grey;
     -fx-text-fill-inactive: grey;
     -fx-text-fill-default: black;
+    -fx-background-color-thumb-hover: rgba(255, 255, 255, 0.7);
 
     /* Settings for root splitpane */
     -fx-background: derive(-fx-base, 26.4%);
     -fx-background-image: url(../backgrounds/rainy_day_background.jpg);
     -fx-color: -fx-base;
+}
+
+/* SCROLL BAR */
+.scroll-bar {
+    -fx-background-color: transparent;
+}
+.thumb {
+    -fx-background-color: transparent;
+    -fx-padding: 10;
+}
+.thumb:hover {
+    -fx-background-color: -fx-background-color-thumb-hover;
+}
+.thumb:pressed {
+    -fx-background-color: -fx-background-colour-selected;
+}
+.increment-button {
+    -fx-background-color: transparent;
+}
+.increment-arrow {
+    -fx-background-color: transparent;
+}
+.decrement-button {
+    -fx-background-color: transparent;
+}
+.decrement-arrow {
+    -fx-background-color: transparent;
 }
 
 /* CHART */

@@ -11,11 +11,38 @@
     -fx-chart-colour-lines: grey;
     -fx-text-fill-inactive: lightgrey;
     -fx-text-fill-default: white;
+    -fx-background-color-thumb-hover: rgba(0, 0, 0, 0.3);
 
     /* Settings for root splitpane */
     -fx-background: derive(-fx-base, 26.4%);
     -fx-background-image: url(../backgrounds/cloudy_night_background.jpg);
     -fx-color: -fx-base;
+}
+/* SCROLL BAR */
+.scroll-bar {
+    -fx-background-color: transparent;
+}
+.thumb {
+    -fx-background-color: transparent;
+    -fx-padding: 10;
+}
+.thumb:hover {
+    -fx-background-color: -fx-background-color-thumb-hover;
+}
+.thumb:pressed {
+    -fx-background-color: -fx-background-colour-selected;
+}
+.increment-button {
+    -fx-background-color: transparent;
+}
+.increment-arrow {
+    -fx-background-color: transparent;
+}
+.decrement-button {
+    -fx-background-color: transparent;
+}
+.decrement-arrow {
+    -fx-background-color: transparent;
 }
 
 /* CHART */
