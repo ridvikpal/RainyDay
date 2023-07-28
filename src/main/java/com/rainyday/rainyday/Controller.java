@@ -1,5 +1,8 @@
 package com.rainyday.rainyday;
 
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.JsonElement;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableSet;
 import javafx.fxml.FXML;
@@ -13,6 +16,13 @@ import javafx.scene.text.TextAlignment;
 import org.rainyday.Connection;
 import org.rainyday.Weather;
 
+import java.awt.event.ActionEvent;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.Writer;
+import java.nio.charset.StandardCharsets;
+import java.nio.file.Files;
+import java.nio.file.Path;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.Objects;
@@ -370,6 +380,19 @@ public class Controller {
         }
     }
 
+    void importFavourites(){
+
+    }
+
+    void exportFavourites(){
+        try (Writer writer = new FileWriter("src/main/resources/com/rainyday/rainyday/favourites.json")) {
+            Gson gson = new GsonBuilder().setPrettyPrinting().create();
+            gson.toJson(favourites, writer);
+        } catch (IOException e) {
+            System.out.println("Error exporting files to Json!");
+        }
+    }
+
     // This method adds the current city to the favourites table
     @FXML
     void handleAddFavourites(){
@@ -392,5 +415,4 @@ public class Controller {
         selectedCity = selectedCity.replace(" ", "-");
         updateData(selectedCity);
     }
-
 }

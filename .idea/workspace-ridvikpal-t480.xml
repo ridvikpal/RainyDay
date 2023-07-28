@@ -1,0 +1,561 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="0092296d-f1f8-4652-8745-ec9187d24c11" name="Changes" comment="incremental push 2 while updating themes to be easier to modify. Added global variables." />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+        <option value="CSS File" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="UPDATE_TYPE" value="REBASE" />
+  </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">
+    <option name="selectedUrlAndAccountId">
+      <UrlAndAccount>
+        <option name="accountId" value="4f45ae42-c22d-418c-84b5-1b65c9daf39f" />
+        <option name="url" value="https://github.com/ridvikpal/RainyDay.git" />
+      </UrlAndAccount>
+    </option>
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectId" id="2SqWPJufxgbqlj4u78vLtm7A78Y" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Program Files (x86)/Oracle/JavaFX Scene Builder 2.0/JavaFX Scene Builder 2.0.exe&quot;,
+    &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  }
+}</component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\ridvikpal\OneDrive - University of Toronto\Documents\java\RainyDay\src\main\resources\com\rainyday\rainyday\styles" />
+      <recent name="C:\Users\ridvikpal\OneDrive - University of Toronto\Documents\java\RainyDay\src\main\resources\com\rainyday\rainyday\backgrounds" />
+      <recent name="C:\Users\ridvikpal\OneDrive - University of Toronto\Documents\java\RainyDay\src\main\resources\backgrounds" />
+      <recent name="C:\Users\ridvikpal\OneDrive - University of Toronto\Documents\java\RainyDay\src\main\java\org\rainyday" />
+      <recent name="C:\Users\ridvikpal\OneDrive - University of Toronto\Documents\java\RainyDay\src\main\java\com\rainyday\rainyday" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\ridvikpal\OneDrive - University of Toronto\Documents\java\RainyDay\src\main\resources\com\rainyday\rainyday" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="Main" type="Application" factoryName="Application" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.rainyday.rainyday.Main" />
+      <module name="RainyDay" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.rainyday.rainyday.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="0092296d-f1f8-4652-8745-ec9187d24c11" name="Changes" comment="" />
+      <created>1689874566700</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1689874566700</updated>
+      <workItem from="1689874567723" duration="4443000" />
+      <workItem from="1690036377506" duration="3599000" />
+      <workItem from="1690040416527" duration="8039000" />
+      <workItem from="1690077047353" duration="138000" />
+      <workItem from="1690077279289" duration="179000" />
+      <workItem from="1690077462199" duration="4765000" />
+      <workItem from="1690124184970" duration="1778000" />
+      <workItem from="1690152748063" duration="962000" />
+      <workItem from="1690154459969" duration="4538000" />
+      <workItem from="1690200839615" duration="427000" />
+      <workItem from="1690209148007" duration="1705000" />
+      <workItem from="1690210866703" duration="5132000" />
+      <workItem from="1690224888725" duration="143000" />
+      <workItem from="1690226349041" duration="5327000" />
+      <workItem from="1690233644780" duration="1694000" />
+      <workItem from="1690243540397" duration="9650000" />
+      <workItem from="1690295270065" duration="13459000" />
+      <workItem from="1690336253465" duration="3291000" />
+      <workItem from="1690395526139" duration="7707000" />
+      <workItem from="1690420890921" duration="4811000" />
+    </task>
+    <task id="LOCAL-00013" summary="Added controller methods and linked them to the buttons and input fields on the gui.">
+      <option name="closed" value="true" />
+      <created>1690044574944</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1690044574944</updated>
+    </task>
+    <task id="LOCAL-00014" summary="Added API connection files from RainyDayConsoleClient.">
+      <option name="closed" value="true" />
+      <created>1690047256981</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1690047256981</updated>
+    </task>
+    <task id="LOCAL-00015" summary="Moved API Connection files to a different package from RainyDayConsoleClient so I can add it as a module under module-info.java. Can now update the actual GUI with weather data.">
+      <option name="closed" value="true" />
+      <created>1690078073770</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1690078073770</updated>
+    </task>
+    <task id="LOCAL-00016" summary="Added updating for all current information.">
+      <option name="closed" value="true" />
+      <created>1690081477190</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1690081477190</updated>
+    </task>
+    <task id="LOCAL-00017" summary="Fixed some spacing for the text.">
+      <option name="closed" value="true" />
+      <created>1690081652676</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1690081652676</updated>
+    </task>
+    <task id="LOCAL-00018" summary="Minor changes to initial loading screen.">
+      <option name="closed" value="true" />
+      <created>1690081943899</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1690081943899</updated>
+    </task>
+    <task id="LOCAL-00019" summary="Added image loading during the day">
+      <option name="closed" value="true" />
+      <created>1690157484741</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1690157484741</updated>
+    </task>
+    <task id="LOCAL-00020" summary="Added image loading for the night as well.">
+      <option name="closed" value="true" />
+      <created>1690160391202</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1690160391202</updated>
+    </task>
+    <task id="LOCAL-00021" summary="slight change to air quality reporting.">
+      <option name="closed" value="true" />
+      <created>1690160840459</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1690160840459</updated>
+    </task>
+    <task id="LOCAL-00022" summary="removed unnecessary helper function.">
+      <option name="closed" value="true" />
+      <created>1690161017002</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1690161017002</updated>
+    </task>
+    <task id="LOCAL-00023" summary="changed alert text to alert button. Need to implement controller function now.">
+      <option name="closed" value="true" />
+      <created>1690161658466</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1690161658466</updated>
+    </task>
+    <task id="LOCAL-00024" summary="Added custom night images as a setup for dark mode during nighttime.">
+      <option name="closed" value="true" />
+      <created>1690201225349</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1690201225350</updated>
+    </task>
+    <task id="LOCAL-00025" summary="Added basic dark theme switching. Need to tweak some aspects of dark theme however.">
+      <option name="closed" value="true" />
+      <created>1690215037610</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1690215037610</updated>
+    </task>
+    <task id="LOCAL-00026" summary="Slightly better ui for dark mode.">
+      <option name="closed" value="true" />
+      <created>1690215910440</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1690215910440</updated>
+    </task>
+    <task id="LOCAL-00027" summary="partial better light mode ui. Need to modify then will also apply a better dark mode ui.">
+      <option name="closed" value="true" />
+      <created>1690231081394</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1690231081394</updated>
+    </task>
+    <task id="LOCAL-00028" summary="Currently completed light mode theme with glass panes. Now need to figure out how to put different background images depending on the weather.">
+      <option name="closed" value="true" />
+      <created>1690235277830</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1690235277830</updated>
+    </task>
+    <task id="LOCAL-00029" summary="better dark mode.">
+      <option name="closed" value="true" />
+      <created>1690246273854</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1690246273854</updated>
+    </task>
+    <task id="LOCAL-00030" summary="Fixed the tabs for light mode.">
+      <option name="closed" value="true" />
+      <created>1690247061245</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1690247061245</updated>
+    </task>
+    <task id="LOCAL-00031" summary="Made a better dark mode ui. Now need to make similar changes to the light mode.">
+      <option name="closed" value="true" />
+      <created>1690252972813</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1690252972813</updated>
+    </task>
+    <task id="LOCAL-00032" summary="Modified the themes a bit.">
+      <option name="closed" value="true" />
+      <created>1690255909291</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1690255909291</updated>
+    </task>
+    <task id="LOCAL-00033" summary="cloudy_day_theme.css added, and it looks amazing!">
+      <option name="closed" value="true" />
+      <created>1690296587569</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1690296587569</updated>
+    </task>
+    <task id="LOCAL-00034" summary="foggy_day_theme.css added.">
+      <option name="closed" value="true" />
+      <created>1690298846228</created>
+      <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL-00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1690298846228</updated>
+    </task>
+    <task id="LOCAL-00035" summary="rain_day_theme.css added.">
+      <option name="closed" value="true" />
+      <created>1690299353068</created>
+      <option name="number" value="00035" />
+      <option name="presentableId" value="LOCAL-00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1690299353068</updated>
+    </task>
+    <task id="LOCAL-00036" summary="rain_night_theme.css added.">
+      <option name="closed" value="true" />
+      <created>1690299942623</created>
+      <option name="number" value="00036" />
+      <option name="presentableId" value="LOCAL-00036" />
+      <option name="project" value="LOCAL" />
+      <updated>1690299942623</updated>
+    </task>
+    <task id="LOCAL-00037" summary="cloudy_night_theme.css added.">
+      <option name="closed" value="true" />
+      <created>1690300392759</created>
+      <option name="number" value="00037" />
+      <option name="presentableId" value="LOCAL-00037" />
+      <option name="project" value="LOCAL" />
+      <updated>1690300392759</updated>
+    </task>
+    <task id="LOCAL-00038" summary="foggy_night_theme.css added.">
+      <option name="closed" value="true" />
+      <created>1690300791991</created>
+      <option name="number" value="00038" />
+      <option name="presentableId" value="LOCAL-00038" />
+      <option name="project" value="LOCAL" />
+      <updated>1690300791991</updated>
+    </task>
+    <task id="LOCAL-00039" summary="updated rainy_night_background.jpg.">
+      <option name="closed" value="true" />
+      <created>1690310199514</created>
+      <option name="number" value="00039" />
+      <option name="presentableId" value="LOCAL-00039" />
+      <option name="project" value="LOCAL" />
+      <updated>1690310199514</updated>
+    </task>
+    <task id="LOCAL-00040" summary="updated rainy_day_background.jpg.">
+      <option name="closed" value="true" />
+      <created>1690312068327</created>
+      <option name="number" value="00040" />
+      <option name="presentableId" value="LOCAL-00040" />
+      <option name="project" value="LOCAL" />
+      <updated>1690312068327</updated>
+    </task>
+    <task id="LOCAL-00041" summary="Added snow themes.">
+      <option name="closed" value="true" />
+      <created>1690313200138</created>
+      <option name="number" value="00041" />
+      <option name="presentableId" value="LOCAL-00041" />
+      <option name="project" value="LOCAL" />
+      <updated>1690313200138</updated>
+    </task>
+    <task id="LOCAL-00042" summary="thunderstorm_day_theme.css added.">
+      <option name="closed" value="true" />
+      <created>1690314219477</created>
+      <option name="number" value="00042" />
+      <option name="presentableId" value="LOCAL-00042" />
+      <option name="project" value="LOCAL" />
+      <updated>1690314219477</updated>
+    </task>
+    <task id="LOCAL-00043" summary="thunderstorm_night_theme.css added.">
+      <option name="closed" value="true" />
+      <created>1690314522016</created>
+      <option name="number" value="00043" />
+      <option name="presentableId" value="LOCAL-00043" />
+      <option name="project" value="LOCAL" />
+      <updated>1690314522016</updated>
+    </task>
+    <task id="LOCAL-00044" summary="hail_day_theme.css added.">
+      <option name="closed" value="true" />
+      <created>1690315700540</created>
+      <option name="number" value="00044" />
+      <option name="presentableId" value="LOCAL-00044" />
+      <option name="project" value="LOCAL" />
+      <updated>1690315700540</updated>
+    </task>
+    <task id="LOCAL-00045" summary="hail_night_theme.css added.">
+      <option name="closed" value="true" />
+      <created>1690316013688</created>
+      <option name="number" value="00045" />
+      <option name="presentableId" value="LOCAL-00045" />
+      <option name="project" value="LOCAL" />
+      <updated>1690316013688</updated>
+    </task>
+    <task id="LOCAL-00046" summary="working default theme.">
+      <option name="closed" value="true" />
+      <created>1690316843415</created>
+      <option name="number" value="00046" />
+      <option name="presentableId" value="LOCAL-00046" />
+      <option name="project" value="LOCAL" />
+      <updated>1690316843415</updated>
+    </task>
+    <task id="LOCAL-00047" summary="starting to clean up the project before adding more features.">
+      <option name="closed" value="true" />
+      <created>1690317147135</created>
+      <option name="number" value="00047" />
+      <option name="presentableId" value="LOCAL-00047" />
+      <option name="project" value="LOCAL" />
+      <updated>1690317147135</updated>
+    </task>
+    <task id="LOCAL-00048" summary="Minor code cleanup.">
+      <option name="closed" value="true" />
+      <created>1690317415217</created>
+      <option name="number" value="00048" />
+      <option name="presentableId" value="LOCAL-00048" />
+      <option name="project" value="LOCAL" />
+      <updated>1690317415217</updated>
+    </task>
+    <task id="LOCAL-00049" summary="Removed image setting methods.">
+      <option name="closed" value="true" />
+      <created>1690317588913</created>
+      <option name="number" value="00049" />
+      <option name="presentableId" value="LOCAL-00049" />
+      <option name="project" value="LOCAL" />
+      <updated>1690317588913</updated>
+    </task>
+    <task id="LOCAL-00050" summary="Small code edit.">
+      <option name="closed" value="true" />
+      <created>1690317619592</created>
+      <option name="number" value="00050" />
+      <option name="presentableId" value="LOCAL-00050" />
+      <option name="project" value="LOCAL" />
+      <updated>1690317619592</updated>
+    </task>
+    <task id="LOCAL-00051" summary="working different themes.">
+      <option name="closed" value="true" />
+      <created>1690339260593</created>
+      <option name="number" value="00051" />
+      <option name="presentableId" value="LOCAL-00051" />
+      <option name="project" value="LOCAL" />
+      <updated>1690339260594</updated>
+    </task>
+    <task id="LOCAL-00052" summary="added formatDate function.">
+      <option name="closed" value="true" />
+      <created>1690397545455</created>
+      <option name="number" value="00052" />
+      <option name="presentableId" value="LOCAL-00052" />
+      <option name="project" value="LOCAL" />
+      <updated>1690397545456</updated>
+    </task>
+    <task id="LOCAL-00053" summary="prevented resizing of elements.">
+      <option name="closed" value="true" />
+      <created>1690398649931</created>
+      <option name="number" value="00053" />
+      <option name="presentableId" value="LOCAL-00053" />
+      <option name="project" value="LOCAL" />
+      <updated>1690398649931</updated>
+    </task>
+    <task id="LOCAL-00054" summary="removed split pane divider via css.">
+      <option name="closed" value="true" />
+      <created>1690399069799</created>
+      <option name="number" value="00054" />
+      <option name="presentableId" value="LOCAL-00054" />
+      <option name="project" value="LOCAL" />
+      <updated>1690399069799</updated>
+    </task>
+    <task id="LOCAL-00055" summary="removed add favourites button at the start of the program load up.">
+      <option name="closed" value="true" />
+      <created>1690399938825</created>
+      <option name="number" value="00055" />
+      <option name="presentableId" value="LOCAL-00055" />
+      <option name="project" value="LOCAL" />
+      <updated>1690399938825</updated>
+    </task>
+    <task id="LOCAL-00056" summary="added better greeting text">
+      <option name="closed" value="true" />
+      <created>1690400580940</created>
+      <option name="number" value="00056" />
+      <option name="presentableId" value="LOCAL-00056" />
+      <option name="project" value="LOCAL" />
+      <updated>1690400580941</updated>
+    </task>
+    <task id="LOCAL-00057" summary="Added placeholder text for table.">
+      <option name="closed" value="true" />
+      <created>1690401265596</created>
+      <option name="number" value="00057" />
+      <option name="presentableId" value="LOCAL-00057" />
+      <option name="project" value="LOCAL" />
+      <updated>1690401265596</updated>
+    </task>
+    <task id="LOCAL-00058" summary="Replaced favouritesTable with favouritesList">
+      <option name="closed" value="true" />
+      <created>1690402724132</created>
+      <option name="number" value="00058" />
+      <option name="presentableId" value="LOCAL-00058" />
+      <option name="project" value="LOCAL" />
+      <updated>1690402724133</updated>
+    </task>
+    <task id="LOCAL-00059" summary="Added ability to add to favourites list.">
+      <option name="closed" value="true" />
+      <created>1690402929073</created>
+      <option name="number" value="00059" />
+      <option name="presentableId" value="LOCAL-00059" />
+      <option name="project" value="LOCAL" />
+      <updated>1690402929074</updated>
+    </task>
+    <task id="LOCAL-00060" summary="incremental push while updating themes to be easier to modify.">
+      <option name="closed" value="true" />
+      <created>1690424392549</created>
+      <option name="number" value="00060" />
+      <option name="presentableId" value="LOCAL-00060" />
+      <option name="project" value="LOCAL" />
+      <updated>1690424392550</updated>
+    </task>
+    <task id="LOCAL-00061" summary="incremental push 2 while updating themes to be easier to modify. Added global variables.">
+      <option name="closed" value="true" />
+      <created>1690429308047</created>
+      <option name="number" value="00061" />
+      <option name="presentableId" value="LOCAL-00061" />
+      <option name="project" value="LOCAL" />
+      <updated>1690429308047</updated>
+    </task>
+    <option name="localTasksCounter" value="62" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="cloudy_night_theme.css added." />
+    <MESSAGE value="foggy_night_theme.css added." />
+    <MESSAGE value="updated rainy_night_background.jpg." />
+    <MESSAGE value="updated rainy_day_background.jpg." />
+    <MESSAGE value="Added snow themes." />
+    <MESSAGE value="thunderstorm_day_theme.css added." />
+    <MESSAGE value="thunderstorm_night_theme.css added." />
+    <MESSAGE value="hail_day_theme.css added." />
+    <MESSAGE value="hail_night_theme.css added." />
+    <MESSAGE value="working default theme." />
+    <MESSAGE value="starting to clean up the project before adding more features." />
+    <MESSAGE value="Minor code cleanup." />
+    <MESSAGE value="Removed image setting methods." />
+    <MESSAGE value="Small code edit." />
+    <MESSAGE value="working different themes." />
+    <MESSAGE value="added formatDate function." />
+    <MESSAGE value="prevented resizing of elements." />
+    <MESSAGE value="removed split pane divider via css." />
+    <MESSAGE value="removed add favourites button at the start of the program load up." />
+    <MESSAGE value="added better greeting text" />
+    <MESSAGE value="Added placeholder text for table." />
+    <MESSAGE value="Replaced favouritesTable with favouritesList" />
+    <MESSAGE value="Added ability to add to favourites list." />
+    <MESSAGE value="incremental push while updating themes to be easier to modify." />
+    <MESSAGE value="incremental push 2 while updating themes to be easier to modify. Added global variables." />
+    <option name="LAST_COMMIT_MESSAGE" value="incremental push 2 while updating themes to be easier to modify. Added global variables." />
+  </component>
+</project>
