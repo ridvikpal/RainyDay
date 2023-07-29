@@ -2,16 +2,18 @@ package com.rainyday.rainyday;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
-import com.google.gson.JsonElement;
 import com.google.gson.reflect.TypeToken;
 import javafx.collections.FXCollections;
-import javafx.collections.ObservableSet;
 import javafx.fxml.FXML;
 import javafx.scene.chart.AreaChart;
+import javafx.scene.chart.CategoryAxis;
+import javafx.scene.chart.NumberAxis;
 import javafx.scene.chart.XYChart;
 import javafx.scene.control.*;
-import javafx.scene.image.ImageView;
-import javafx.scene.layout.*;
+import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.GridPane;
+import javafx.scene.layout.HBox;
+import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Text;
 import javafx.scene.text.TextAlignment;
@@ -20,12 +22,8 @@ import org.rainyday.ForecastDay;
 import org.rainyday.Hour;
 import org.rainyday.Weather;
 
-import java.awt.event.ActionEvent;
 import java.io.*;
 import java.lang.reflect.Type;
-import java.nio.charset.StandardCharsets;
-import java.nio.file.Files;
-import java.nio.file.Path;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.HashSet;
@@ -33,23 +31,91 @@ import java.util.Objects;
 
 public class Controller {
 
-    // create the universal connector object for connection to WeatherAPI
-    Connection connection = new Connection();
-
-    @FXML
-    private Tab tempTab;
-
-    @FXML
-    private AnchorPane rightPaneAnchorPane;
+    private static final Connection connection = new Connection();
 
     @FXML
     private Tab windTab;
 
     @FXML
-    private Button searchButton;
+    private AnchorPane rootAnchorPane;
 
     @FXML
-    private Button refreshButton;
+    private Text locationText;
+
+    @FXML
+    private AnchorPane windTabAnchorPane;
+
+    @FXML
+    private Button loadButton;
+
+    @FXML
+    private Text precipitationLabel;
+
+    @FXML
+    private CategoryAxis tempGraphCategoryAxis;
+
+    @FXML
+    private Text programTitleText;
+
+    @FXML
+    private NumberAxis windGraphNumberAxis;
+
+    @FXML
+    private CategoryAxis precipGraphCategoryAxis;
+
+    @FXML
+    private Text uvLabel;
+
+    @FXML
+    private Text uvText;
+
+    @FXML
+    private Text pressureLabel;
+
+    @FXML
+    private Text conditionText;
+
+    @FXML
+    private Button addButton;
+
+    @FXML
+    private Text humidityLabel;
+
+    @FXML
+    private Text windText;
+
+    @FXML
+    private Text visibilityText;
+
+    @FXML
+    private Button alertButton;
+
+    @FXML
+    private Text humidityText;
+
+    @FXML
+    private GridPane additionalInfoGridPane;
+
+    @FXML
+    private NumberAxis tempGraphNumberAxis;
+
+    @FXML
+    private Text lastUpdatedTimeText;
+
+    @FXML
+    private ListView<String> favouritesList;
+
+    @FXML
+    private Tab precipTab;
+
+    @FXML
+    private Text currentTempText;
+
+    @FXML
+    private Tab tempTab;
+
+    @FXML
+    private Button searchButton;
 
     @FXML
     private TabPane graphTabPane;
@@ -64,16 +130,10 @@ public class Controller {
     private AreaChart<?, ?> precipGraph;
 
     @FXML
-    private Button loadButton;
-
-    @FXML
-    private Text precipitationLabel;
+    private CategoryAxis windGraphCategoryAxis;
 
     @FXML
     private Text airQualityText;
-
-    @FXML
-    private ListView<String> favouritesList;
 
     @FXML
     private VBox mainInfoVBox;
@@ -82,73 +142,34 @@ public class Controller {
     private Text windLabel;
 
     @FXML
-    private Text locationText;
-
-    @FXML
-    private Text lastUpdatedTimeText;
+    private Button refreshButton;
 
     @FXML
     private HBox favouritesHBox;
 
     @FXML
+    private NumberAxis precipGraphNumberAxis;
+
+    @FXML
     private Text visibilityLabel;
-
-    @FXML
-    private Text uvLabel;
-
-    @FXML
-    private Text uvText;
 
     @FXML
     private AnchorPane precipTabAnchorPane;
 
     @FXML
-    private AnchorPane windGraphAnchorPane;
-
-    @FXML
-    private Text pressureLabel;
-
-    @FXML
-    private Text conditionText;
-
-    @FXML
-    private Text humidityLabel;
-
-    @FXML
-    private Button addButton;
+    private Text greeterText;
 
     @FXML
     private AnchorPane tempTabAnchorPane;
 
     @FXML
-    private Text windText;
-
-    @FXML
-    private Text visibilityText;
-
-    @FXML
-    private Text humidityText;
-
-    @FXML
     private TextField citySearchBar;
-
-    @FXML
-    private GridPane additionalInfoGridPane;
-
-    @FXML
-    private AnchorPane leftPaneAnchorPane;
 
     @FXML
     private Text pressureText;
 
     @FXML
-    private Text selectCityText;
-
-    @FXML
     private Button removeButton;
-
-    @FXML
-    private Tab precipTab;
 
     @FXML
     private Text airQualityLabel;
@@ -157,31 +178,13 @@ public class Controller {
     private Text precipitationText;
 
     @FXML
-    private Text currentTempText;
-
-    @FXML
-    private SplitPane splitPaneScene;
-
-    @FXML
     private AreaChart<?, ?> windGraph;
-
-    @FXML
-    private Button alertButton;
 
     Label favouritesPlaceholder = new Label("No saved favourites.");
     HashSet<String> favourites = new HashSet<>();
 
     @FXML
     private void initialize(){
-        // prevent the split pane from being resized.
-        leftPaneAnchorPane.setMinWidth(700.0);
-        leftPaneAnchorPane.setMaxWidth(700.0);
-
-        // set a placeholder for the favourites list
-        favouritesPlaceholder.setTextFill(Color.GRAY); // need to change
-        favouritesList.setPlaceholder(favouritesPlaceholder);
-
-        // import the favourites list
         importFavourites();
 
         // allow text to be formatted via css
@@ -210,16 +213,36 @@ public class Controller {
         lastUpdatedTimeText.getStyleClass().add("text");
     }
 
-    // This method searches WeatherAPI for city information and creates autocomplete
     @FXML
-    void handleSearchRequest(){
+    void handleSearchRequest() {
         String city = citySearchBar.getText();
         city = city.replace(" ", "-");
         updateData(city);
     }
 
     @FXML
-    void handleRefreshRequest(){
+    void handleAddFavourites() {
+        favourites.add(locationText.getText());
+        favouritesList.setItems(FXCollections.observableArrayList(favourites));
+    }
+
+    @FXML
+    void handleLoadFavourites() {
+        String selectedCity = favouritesList.getSelectionModel().getSelectedItem();
+        selectedCity = selectedCity.replace(" ", "-");
+        updateData(selectedCity);
+        favouritesList.getSelectionModel().clearSelection();
+    }
+
+    @FXML
+    void handleRemoveFavourites() {
+        String selectedCity = favouritesList.getSelectionModel().getSelectedItem();
+        favourites.remove(selectedCity);
+        favouritesList.setItems(FXCollections.observableArrayList(favourites));
+    }
+
+    @FXML
+    void handleRefreshRequest() {
         String city = locationText.getText();
         city = city.replace(" ", "-");
         updateData(city);
@@ -227,7 +250,8 @@ public class Controller {
 
     void updateData(String _city){
         // disable the greeting text
-        selectCityText.setVisible(false);
+        programTitleText.setVisible(false);
+        greeterText.setVisible(false);
 
         // get the current weather
         Weather weather = connection.getForecast(_city, 3);
@@ -288,14 +312,6 @@ public class Controller {
         addButton.setVisible(true);
     }
 
-    String formatDateTime(String _dateTime){
-        DateTimeFormatter inputDateTimeFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
-        DateTimeFormatter outputDateTimeFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd (h:mm a)");
-        LocalDateTime dateTime = LocalDateTime.parse(_dateTime, inputDateTimeFormatter);
-        String formattedString = dateTime.format(outputDateTimeFormatter);
-        return formattedString.toUpperCase();
-    }
-
     void setTempGraph(Weather _weather){
         tempGraph.getData().removeAll(tempGraph.getData());
 
@@ -304,8 +320,8 @@ public class Controller {
 
         for (ForecastDay x : _weather.getForecast().getForecastday()){
             for (Hour y : x.getHour()){
-                String date = y.getTime().substring(y.getTime().lastIndexOf(" ") + 1);
-                temperatureData.getData().add(new XYChart.Data<String, Double>(date, y.getTemp_c()));
+//                String date = y.getTime().substring(y.getTime().lastIndexOf(" ") + 1);
+                temperatureData.getData().add(new XYChart.Data<>(y.getTime(), y.getTemp_c()));
             }
         }
 
@@ -327,104 +343,20 @@ public class Controller {
 //        }
     }
 
-    void setPrecipitationChart(Weather _weather){
-
+    String formatDateTime(String _dateTime){
+        DateTimeFormatter inputDateTimeFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
+        DateTimeFormatter outputDateTimeFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd (h:mm a)");
+        LocalDateTime dateTime = LocalDateTime.parse(_dateTime, inputDateTimeFormatter);
+        String formattedString = dateTime.format(outputDateTimeFormatter);
+        return formattedString.toUpperCase();
     }
 
-    void setWindChart(Weather _weather){
 
-    }
-
-    void setAlert(Weather _weather){
-
-    }
-
-    void setLightTheme(int _weatherCode){
-        try {
-            switch (_weatherCode){
-                // set sunny day theme
-                case 1000, 1003 -> splitPaneScene.getStylesheets().setAll(Objects.requireNonNull(getClass()
-                        .getResource("styles/sunny_day_theme.css"))
-                        .toURI().toString());
-                // set cloudy day theme
-                case 1006, 1009 -> splitPaneScene.getStylesheets().setAll(Objects.requireNonNull(getClass()
-                        .getResource("styles/cloudy_day_theme.css"))
-                        .toURI().toString());
-                // set foggy day theme
-                case 1030, 1135, 1147 -> splitPaneScene.getStylesheets().setAll(Objects.requireNonNull(getClass()
-                        .getResource("styles/foggy_day_theme.css"))
-                        .toURI().toString());
-                // set rainy day theme
-                case 1063, 1069, 1072, 1150, 1153, 1168, 1171, 1180, 1183, 1186, 1189, 1192, 1195, 1198, 1201, 1204,
-                        1207, 1240, 1243, 1246, 1249, 1252 -> splitPaneScene.getStylesheets()
-                        .setAll(Objects.requireNonNull(getClass()
-                        .getResource("styles/rain_day_theme.css"))
-                        .toURI().toString());
-                // set snowy day theme
-                case 1066, 1114, 1117, 1210, 1213, 1216, 1219, 1222, 1225, 1255, 1258 -> splitPaneScene.getStylesheets()
-                        .setAll(Objects.requireNonNull(getClass()
-                        .getResource("styles/snowy_day_theme.css"))
-                        .toURI().toString());
-                // set thunderstorm theme
-                case 1087, 1273, 1276, 1279, 1282 -> splitPaneScene.getStylesheets().setAll(Objects
-                        .requireNonNull(getClass()
-                        .getResource("styles/thunderstorm_day_theme.css"))
-                        .toURI().toString());
-                // set hail theme
-                case 1237, 1261, 1264 -> splitPaneScene.getStylesheets().setAll(Objects.requireNonNull(getClass()
-                        .getResource("styles/hail_day_theme.css"))
-                        .toURI().toString());
-            }
-        } catch (Exception e) {
-            System.out.println("Error setting light theme");
-        }
-    }
-
-    void setDarkTheme(int _weatherCode){
-        try {
-            switch (_weatherCode){
-                // set clear night theme
-                case 1000, 1003 -> splitPaneScene.getStylesheets().setAll(Objects.requireNonNull(getClass()
-                                .getResource("styles/clear_night_theme.css"))
-                        .toURI().toString());
-                // set cloudy night theme
-                case 1006, 1009 -> splitPaneScene.getStylesheets().setAll(Objects.requireNonNull(getClass()
-                                .getResource("styles/cloudy_night_theme.css"))
-                        .toURI().toString());
-                // set foggy night theme
-                case 1030, 1135, 1147 -> splitPaneScene.getStylesheets().setAll(Objects.requireNonNull(getClass()
-                                .getResource("styles/foggy_night_theme.css"))
-                        .toURI().toString());
-                // set rainy night theme
-                case 1063, 1069, 1072, 1150, 1153, 1168, 1171, 1180, 1183, 1186, 1189, 1192, 1195, 1198, 1201, 1204,
-                        1207, 1240, 1243, 1246, 1249, 1252 -> splitPaneScene.getStylesheets()
-                        .setAll(Objects.requireNonNull(getClass()
-                                        .getResource("styles/rain_night_theme.css"))
-                                .toURI().toString());
-                // set snowy night theme
-                case 1066, 1114, 1117, 1210, 1213, 1216, 1219, 1222, 1225, 1255, 1258 -> splitPaneScene.getStylesheets()
-                        .setAll(Objects.requireNonNull(getClass()
-                                        .getResource("styles/snowy_night_theme.css"))
-                                .toURI().toString());
-                // set thunderstorm theme
-                case 1087, 1273, 1276, 1279, 1282 -> splitPaneScene.getStylesheets().setAll(Objects
-                        .requireNonNull(getClass()
-                                .getResource("styles/thunderstorm_night_theme.css"))
-                        .toURI().toString());
-                // set hail theme
-                case 1237, 1261, 1264 -> splitPaneScene.getStylesheets().setAll(Objects.requireNonNull(getClass()
-                                .getResource("styles/hail_night_theme.css"))
-                        .toURI().toString());
-            }
-        } catch (Exception e) {
-            System.out.println("Error setting dark theme");
-        }
-    }
 
     void importFavourites(){
         try (Reader reader = new FileReader("src/main/resources/com/rainyday/rainyday/favourites.json")) {
             Gson gson = new GsonBuilder().setPrettyPrinting().create();
-            Type stringType = new TypeToken<HashSet<String>>(){}.getType();;
+            Type stringType = new TypeToken<HashSet<String>>(){}.getType();
             favourites = gson.fromJson(reader, stringType);
             favouritesList.setItems(FXCollections.observableArrayList(favourites));
         } catch (IOException e) {
@@ -441,27 +373,85 @@ public class Controller {
         }
     }
 
-    // This method adds the current city to the favourites table
-    @FXML
-    void handleAddFavourites(){
-        favourites.add(locationText.getText());
-        favouritesList.setItems(FXCollections.observableArrayList(favourites));
+    void setLightTheme(int _weatherCode){
+        try {
+            switch (_weatherCode){
+                // set sunny day theme
+                case 1000, 1003 -> rootAnchorPane.getStylesheets().setAll(Objects.requireNonNull(getClass()
+                                .getResource("styles/sunny_day_theme.css"))
+                        .toURI().toString());
+                // set cloudy day theme
+                case 1006, 1009 -> rootAnchorPane.getStylesheets().setAll(Objects.requireNonNull(getClass()
+                                .getResource("styles/cloudy_day_theme.css"))
+                        .toURI().toString());
+                // set foggy day theme
+                case 1030, 1135, 1147 -> rootAnchorPane.getStylesheets().setAll(Objects.requireNonNull(getClass()
+                                .getResource("styles/foggy_day_theme.css"))
+                        .toURI().toString());
+                // set rainy day theme
+                case 1063, 1069, 1072, 1150, 1153, 1168, 1171, 1180, 1183, 1186, 1189, 1192, 1195, 1198, 1201, 1204,
+                        1207, 1240, 1243, 1246, 1249, 1252 -> rootAnchorPane.getStylesheets()
+                        .setAll(Objects.requireNonNull(getClass()
+                                        .getResource("styles/rain_day_theme.css"))
+                                .toURI().toString());
+                // set snowy day theme
+                case 1066, 1114, 1117, 1210, 1213, 1216, 1219, 1222, 1225, 1255, 1258 -> rootAnchorPane.getStylesheets()
+                        .setAll(Objects.requireNonNull(getClass()
+                                        .getResource("styles/snowy_day_theme.css"))
+                                .toURI().toString());
+                // set thunderstorm theme
+                case 1087, 1273, 1276, 1279, 1282 -> rootAnchorPane.getStylesheets().setAll(Objects
+                        .requireNonNull(getClass()
+                                .getResource("styles/thunderstorm_day_theme.css"))
+                        .toURI().toString());
+                // set hail theme
+                case 1237, 1261, 1264 -> rootAnchorPane.getStylesheets().setAll(Objects.requireNonNull(getClass()
+                                .getResource("styles/hail_day_theme.css"))
+                        .toURI().toString());
+            }
+        } catch (Exception e) {
+            System.out.println("Error setting light theme");
+        }
     }
 
-    // This method removes a selected city from the favourites table
-    @FXML
-    void handleRemoveFavourites(){
-        String selectedCity = favouritesList.getSelectionModel().getSelectedItem();
-        favourites.remove(selectedCity);
-        favouritesList.setItems(FXCollections.observableArrayList(favourites));
-    }
-
-    // This method loads a selected favourite to the favourites table.
-    @FXML
-    void handleLoadFavourites(){
-        String selectedCity = favouritesList.getSelectionModel().getSelectedItem();
-        selectedCity = selectedCity.replace(" ", "-");
-        updateData(selectedCity);
-        favouritesList.getSelectionModel().clearSelection();
+    void setDarkTheme(int _weatherCode){
+        try {
+            switch (_weatherCode){
+                // set clear night theme
+                case 1000, 1003 -> rootAnchorPane.getStylesheets().setAll(Objects.requireNonNull(getClass()
+                                .getResource("styles/clear_night_theme.css"))
+                        .toURI().toString());
+                // set cloudy night theme
+                case 1006, 1009 -> rootAnchorPane.getStylesheets().setAll(Objects.requireNonNull(getClass()
+                                .getResource("styles/cloudy_night_theme.css"))
+                        .toURI().toString());
+                // set foggy night theme
+                case 1030, 1135, 1147 -> rootAnchorPane.getStylesheets().setAll(Objects.requireNonNull(getClass()
+                                .getResource("styles/foggy_night_theme.css"))
+                        .toURI().toString());
+                // set rainy night theme
+                case 1063, 1069, 1072, 1150, 1153, 1168, 1171, 1180, 1183, 1186, 1189, 1192, 1195, 1198, 1201, 1204,
+                        1207, 1240, 1243, 1246, 1249, 1252 -> rootAnchorPane.getStylesheets()
+                        .setAll(Objects.requireNonNull(getClass()
+                                        .getResource("styles/rain_night_theme.css"))
+                                .toURI().toString());
+                // set snowy night theme
+                case 1066, 1114, 1117, 1210, 1213, 1216, 1219, 1222, 1225, 1255, 1258 -> rootAnchorPane.getStylesheets()
+                        .setAll(Objects.requireNonNull(getClass()
+                                        .getResource("styles/snowy_night_theme.css"))
+                                .toURI().toString());
+                // set thunderstorm theme
+                case 1087, 1273, 1276, 1279, 1282 -> rootAnchorPane.getStylesheets().setAll(Objects
+                        .requireNonNull(getClass()
+                                .getResource("styles/thunderstorm_night_theme.css"))
+                        .toURI().toString());
+                // set hail theme
+                case 1237, 1261, 1264 -> rootAnchorPane.getStylesheets().setAll(Objects.requireNonNull(getClass()
+                                .getResource("styles/hail_night_theme.css"))
+                        .toURI().toString());
+            }
+        } catch (Exception e) {
+            System.out.println("Error setting dark theme");
+        }
     }
 }
