@@ -20,6 +20,7 @@ import javafx.util.Duration;
 import org.rainyday.Connection;
 import org.rainyday.Hour;
 import org.rainyday.Weather;
+import javafx.scene.control.Alert;
 
 import java.io.*;
 import java.lang.reflect.Type;
@@ -432,9 +433,15 @@ public class Controller {
             }
             fadeIn.playFromStart();
         }catch (NullPointerException e){
-            System.out.println("Error: Unknown City name entered");
+            Alert unknownCityAlert = new Alert(Alert.AlertType.ERROR);
+            unknownCityAlert.setHeaderText("Error Occured Utilizing WeatherAPI");
+            unknownCityAlert.setContentText("Unknown city name was entered.");
+            unknownCityAlert.showAndWait();
         } catch (Exception e) {
-            System.out.println("Error connecting to WeatherAPI");
+            Alert apiConnectionError = new Alert(Alert.AlertType.ERROR);
+            apiConnectionError.setHeaderText("Error Occured Connecting to WeatherAPI");
+            apiConnectionError.setContentText("Connection timeout occured");
+            apiConnectionError.showAndWait();
         }
     }
 
