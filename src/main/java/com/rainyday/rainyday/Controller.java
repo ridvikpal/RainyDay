@@ -3,6 +3,7 @@ package com.rainyday.rainyday;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.reflect.TypeToken;
+import javafx.animation.FadeTransition;
 import javafx.collections.FXCollections;
 import javafx.fxml.FXML;
 import javafx.scene.chart.AreaChart;
@@ -15,6 +16,7 @@ import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
+import javafx.util.Duration;
 import org.rainyday.Connection;
 import org.rainyday.Hour;
 import org.rainyday.Weather;
@@ -229,6 +231,9 @@ public class Controller {
     XYChart.Series windData2 = new XYChart.Series();
     XYChart.Series windData3 = new XYChart.Series();
 
+    // create a standard fade transition
+    private FadeTransition fadeIn = new FadeTransition(Duration.millis(2000));
+
     @FXML
     private void initialize(){
         importFavourites();
@@ -257,6 +262,13 @@ public class Controller {
         visibilityText.getStyleClass().add("text");
         locationText.getStyleClass().add("text");
         lastUpdatedTimeText.getStyleClass().add("text");
+
+        // set the fade transition
+        fadeIn.setNode(rootAnchorPane);
+        fadeIn.setFromValue(0.25);
+        fadeIn.setToValue(1.0);
+        fadeIn.setCycleCount(1);
+        fadeIn.setAutoReverse(true);
     }
 
     @FXML
@@ -418,6 +430,7 @@ public class Controller {
         }else{
             setDarkTheme(weather.getCurrent().getCondition().getCode());
         }
+        fadeIn.playFromStart();
     }
 
     void setTempGraph(Weather _weather) {

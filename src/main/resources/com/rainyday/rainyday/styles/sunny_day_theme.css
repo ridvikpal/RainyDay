@@ -132,6 +132,9 @@
 .axis-minor-tick-mark {
     -fx-stroke: -fx-chart-colour-lines;
 }
+.corner {
+    -fx-background-color: transparent ;
+}
 
 /* LIST-VIEW */
 .list-view {
