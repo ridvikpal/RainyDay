@@ -276,6 +276,8 @@ public class Controller {
     void handleSearchRequest() {
         String city = citySearchBar.getText();
         city = city.replace(" ", "-");
+        city = city.replace(",", "-");
+        city = city.replace("- ", "-");
         updateData(city);
     }
 
