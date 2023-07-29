@@ -5,11 +5,14 @@ import com.google.gson.GsonBuilder;
 import com.google.gson.reflect.TypeToken;
 import javafx.collections.FXCollections;
 import javafx.fxml.FXML;
+import javafx.scene.Cursor;
+import javafx.scene.Node;
 import javafx.scene.chart.AreaChart;
 import javafx.scene.chart.CategoryAxis;
 import javafx.scene.chart.NumberAxis;
 import javafx.scene.chart.XYChart;
 import javafx.scene.control.*;
+import javafx.scene.input.MouseButton;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
@@ -124,7 +127,7 @@ public class Controller {
     private Text feelsLikeText;
 
     @FXML
-    private AreaChart<?, ?> tempGraph;
+    private AreaChart<String, Double> tempGraph;
 
     @FXML
     private AreaChart<?, ?> precipGraph;
@@ -312,35 +315,31 @@ public class Controller {
         addButton.setVisible(true);
     }
 
-    void setTempGraph(Weather _weather){
+    void setTempGraph(Weather _weather) {
         tempGraph.getData().removeAll(tempGraph.getData());
 
-        XYChart.Series temperatureData = new XYChart.Series();
-        temperatureData.setName("Temperature Data");
+        XYChart.Series temperatureData1 = new XYChart.Series();
+        XYChart.Series temperatureData2 = new XYChart.Series();
+        XYChart.Series temperatureData3 = new XYChart.Series();
 
-        for (ForecastDay x : _weather.getForecast().getForecastday()){
-            for (Hour y : x.getHour()){
-//                String date = y.getTime().substring(y.getTime().lastIndexOf(" ") + 1);
-                temperatureData.getData().add(new XYChart.Data<>(y.getTime(), y.getTemp_c()));
-            }
+        temperatureData1.setName(_weather.getForecast().getForecastday().get(0).getDate());
+        temperatureData2.setName(_weather.getForecast().getForecastday().get(1).getDate());
+        temperatureData3.setName(_weather.getForecast().getForecastday().get(2).getDate());
+
+        for (Hour x : _weather.getForecast().getForecastday().get(0).getHour()) {
+            String time = x.getTime().substring(x.getTime().lastIndexOf(" ") + 1);
+            temperatureData1.getData().add(new XYChart.Data<>(time, x.getTemp_c()));
+        }
+        for (Hour x : _weather.getForecast().getForecastday().get(1).getHour()) {
+            String time = x.getTime().substring(x.getTime().lastIndexOf(" ") + 1);
+            temperatureData2.getData().add(new XYChart.Data<>(time, x.getTemp_c()));
+        }
+        for (Hour x : _weather.getForecast().getForecastday().get(2).getHour()) {
+            String time = x.getTime().substring(x.getTime().lastIndexOf(" ") + 1);
+            temperatureData3.getData().add(new XYChart.Data<>(time, x.getTemp_c()));
         }
 
-        tempGraph.getData().add(temperatureData);
-        tempGraph.setLegendVisible(false);
-
-
-        // get average temperature for 3 days
-//        for (ForecastDay x : _weather.getForecast().getForecastday()){
-//            System.out.println(x.getDay().getAvgtemp_c());
-//        }
-
-        // get average temperature for each hour in each day
-//        for (ForecastDay x : _weather.getForecast().getForecastday()){
-//            System.out.println("Day " + x.getDate());
-//            for (Hour y : x.getHour()){
-//                System.out.println(y.getTime() + " -> " + y.getTemp_c());
-//            }
-//        }
+        tempGraph.getData().addAll(temperatureData1, temperatureData2, temperatureData3);
     }
 
     String formatDateTime(String _dateTime){
