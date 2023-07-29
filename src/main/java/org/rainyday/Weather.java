@@ -26,6 +26,10 @@ public class Weather {
         return alerts;
     }
 
+    public Forecast getForecast() {
+        return forecast;
+    }
+
     @Override
     public String toString() {
         return "Weather{" +

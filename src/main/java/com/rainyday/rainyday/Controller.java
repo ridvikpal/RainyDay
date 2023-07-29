@@ -8,6 +8,7 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableSet;
 import javafx.fxml.FXML;
 import javafx.scene.chart.AreaChart;
+import javafx.scene.chart.XYChart;
 import javafx.scene.control.*;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.*;
@@ -15,6 +16,8 @@ import javafx.scene.paint.Color;
 import javafx.scene.text.Text;
 import javafx.scene.text.TextAlignment;
 import org.rainyday.Connection;
+import org.rainyday.ForecastDay;
+import org.rainyday.Hour;
 import org.rainyday.Weather;
 
 import java.awt.event.ActionEvent;
@@ -215,6 +218,13 @@ public class Controller {
         updateData(city);
     }
 
+    @FXML
+    void handleRefreshRequest(){
+        String city = locationText.getText();
+        city = city.replace(" ", "-");
+        updateData(city);
+    }
+
     void updateData(String _city){
         // disable the greeting text
         selectCityText.setVisible(false);
@@ -263,11 +273,6 @@ public class Controller {
         else if (epaIndex == 5) airQualityText.setText("Very Unhealthy");
         else airQualityText.setText("Hazardous");
 
-        // set the correct alert
-//        if ((weather.getAlerts().getAlert().isEmpty())){
-//
-//        }
-
         // set the correct color theme based on the condition
         if (weather.getCurrent().getIs_day() == 1){
             setLightTheme(weather.getCurrent().getCondition().getCode());
@@ -277,6 +282,7 @@ public class Controller {
 
         // set the charts
         graphTabPane.setVisible(true);
+        setTempGraph(weather);
 
         // setup the favourites table buttons
         addButton.setVisible(true);
@@ -288,6 +294,37 @@ public class Controller {
         LocalDateTime dateTime = LocalDateTime.parse(_dateTime, inputDateTimeFormatter);
         String formattedString = dateTime.format(outputDateTimeFormatter);
         return formattedString.toUpperCase();
+    }
+
+    void setTempGraph(Weather _weather){
+        tempGraph.getData().removeAll(tempGraph.getData());
+
+        XYChart.Series temperatureData = new XYChart.Series();
+        temperatureData.setName("Temperature Data");
+
+        for (ForecastDay x : _weather.getForecast().getForecastday()){
+            for (Hour y : x.getHour()){
+                String date = y.getTime().substring(y.getTime().lastIndexOf(" ") + 1);
+                temperatureData.getData().add(new XYChart.Data<String, Double>(date, y.getTemp_c()));
+            }
+        }
+
+        tempGraph.getData().add(temperatureData);
+        tempGraph.setLegendVisible(false);
+
+
+        // get average temperature for 3 days
+//        for (ForecastDay x : _weather.getForecast().getForecastday()){
+//            System.out.println(x.getDay().getAvgtemp_c());
+//        }
+
+        // get average temperature for each hour in each day
+//        for (ForecastDay x : _weather.getForecast().getForecastday()){
+//            System.out.println("Day " + x.getDate());
+//            for (Hour y : x.getHour()){
+//                System.out.println(y.getTime() + " -> " + y.getTemp_c());
+//            }
+//        }
     }
 
     void setPrecipitationChart(Weather _weather){

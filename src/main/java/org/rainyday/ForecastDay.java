@@ -9,6 +9,26 @@ public class ForecastDay {
     private Day day;
     ArrayList<Hour> hour;
 
+    public String getDate() {
+        return date;
+    }
+
+    public int getDate_epoch() {
+        return date_epoch;
+    }
+
+    public Astro getAstro() {
+        return astro;
+    }
+
+    public Day getDay() {
+        return day;
+    }
+
+    public ArrayList<Hour> getHour() {
+        return hour;
+    }
+
     @Override
     public String toString() {
         return "ForecastDay{" +

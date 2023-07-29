@@ -4,13 +4,12 @@
 <?import javafx.geometry.*?>
 <?import javafx.scene.chart.*?>
 <?import javafx.scene.control.*?>
-<?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
 <SplitPane fx:id="splitPaneScene" dividerPositions="0.7" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="650.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.rainyday.rainyday.Controller">
   <items>
-    <AnchorPane fx:id="leftPaneAnchorPane" minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+    <AnchorPane fx:id="leftPaneAnchorPane" minHeight="0.0" minWidth="0.0" prefHeight="650.0" prefWidth="700.0">
          <children>
             <TabPane fx:id="graphTabPane" layoutX="182.0" layoutY="191.0" prefHeight="233.0" prefWidth="289.0" side="BOTTOM" tabClosingPolicy="UNAVAILABLE" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="350.0">
               <tabs>
@@ -178,7 +177,7 @@
                   </Text>
                </children>
             </VBox>
-            <Button fx:id="refreshButton" layoutX="626.0" layoutY="14.0" mnemonicParsing="false" onAction="#handleSearchRequest" prefHeight="34.0" prefWidth="56.0" text="Refresh" visible="false" />
+            <Button fx:id="refreshButton" layoutX="626.0" layoutY="14.0" mnemonicParsing="false" onAction="#handleRefreshRequest" prefHeight="34.0" prefWidth="56.0" text="Refresh" visible="false" />
             <Text fx:id="locationText" fill="#9e9e9e" layoutX="39.0" layoutY="119.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" visible="false" wrappingWidth="631.0">
                <font>
                   <Font size="20.0" />
