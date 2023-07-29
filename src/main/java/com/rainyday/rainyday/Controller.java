@@ -130,7 +130,7 @@ public class Controller {
     private AreaChart<String, Double> tempGraph;
 
     @FXML
-    private AreaChart<?, ?> precipGraph;
+    private AreaChart<String, Double> precipGraph;
 
     @FXML
     private CategoryAxis windGraphCategoryAxis;
@@ -181,10 +181,59 @@ public class Controller {
     private Text precipitationText;
 
     @FXML
-    private AreaChart<?, ?> windGraph;
+    private AreaChart<String, Double> windGraph;
+
+    @FXML
+    private RadioButton tempGraphDate1Selector;
+
+    @FXML
+    private RadioButton tempGraphDate2Selector;
+
+    @FXML
+    private RadioButton tempGraphDate3Selector;
+
+    @FXML
+    private ToggleGroup tempDateSelectorGroup;
+
+    XYChart.Series temperatureData1 = new XYChart.Series();
+    XYChart.Series temperatureData2 = new XYChart.Series();
+    XYChart.Series temperatureData3 = new XYChart.Series();
 
     Label favouritesPlaceholder = new Label("No saved favourites.");
     HashSet<String> favourites = new HashSet<>();
+
+    @FXML
+    private RadioButton precipGraphDate1Selector;
+
+    @FXML
+    private RadioButton precipGraphDate2Selector;
+
+    @FXML
+    private RadioButton precipGraphDate3Selector;
+
+    @FXML
+    private ToggleGroup precipDateSelectorGroup;
+
+    XYChart.Series precipitationData1 = new XYChart.Series();
+    XYChart.Series precipitationData2 = new XYChart.Series();
+    XYChart.Series precipitationData3 = new XYChart.Series();
+
+
+    @FXML
+    private RadioButton windGraphDate1Selector;
+
+    @FXML
+    private RadioButton windGraphDate2Selector;
+
+    @FXML
+    private RadioButton windGraphDate3Selector;
+
+    @FXML
+    private ToggleGroup windDateSelectorGroup;
+
+    XYChart.Series windData1 = new XYChart.Series();
+    XYChart.Series windData2 = new XYChart.Series();
+    XYChart.Series windData3 = new XYChart.Series();
 
     @FXML
     private void initialize(){
@@ -251,6 +300,60 @@ public class Controller {
         updateData(city);
     }
 
+    @FXML
+    void chooseTempDate1(){
+        tempGraph.getData().removeAll(tempGraph.getData());
+        tempGraph.getData().add(temperatureData1);
+    }
+
+    @FXML
+    void chooseTempDate2(){
+        tempGraph.getData().removeAll(tempGraph.getData());
+        tempGraph.getData().add(temperatureData2);
+    }
+
+    @FXML
+    void chooseTempDate3(){
+        tempGraph.getData().removeAll(tempGraph.getData());
+        tempGraph.getData().add(temperatureData3);
+    }
+
+    @FXML
+    void choosePrecipDate1(){
+        precipGraph.getData().removeAll(precipGraph.getData());
+        precipGraph.getData().add(precipitationData1);
+    }
+
+    @FXML
+    void choosePrecipDate2(){
+        precipGraph.getData().removeAll(precipGraph.getData());
+        precipGraph.getData().add(precipitationData2);
+    }
+
+    @FXML
+    void choosePrecipDate3(){
+        precipGraph.getData().removeAll(precipGraph.getData());
+        precipGraph.getData().add(precipitationData3);
+    }
+
+    @FXML
+    void chooseWindDate1(){
+        windGraph.getData().removeAll(windGraph.getData());
+        windGraph.getData().add(windData1);
+    }
+
+    @FXML
+    void chooseWindDate2(){
+        windGraph.getData().removeAll(windGraph.getData());
+        windGraph.getData().add(windData2);
+    }
+
+    @FXML
+    void chooseWindDate3(){
+        windGraph.getData().removeAll(windGraph.getData());
+        windGraph.getData().add(windData3);
+    }
+
     void updateData(String _city){
         // disable the greeting text
         programTitleText.setVisible(false);
@@ -309,25 +412,33 @@ public class Controller {
 
         // set the charts
         graphTabPane.setVisible(true);
+
         setTempGraph(weather);
+        tempGraphDate1Selector.setSelected(true);
+        chooseTempDate1();
+
         setPrecipGraph(weather);
+        precipGraphDate1Selector.setSelected(true);
+        choosePrecipDate1();
+
         setWindGraph(weather);
+        windGraphDate1Selector.setSelected(true);
+        chooseWindDate1();
 
         // setup the favourites table buttons
         addButton.setVisible(true);
     }
 
     void setTempGraph(Weather _weather) {
-        tempGraph.getData().removeAll(tempGraph.getData());
+        temperatureData1.getData().removeAll(temperatureData1.getData());
+        temperatureData2.getData().removeAll(temperatureData2.getData());
+        temperatureData3.getData().removeAll(temperatureData3.getData());
 
-        XYChart.Series temperatureData1 = new XYChart.Series();
-        XYChart.Series temperatureData2 = new XYChart.Series();
-        XYChart.Series temperatureData3 = new XYChart.Series();
+        tempGraphDate1Selector.setText(_weather.getForecast().getForecastday().get(0).getDate());
+        tempGraphDate2Selector.setText(_weather.getForecast().getForecastday().get(1).getDate());
+        tempGraphDate3Selector.setText(_weather.getForecast().getForecastday().get(2).getDate());
 
-        temperatureData1.setName(_weather.getForecast().getForecastday().get(0).getDate());
-        temperatureData2.setName(_weather.getForecast().getForecastday().get(1).getDate());
-        temperatureData3.setName(_weather.getForecast().getForecastday().get(2).getDate());
-
+        // add new data
         for (Hour x : _weather.getForecast().getForecastday().get(0).getHour()) {
             String time = x.getTime().substring(x.getTime().lastIndexOf(" ") + 1);
             temperatureData1.getData().add(new XYChart.Data<>(time, x.getTemp_c()));
@@ -340,21 +451,24 @@ public class Controller {
             String time = x.getTime().substring(x.getTime().lastIndexOf(" ") + 1);
             temperatureData3.getData().add(new XYChart.Data<>(time, x.getTemp_c()));
         }
+//        tempGraph.getData().addAll(temperatureData1, temperatureData2, temperatureData3);
 
-        tempGraph.getData().addAll(temperatureData1, temperatureData2, temperatureData3);
+        // formatting
+        tempGraph.setLegendVisible(false);
+        tempGraphCategoryAxis.setLabel("Hour");
+        tempGraphNumberAxis.setLabel("Degrees Celsius");
     }
 
     void setPrecipGraph(Weather _weather){
-        precipGraph.getData().removeAll(precipGraph.getData());
+        precipitationData1.getData().removeAll(precipitationData1.getData());
+        precipitationData2.getData().removeAll(precipitationData2.getData());
+        precipitationData3.getData().removeAll(precipitationData3.getData());
 
-        XYChart.Series precipitationData1 = new XYChart.Series();
-        XYChart.Series precipitationData2 = new XYChart.Series();
-        XYChart.Series precipitationData3 = new XYChart.Series();
+        precipGraphDate1Selector.setText(_weather.getForecast().getForecastday().get(0).getDate());
+        precipGraphDate2Selector.setText(_weather.getForecast().getForecastday().get(1).getDate());
+        precipGraphDate3Selector.setText(_weather.getForecast().getForecastday().get(2).getDate());
 
-        precipitationData1.setName(_weather.getForecast().getForecastday().get(0).getDate());
-        precipitationData2.setName(_weather.getForecast().getForecastday().get(1).getDate());
-        precipitationData3.setName(_weather.getForecast().getForecastday().get(2).getDate());
-
+        // add new data
         for (Hour x : _weather.getForecast().getForecastday().get(0).getHour()) {
             String time = x.getTime().substring(x.getTime().lastIndexOf(" ") + 1);
             precipitationData1.getData().add(new XYChart.Data<>(time, x.getPrecip_mm()));
@@ -368,19 +482,20 @@ public class Controller {
             precipitationData3.getData().add(new XYChart.Data<>(time, x.getPrecip_mm()));
         }
 
-        precipGraph.getData().addAll(precipitationData1, precipitationData2, precipitationData3);
+        // formatting
+        precipGraph.setLegendVisible(false);
+        precipGraphCategoryAxis.setLabel("Hour");
+        precipGraphNumberAxis.setLabel("Millimeters");
     }
 
     void setWindGraph(Weather _weather){
-        windGraph.getData().removeAll(windGraph.getData());
+        windData1.getData().removeAll(windData1.getData());
+        windData2.getData().removeAll(windData2.getData());
+        windData3.getData().removeAll(windData3.getData());
 
-        XYChart.Series windData1 = new XYChart.Series();
-        XYChart.Series windData2 = new XYChart.Series();
-        XYChart.Series windData3 = new XYChart.Series();
-
-        windData1.setName(_weather.getForecast().getForecastday().get(0).getDate());
-        windData2.setName(_weather.getForecast().getForecastday().get(1).getDate());
-        windData3.setName(_weather.getForecast().getForecastday().get(2).getDate());
+        windGraphDate1Selector.setText(_weather.getForecast().getForecastday().get(0).getDate());
+        windGraphDate2Selector.setText(_weather.getForecast().getForecastday().get(1).getDate());
+        windGraphDate3Selector.setText(_weather.getForecast().getForecastday().get(2).getDate());
 
         for (Hour x : _weather.getForecast().getForecastday().get(0).getHour()) {
             String time = x.getTime().substring(x.getTime().lastIndexOf(" ") + 1);
@@ -395,7 +510,10 @@ public class Controller {
             windData3.getData().add(new XYChart.Data<>(time, x.getWind_kph()));
         }
 
-        windGraph.getData().addAll(windData1, windData2, windData3);
+        // formatting
+        windGraph.setLegendVisible(false);
+        windGraphCategoryAxis.setLabel("Hour");
+        windGraphNumberAxis.setLabel("Kilometers Per Hour");
     }
 
     String formatDateTime(String _dateTime){
