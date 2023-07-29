@@ -14,7 +14,7 @@
             <Font size="20.0" />
          </font>
       </Text>
-      <TextField fx:id="citySearchBar" layoutX="718.0" layoutY="14.0" prefHeight="34.0" prefWidth="228.0" promptText="Search for city..." AnchorPane.bottomAnchor="602.0" AnchorPane.leftAnchor="718.0" AnchorPane.rightAnchor="54.0" AnchorPane.topAnchor="14.0" />
+      <TextField fx:id="citySearchBar" layoutX="718.0" layoutY="14.0" onAction="#handleSearchRequest" prefHeight="34.0" prefWidth="228.0" promptText="Search for city..." AnchorPane.bottomAnchor="602.0" AnchorPane.leftAnchor="718.0" AnchorPane.rightAnchor="54.0" AnchorPane.topAnchor="14.0" />
       <Button fx:id="searchButton" layoutX="953.0" layoutY="14.0" mnemonicParsing="false" onAction="#handleSearchRequest" prefHeight="34.0" prefWidth="33.0" text="🔍" />
       <ListView fx:id="favouritesList" layoutX="718.0" layoutY="57.0" prefHeight="243.0" prefWidth="268.0" />
       <TabPane fx:id="graphTabPane" layoutY="350.0" prefHeight="300.0" prefWidth="1000.0" side="BOTTOM" tabClosingPolicy="UNAVAILABLE" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="350.0">
