@@ -12,11 +12,32 @@
     -fx-text-fill-inactive: grey;
     -fx-text-fill-default: black;
     -fx-background-color-thumb-hover: rgba(255, 255, 255, 0.7);
+    -fx-mark-color-radio-selected: #9b9b9b;
+    -fx-background-color-radio-default: rgba(222, 222, 222, 0.85);
 
     /* Settings for root splitpane */
     -fx-background: derive(-fx-base, 26.4%);
     -fx-background-image: url(../backgrounds/thunderstorm_day_background.jpg);
     -fx-color: -fx-base;
+}
+
+/* RADIO BUTTONS */
+.radio-button:hover {
+    -fx-background-color: -fx-background-colour-hover;
+}
+.radio-button:pressed {
+    -fx-background-color: -fx-background-color-pressed;
+}
+.radio-button {
+    -fx-background-color: transparent;
+}
+.radio-button .dot {
+    -fx-mark-highlight-color: -fx-mark-color-radio-selected;
+    -fx-mark-color: -fx-mark-color-radio-selected;
+}
+
+.radio-button .radio {
+    -fx-background-color: -fx-background-color-radio-default;
 }
 
 /* SCROLL BAR */
@@ -48,7 +69,7 @@
 
 /* CHART */
 .chart {
-    -fx-background-color: -fx-background-colour-default;
+    -fx-background-color: transparent;
     -fx-text-fill: -fx-text-fill-default;
     -fx-stroke: -fx-text-fill-default;
 }
@@ -185,7 +206,7 @@
 
 /* TABS */
 .tab-pane {
-    -fx-background-color: transparent;
+    -fx-background-color: -fx-background-colour-default;
 }
 
 .tab-header-area .tab-header-background {
@@ -194,7 +215,7 @@
 }
 
 .tab {
-    -fx-background-color: -fx-background-colour-default;
+    -fx-background-color: transparent;
     -fx-border-color: transparent;
 }
 

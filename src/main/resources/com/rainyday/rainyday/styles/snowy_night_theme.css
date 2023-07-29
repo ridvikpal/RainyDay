@@ -12,12 +12,34 @@
     -fx-text-fill-inactive: lightgrey;
     -fx-text-fill-default: white;
     -fx-background-color-thumb-hover: rgba(0, 0, 0, 0.3);
+    -fx-mark-color-radio-selected: #c0c0c0;
+    -fx-background-color-radio-default: rgba(96, 96, 96, 0.85);
 
     /* Settings for root splitpane */
     -fx-background: derive(-fx-base, 26.4%);
     -fx-background-image: url(../backgrounds/snowy_night_background.jpg);
     -fx-color: -fx-base;
 }
+
+/* RADIO BUTTONS */
+.radio-button:hover {
+    -fx-background-color: -fx-background-colour-hover;
+}
+.radio-button:pressed {
+    -fx-background-color: -fx-background-color-pressed;
+}
+.radio-button {
+    -fx-background-color: transparent;
+}
+.radio-button .dot {
+    -fx-mark-highlight-color: -fx-mark-color-radio-selected;
+    -fx-mark-color: -fx-mark-color-radio-selected;
+}
+
+.radio-button .radio {
+    -fx-background-color: -fx-background-color-radio-default;
+}
+
 /* SCROLL BAR */
 .scroll-bar {
     -fx-background-color: transparent;
