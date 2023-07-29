@@ -394,13 +394,6 @@ public class Controller {
         else if (epaIndex == 5) airQualityText.setText("Very Unhealthy");
         else airQualityText.setText("Hazardous");
 
-        // set the correct color theme based on the condition
-        if (weather.getCurrent().getIs_day() == 1){
-            setLightTheme(weather.getCurrent().getCondition().getCode());
-        }else{
-            setDarkTheme(weather.getCurrent().getCondition().getCode());
-        }
-
         // set the charts
         graphTabPane.setVisible(true);
 
@@ -418,6 +411,13 @@ public class Controller {
 
         // setup the favourites table buttons
         addButton.setVisible(true);
+
+        // set the correct color theme based on the condition
+        if (weather.getCurrent().getIs_day() == 1){
+            setLightTheme(weather.getCurrent().getCondition().getCode());
+        }else{
+            setDarkTheme(weather.getCurrent().getCondition().getCode());
+        }
     }
 
     void setTempGraph(Weather _weather) {
