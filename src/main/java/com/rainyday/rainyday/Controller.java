@@ -384,9 +384,6 @@ public class Controller {
         uvText.setText(String.valueOf(weather.getCurrent().getUv()));
         pressureText.setText(weather.getCurrent().getPressure_mb() + " mb");
         visibilityText.setText(weather.getCurrent().getVis_km() + " km");
-        locationText.setFill(Color.BLACK);
-        locationText.setVisible(true);
-        locationText.setTextAlignment(TextAlignment.LEFT);
         locationText.setText(
                 weather.getLocation().getName() + ", "
                         + weather.getLocation().getRegion() + ", "
