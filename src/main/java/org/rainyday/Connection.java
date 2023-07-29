@@ -10,11 +10,13 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.reflect.TypeToken;
 
+import java.io.IOException;
 import java.lang.reflect.Type;
 import java.net.URI;
 import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
+import java.time.Duration;
 import java.util.ArrayList;
 
 /* MAIN CLASS DECLARATION */
@@ -24,32 +26,24 @@ public class Connection {
 
     private final HttpClient client = HttpClient.newHttpClient();
 
-    public Weather getCurrentWeather(String _q) {
+    public Weather getCurrentWeather(String _q) throws IOException, InterruptedException {
         // the url to get the information from
         String url = "https://api.weatherapi.com/v1/current.json?key=" + API_KEY
                 + "&q=" + _q + "&aqi=yes";
 
         // create a GET http request
-        HttpRequest currentWeatherRequest = HttpRequest.newBuilder().uri(URI.create(url)).build();
+        HttpRequest currentWeatherRequest = HttpRequest.newBuilder().uri(URI.create(url))
+                .timeout(Duration.ofSeconds(3)).build();
 
         // create the result of our http request
         Weather result;
+        // send the request to the server using the client
+        HttpResponse<String> currentWeatherResponse = client.send(currentWeatherRequest,
+                HttpResponse.BodyHandlers.ofString());
 
-        try {
-            // send the request to the server using the client
-            HttpResponse<String> currentWeatherResponse = client.send(currentWeatherRequest,
-                    HttpResponse.BodyHandlers.ofString());
-
-            // capture the result from GSON
-            Gson gsonObject = new GsonBuilder().setPrettyPrinting().create();
-            result = gsonObject.fromJson(currentWeatherResponse.body(), Weather.class);
-
-//            System.out.println(gsonObject.toJson(result));
-        }catch (Exception e){
-            e.printStackTrace();
-
-            result = null;
-        }
+        // capture the result from GSON
+        Gson gsonObject = new GsonBuilder().setPrettyPrinting().create();
+        result = gsonObject.fromJson(currentWeatherResponse.body(), Weather.class);
 
         return result;
     }
@@ -78,26 +72,21 @@ public class Connection {
         return result;
     }
 
-    public Weather getForecast(String _q, int _days){
+    public Weather getForecast(String _q, int _days) throws IOException, InterruptedException {
         String url = "https://api.weatherapi.com/v1/forecast.json?key=" + API_KEY
                 + "&q=" + _q + "&days=" + _days + "&aqi=yes" + "&alerts=yes";
 
-        HttpRequest forecastRequest = HttpRequest.newBuilder().uri(URI.create(url)).build();
+        HttpRequest forecastRequest = HttpRequest.newBuilder().uri(URI.create(url))
+                .timeout(Duration.ofSeconds(3)).build();
 
         Weather result;
 
-        try {
-            HttpResponse<String> forecastResponse = client.send(forecastRequest,
-                    HttpResponse.BodyHandlers.ofString());
+        HttpResponse<String> forecastResponse = client.send(forecastRequest,
+                HttpResponse.BodyHandlers.ofString());
 
-            Gson gsonObject = new GsonBuilder().setPrettyPrinting().create();
-            result = gsonObject.fromJson(forecastResponse.body(), Weather.class);
+        Gson gsonObject = new GsonBuilder().setPrettyPrinting().create();
+        result = gsonObject.fromJson(forecastResponse.body(), Weather.class);
 
-//            System.out.println(gsonObject.toJson(result));
-        }catch (Exception e){
-            e.printStackTrace();
-            result = null;
-        }
         return result;
     }
 

@@ -361,76 +361,81 @@ public class Controller {
     }
 
     void updateData(String _city){
-        // disable the greeting text
-        programTitleText.setVisible(false);
-        greeterText.setVisible(false);
+        try {
+            // get the current weather
+            Weather weather = connection.getForecast(_city, 3);
 
-        // get the current weather
-        Weather weather = connection.getForecast(_city, 3);
+            // set the current weather information text
+            currentTempText.setText(weather.getCurrent().getTemp_c() + " °C");
+            feelsLikeText.setText("Feels like " + weather.getCurrent().getFeelslike_c() + " °C");
+            conditionText.setText(weather.getCurrent().getCondition().getText());
+            precipitationText.setText(weather.getCurrent().getPrecip_mm() + " mm");
+            windText.setText(weather.getCurrent().getWind_kph() + " km/h "
+                    + weather.getCurrent().getWind_dir());
+            humidityText.setText(weather.getCurrent().getHumidity() + " %");
+            uvText.setText(String.valueOf(weather.getCurrent().getUv()));
+            pressureText.setText(weather.getCurrent().getPressure_mb() + " mb");
+            visibilityText.setText(weather.getCurrent().getVis_km() + " km");
+            locationText.setText(
+                    weather.getLocation().getName() + ", "
+                            + weather.getLocation().getRegion() + ", "
+                            + weather.getLocation().getCountry()
+            );
+            lastUpdatedTimeText.setText("Updated at "  + formatDateTime(weather.getCurrent().getLast_updated()));
 
-        // view the labels
-        precipitationLabel.setVisible(true);
-        windLabel.setVisible(true);
-        humidityLabel.setVisible(true);
-        uvLabel.setVisible(true);
-        pressureLabel.setVisible(true);
-        visibilityLabel.setVisible(true);
-        airQualityLabel.setVisible(true);
-        refreshButton.setVisible(true);
+            // set the air quality
+            int epaIndex = weather.getCurrent().getAir_quality().getUs_epa_index();
+            if (epaIndex == 1) airQualityText.setText("Good");
+            else if (epaIndex == 2) airQualityText.setText("Moderate");
+            else if (epaIndex == 3) airQualityText.setText("Allergen Warning");
+            else if (epaIndex == 4) airQualityText.setText("Unhealthy");
+            else if (epaIndex == 5) airQualityText.setText("Very Unhealthy");
+            else airQualityText.setText("Hazardous");
 
+            // disable the greeting text
+            programTitleText.setVisible(false);
+            greeterText.setVisible(false);
 
-        // set the current weather information text
-        currentTempText.setText(weather.getCurrent().getTemp_c() + " °C");
-        feelsLikeText.setText("Feels like " + weather.getCurrent().getFeelslike_c() + " °C");
-        conditionText.setText(weather.getCurrent().getCondition().getText());
-        precipitationText.setText(weather.getCurrent().getPrecip_mm() + " mm");
-        windText.setText(weather.getCurrent().getWind_kph() + " km/h "
-                + weather.getCurrent().getWind_dir());
-        humidityText.setText(weather.getCurrent().getHumidity() + " %");
-        uvText.setText(String.valueOf(weather.getCurrent().getUv()));
-        pressureText.setText(weather.getCurrent().getPressure_mb() + " mb");
-        visibilityText.setText(weather.getCurrent().getVis_km() + " km");
-        locationText.setText(
-                weather.getLocation().getName() + ", "
-                        + weather.getLocation().getRegion() + ", "
-                        + weather.getLocation().getCountry()
-        );
-        lastUpdatedTimeText.setText("Updated at "  + formatDateTime(weather.getCurrent().getLast_updated()));
+            // view the labels
+            precipitationLabel.setVisible(true);
+            windLabel.setVisible(true);
+            humidityLabel.setVisible(true);
+            uvLabel.setVisible(true);
+            pressureLabel.setVisible(true);
+            visibilityLabel.setVisible(true);
+            airQualityLabel.setVisible(true);
+            refreshButton.setVisible(true);
 
-        // set the air quality
-        int epaIndex = weather.getCurrent().getAir_quality().getUs_epa_index();
-        if (epaIndex == 1) airQualityText.setText("Good");
-        else if (epaIndex == 2) airQualityText.setText("Moderate");
-        else if (epaIndex == 3) airQualityText.setText("Allergen Warning");
-        else if (epaIndex == 4) airQualityText.setText("Unhealthy");
-        else if (epaIndex == 5) airQualityText.setText("Very Unhealthy");
-        else airQualityText.setText("Hazardous");
+            // set the charts
+            graphTabPane.setVisible(true);
 
-        // set the charts
-        graphTabPane.setVisible(true);
+            setTempGraph(weather);
+            tempGraphDate1Selector.setSelected(true);
+            chooseTempDate1();
 
-        setTempGraph(weather);
-        tempGraphDate1Selector.setSelected(true);
-        chooseTempDate1();
+            setPrecipGraph(weather);
+            precipGraphDate1Selector.setSelected(true);
+            choosePrecipDate1();
 
-        setPrecipGraph(weather);
-        precipGraphDate1Selector.setSelected(true);
-        choosePrecipDate1();
+            setWindGraph(weather);
+            windGraphDate1Selector.setSelected(true);
+            chooseWindDate1();
 
-        setWindGraph(weather);
-        windGraphDate1Selector.setSelected(true);
-        chooseWindDate1();
+            // setup the favourites table buttons
+            addButton.setVisible(true);
 
-        // setup the favourites table buttons
-        addButton.setVisible(true);
-
-        // set the correct color theme based on the condition
-        if (weather.getCurrent().getIs_day() == 1){
-            setLightTheme(weather.getCurrent().getCondition().getCode());
-        }else{
-            setDarkTheme(weather.getCurrent().getCondition().getCode());
+            // set the correct color theme based on the condition
+            if (weather.getCurrent().getIs_day() == 1){
+                setLightTheme(weather.getCurrent().getCondition().getCode());
+            }else{
+                setDarkTheme(weather.getCurrent().getCondition().getCode());
+            }
+            fadeIn.playFromStart();
+        }catch (NullPointerException e){
+            System.out.println("Error: Unknown City name entered");
+        } catch (Exception e) {
+            System.out.println("Error connecting to WeatherAPI");
         }
-        fadeIn.playFromStart();
     }
 
     void setTempGraph(Weather _weather) {
