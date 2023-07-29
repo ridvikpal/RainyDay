@@ -23,7 +23,7 @@
             <content>
               <AnchorPane fx:id="tempTabAnchorPane" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                      <children>
-                        <AreaChart fx:id="tempGraph" layoutX="-156.0" layoutY="-116.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                        <AreaChart fx:id="tempGraph" animated="false" layoutX="-156.0" layoutY="-116.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                           <xAxis>
                             <CategoryAxis fx:id="tempGraphCategoryAxis" side="BOTTOM" />
                           </xAxis>
@@ -39,7 +39,7 @@
             <content>
               <AnchorPane fx:id="precipTabAnchorPane" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                      <children>
-                        <AreaChart fx:id="precipGraph" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                        <AreaChart fx:id="precipGraph" animated="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                            <xAxis>
                               <CategoryAxis fx:id="precipGraphCategoryAxis" side="BOTTOM" />
                            </xAxis>
@@ -55,7 +55,7 @@
                <content>
                   <AnchorPane fx:id="windTabAnchorPane" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                      <children>
-                        <AreaChart fx:id="windGraph" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                        <AreaChart fx:id="windGraph" animated="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                            <xAxis>
                               <CategoryAxis fx:id="windGraphCategoryAxis" side="BOTTOM" />
                            </xAxis>

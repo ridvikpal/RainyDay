@@ -310,6 +310,8 @@ public class Controller {
         // set the charts
         graphTabPane.setVisible(true);
         setTempGraph(weather);
+        setPrecipGraph(weather);
+        setWindGraph(weather);
 
         // setup the favourites table buttons
         addButton.setVisible(true);
@@ -340,6 +342,60 @@ public class Controller {
         }
 
         tempGraph.getData().addAll(temperatureData1, temperatureData2, temperatureData3);
+    }
+
+    void setPrecipGraph(Weather _weather){
+        precipGraph.getData().removeAll(precipGraph.getData());
+
+        XYChart.Series precipitationData1 = new XYChart.Series();
+        XYChart.Series precipitationData2 = new XYChart.Series();
+        XYChart.Series precipitationData3 = new XYChart.Series();
+
+        precipitationData1.setName(_weather.getForecast().getForecastday().get(0).getDate());
+        precipitationData2.setName(_weather.getForecast().getForecastday().get(1).getDate());
+        precipitationData3.setName(_weather.getForecast().getForecastday().get(2).getDate());
+
+        for (Hour x : _weather.getForecast().getForecastday().get(0).getHour()) {
+            String time = x.getTime().substring(x.getTime().lastIndexOf(" ") + 1);
+            precipitationData1.getData().add(new XYChart.Data<>(time, x.getPrecip_mm()));
+        }
+        for (Hour x : _weather.getForecast().getForecastday().get(1).getHour()) {
+            String time = x.getTime().substring(x.getTime().lastIndexOf(" ") + 1);
+            precipitationData2.getData().add(new XYChart.Data<>(time, x.getPrecip_mm()));
+        }
+        for (Hour x : _weather.getForecast().getForecastday().get(2).getHour()) {
+            String time = x.getTime().substring(x.getTime().lastIndexOf(" ") + 1);
+            precipitationData3.getData().add(new XYChart.Data<>(time, x.getPrecip_mm()));
+        }
+
+        precipGraph.getData().addAll(precipitationData1, precipitationData2, precipitationData3);
+    }
+
+    void setWindGraph(Weather _weather){
+        windGraph.getData().removeAll(windGraph.getData());
+
+        XYChart.Series windData1 = new XYChart.Series();
+        XYChart.Series windData2 = new XYChart.Series();
+        XYChart.Series windData3 = new XYChart.Series();
+
+        windData1.setName(_weather.getForecast().getForecastday().get(0).getDate());
+        windData2.setName(_weather.getForecast().getForecastday().get(1).getDate());
+        windData3.setName(_weather.getForecast().getForecastday().get(2).getDate());
+
+        for (Hour x : _weather.getForecast().getForecastday().get(0).getHour()) {
+            String time = x.getTime().substring(x.getTime().lastIndexOf(" ") + 1);
+            windData1.getData().add(new XYChart.Data<>(time, x.getWind_kph()));
+        }
+        for (Hour x : _weather.getForecast().getForecastday().get(1).getHour()) {
+            String time = x.getTime().substring(x.getTime().lastIndexOf(" ") + 1);
+            windData2.getData().add(new XYChart.Data<>(time, x.getWind_kph()));
+        }
+        for (Hour x : _weather.getForecast().getForecastday().get(2).getHour()) {
+            String time = x.getTime().substring(x.getTime().lastIndexOf(" ") + 1);
+            windData3.getData().add(new XYChart.Data<>(time, x.getWind_kph()));
+        }
+
+        windGraph.getData().addAll(windData1, windData2, windData3);
     }
 
     String formatDateTime(String _dateTime){
