@@ -14,6 +14,9 @@
     -fx-background-color-thumb-hover: rgba(0, 0, 0, 0.3);
     -fx-mark-color-radio-selected: #c0c0c0;
     -fx-background-color-radio-default: rgba(96, 96, 96, 0.85);
+    -fx-colour-area-chart-line: rgba(201, 201, 201, 0.6);
+    -fx-colour-area-chart-fill: linear-gradient(to top, rgba(255, 255, 255, 0), rgba(148, 148, 148, 0.6));
+    -fx-colour-area-chart-symbol: #e5e5e5;
 
     /* Settings for root splitpane */
     -fx-background: derive(-fx-base, 26.4%);
@@ -68,6 +71,17 @@
 }
 
 /* CHART */
+.default-color0.chart-area-symbol {
+    -fx-background-color: -fx-colour-area-chart-symbol;
+}
+.default-color0.chart-series-area-line {
+    -fx-stroke: -fx-colour-area-chart-line;
+    -fx-stroke-width: 3;
+}
+.default-color0.chart-series-area-fill {
+    -fx-fill: -fx-colour-area-chart-fill;
+}
+
 .chart {
     -fx-background-color: -fx-background-colour-default;
     -fx-text-fill: -fx-text-fill-default;
