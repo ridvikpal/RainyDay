@@ -431,6 +431,10 @@ public class Controller {
             }else{
                 setDarkTheme(weather.getCurrent().getCondition().getCode());
             }
+
+            // setup the alerts button
+            setupAlerts(weather);
+
             fadeIn.playFromStart();
         }catch (NullPointerException e){
             Alert unknownCityAlert = new Alert(Alert.AlertType.ERROR);
@@ -445,6 +449,15 @@ public class Controller {
             apiConnectionError.getDialogPane().getStyleClass().add("error-dialog");
             apiConnectionError.showAndWait();
         }
+    }
+
+    void setupAlerts(Weather _weather){
+        if (_weather.getAlerts().getAlert().isEmpty()){
+            alertButton.setVisible(false);
+        }else{
+            alertButton.setVisible(true);
+        }
+        System.out.println(_weather.getAlerts().getAlert());
     }
 
     void setTempGraph(Weather _weather) {
