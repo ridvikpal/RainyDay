@@ -30,6 +30,7 @@ import java.util.Objects;
 public class Controller {
 
     private static final Connection connection = new Connection();
+    private static Weather weather;
 
     @FXML
     private Tab windTab;
@@ -361,10 +362,15 @@ public class Controller {
         windGraph.getData().add(windData3);
     }
 
+    @FXML
+    void handleAlert(){
+
+    }
+
     void updateData(String _city){
         try {
             // get the current weather
-            Weather weather = connection.getForecast(_city, 3);
+            weather = connection.getForecast(_city, 3);
 
             // set the current weather information text
             currentTempText.setText(weather.getCurrent().getTemp_c() + " °C");
@@ -410,15 +416,15 @@ public class Controller {
             // set the charts
             graphTabPane.setVisible(true);
 
-            setTempGraph(weather);
+            setTempGraph();
             tempGraphDate1Selector.setSelected(true);
             chooseTempDate1();
 
-            setPrecipGraph(weather);
+            setPrecipGraph();
             precipGraphDate1Selector.setSelected(true);
             choosePrecipDate1();
 
-            setWindGraph(weather);
+            setWindGraph();
             windGraphDate1Selector.setSelected(true);
             chooseWindDate1();
 
@@ -433,7 +439,11 @@ public class Controller {
             }
 
             // setup the alerts button
-            setupAlerts(weather);
+            if (weather.getAlerts().getAlert().isEmpty()){
+                alertButton.setVisible(false);
+            }else{
+                alertButton.setVisible(true);
+            }
 
             fadeIn.playFromStart();
         }catch (NullPointerException e){
@@ -450,35 +460,30 @@ public class Controller {
             apiConnectionError.showAndWait();
         }
     }
-
-    void setupAlerts(Weather _weather){
-        if (_weather.getAlerts().getAlert().isEmpty()){
-            alertButton.setVisible(false);
-        }else{
-            alertButton.setVisible(true);
-        }
-        System.out.println(_weather.getAlerts().getAlert());
+    
+    void showAlert(){
+//        System.out.println(weather.getAlerts().getAlert());
     }
 
-    void setTempGraph(Weather _weather) {
+    void setTempGraph() {
         temperatureData1.getData().removeAll(temperatureData1.getData());
         temperatureData2.getData().removeAll(temperatureData2.getData());
         temperatureData3.getData().removeAll(temperatureData3.getData());
 
-        tempGraphDate1Selector.setText(_weather.getForecast().getForecastday().get(0).getDate());
-        tempGraphDate2Selector.setText(_weather.getForecast().getForecastday().get(1).getDate());
-        tempGraphDate3Selector.setText(_weather.getForecast().getForecastday().get(2).getDate());
+        tempGraphDate1Selector.setText(weather.getForecast().getForecastday().get(0).getDate());
+        tempGraphDate2Selector.setText(weather.getForecast().getForecastday().get(1).getDate());
+        tempGraphDate3Selector.setText(weather.getForecast().getForecastday().get(2).getDate());
 
         // add new data
-        for (Hour x : _weather.getForecast().getForecastday().get(0).getHour()) {
+        for (Hour x : weather.getForecast().getForecastday().get(0).getHour()) {
             String time = x.getTime().substring(x.getTime().lastIndexOf(" ") + 1);
             temperatureData1.getData().add(new XYChart.Data<>(time, x.getTemp_c()));
         }
-        for (Hour x : _weather.getForecast().getForecastday().get(1).getHour()) {
+        for (Hour x : weather.getForecast().getForecastday().get(1).getHour()) {
             String time = x.getTime().substring(x.getTime().lastIndexOf(" ") + 1);
             temperatureData2.getData().add(new XYChart.Data<>(time, x.getTemp_c()));
         }
-        for (Hour x : _weather.getForecast().getForecastday().get(2).getHour()) {
+        for (Hour x : weather.getForecast().getForecastday().get(2).getHour()) {
             String time = x.getTime().substring(x.getTime().lastIndexOf(" ") + 1);
             temperatureData3.getData().add(new XYChart.Data<>(time, x.getTemp_c()));
         }
@@ -490,25 +495,25 @@ public class Controller {
         tempGraphNumberAxis.setLabel("Degrees Celsius");
     }
 
-    void setPrecipGraph(Weather _weather){
+    void setPrecipGraph(){
         precipitationData1.getData().removeAll(precipitationData1.getData());
         precipitationData2.getData().removeAll(precipitationData2.getData());
         precipitationData3.getData().removeAll(precipitationData3.getData());
 
-        precipGraphDate1Selector.setText(_weather.getForecast().getForecastday().get(0).getDate());
-        precipGraphDate2Selector.setText(_weather.getForecast().getForecastday().get(1).getDate());
-        precipGraphDate3Selector.setText(_weather.getForecast().getForecastday().get(2).getDate());
+        precipGraphDate1Selector.setText(weather.getForecast().getForecastday().get(0).getDate());
+        precipGraphDate2Selector.setText(weather.getForecast().getForecastday().get(1).getDate());
+        precipGraphDate3Selector.setText(weather.getForecast().getForecastday().get(2).getDate());
 
         // add new data
-        for (Hour x : _weather.getForecast().getForecastday().get(0).getHour()) {
+        for (Hour x : weather.getForecast().getForecastday().get(0).getHour()) {
             String time = x.getTime().substring(x.getTime().lastIndexOf(" ") + 1);
             precipitationData1.getData().add(new XYChart.Data<>(time, x.getPrecip_mm()));
         }
-        for (Hour x : _weather.getForecast().getForecastday().get(1).getHour()) {
+        for (Hour x : weather.getForecast().getForecastday().get(1).getHour()) {
             String time = x.getTime().substring(x.getTime().lastIndexOf(" ") + 1);
             precipitationData2.getData().add(new XYChart.Data<>(time, x.getPrecip_mm()));
         }
-        for (Hour x : _weather.getForecast().getForecastday().get(2).getHour()) {
+        for (Hour x : weather.getForecast().getForecastday().get(2).getHour()) {
             String time = x.getTime().substring(x.getTime().lastIndexOf(" ") + 1);
             precipitationData3.getData().add(new XYChart.Data<>(time, x.getPrecip_mm()));
         }
@@ -519,24 +524,24 @@ public class Controller {
         precipGraphNumberAxis.setLabel("Millimeters");
     }
 
-    void setWindGraph(Weather _weather){
+    void setWindGraph(){
         windData1.getData().removeAll(windData1.getData());
         windData2.getData().removeAll(windData2.getData());
         windData3.getData().removeAll(windData3.getData());
 
-        windGraphDate1Selector.setText(_weather.getForecast().getForecastday().get(0).getDate());
-        windGraphDate2Selector.setText(_weather.getForecast().getForecastday().get(1).getDate());
-        windGraphDate3Selector.setText(_weather.getForecast().getForecastday().get(2).getDate());
+        windGraphDate1Selector.setText(weather.getForecast().getForecastday().get(0).getDate());
+        windGraphDate2Selector.setText(weather.getForecast().getForecastday().get(1).getDate());
+        windGraphDate3Selector.setText(weather.getForecast().getForecastday().get(2).getDate());
 
-        for (Hour x : _weather.getForecast().getForecastday().get(0).getHour()) {
+        for (Hour x : weather.getForecast().getForecastday().get(0).getHour()) {
             String time = x.getTime().substring(x.getTime().lastIndexOf(" ") + 1);
             windData1.getData().add(new XYChart.Data<>(time, x.getWind_kph()));
         }
-        for (Hour x : _weather.getForecast().getForecastday().get(1).getHour()) {
+        for (Hour x : weather.getForecast().getForecastday().get(1).getHour()) {
             String time = x.getTime().substring(x.getTime().lastIndexOf(" ") + 1);
             windData2.getData().add(new XYChart.Data<>(time, x.getWind_kph()));
         }
-        for (Hour x : _weather.getForecast().getForecastday().get(2).getHour()) {
+        for (Hour x : weather.getForecast().getForecastday().get(2).getHour()) {
             String time = x.getTime().substring(x.getTime().lastIndexOf(" ") + 1);
             windData3.getData().add(new XYChart.Data<>(time, x.getWind_kph()));
         }
@@ -575,9 +580,9 @@ public class Controller {
         }
     }
 
-    void setLightTheme(int _weatherCode){
+    void setLightTheme(int weatherCode){
         try {
-            switch (_weatherCode){
+            switch (weatherCode){
                 // set sunny day theme
                 case 1000, 1003 -> rootAnchorPane.getStylesheets().setAll(Objects.requireNonNull(getClass()
                                 .getResource("styles/sunny_day_theme.css"))
@@ -620,9 +625,9 @@ public class Controller {
         }
     }
 
-    void setDarkTheme(int _weatherCode){
+    void setDarkTheme(int weatherCode){
         try {
-            switch (_weatherCode){
+            switch (weatherCode){
                 // set clear night theme
                 case 1000, 1003 -> rootAnchorPane.getStylesheets().setAll(Objects.requireNonNull(getClass()
                                 .getResource("styles/clear_night_theme.css"))

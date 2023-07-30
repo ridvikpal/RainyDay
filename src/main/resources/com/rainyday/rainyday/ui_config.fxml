@@ -224,7 +224,7 @@
          </children>
       </VBox>
       <Button fx:id="refreshButton" layoutX="644.0" layoutY="14.0" mnemonicParsing="false" onAction="#handleRefreshRequest" prefHeight="34.0" prefWidth="56.0" text="Refresh" visible="false" />
-      <Button fx:id="alertButton" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="71.0" text="View Alert" visible="false" />
+      <Button fx:id="alertButton" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#handleAlert" prefHeight="34.0" prefWidth="71.0" text="View Alert" visible="false" />
       <Text fx:id="greeterText" fill="#9e9e9e" layoutX="216.0" layoutY="340.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Search for a city or select a favourite!" textAlignment="CENTER" wrappingWidth="326.13671875" AnchorPane.leftAnchor="220.0" AnchorPane.topAnchor="350.0">
          <font>
             <Font size="20.0" />
