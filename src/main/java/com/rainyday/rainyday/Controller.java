@@ -436,11 +436,13 @@ public class Controller {
             Alert unknownCityAlert = new Alert(Alert.AlertType.ERROR);
             unknownCityAlert.setHeaderText("Error Occurred Utilizing WeatherAPI");
             unknownCityAlert.setContentText("Unknown city name was entered.");
+            unknownCityAlert.getDialogPane().getStyleClass().add("error-dialog");
             unknownCityAlert.showAndWait();
         } catch (Exception e) {
             Alert apiConnectionError = new Alert(Alert.AlertType.ERROR);
             apiConnectionError.setHeaderText("Error Occurred Connecting to WeatherAPI");
             apiConnectionError.setContentText("Connection timeout occurred");
+            apiConnectionError.getDialogPane().getStyleClass().add("error-dialog");
             apiConnectionError.showAndWait();
         }
     }
@@ -539,10 +541,11 @@ public class Controller {
             favourites = gson.fromJson(reader, stringType);
             favouritesList.setItems(FXCollections.observableArrayList(favourites));
         } catch (IOException e) {
-            Alert unknownCityAlert = new Alert(Alert.AlertType.ERROR);
-            unknownCityAlert.setHeaderText("Error Occurred During Favourites Setup");
-            unknownCityAlert.setContentText("There was an error importing the saved favourites.");
-            unknownCityAlert.showAndWait();
+            Alert favouritesImportError = new Alert(Alert.AlertType.INFORMATION);
+            favouritesImportError.setHeaderText("Saved Favourites Not Found");
+            favouritesImportError.setContentText("A new favourites.json file will be created");
+            favouritesImportError.getDialogPane().getStyleClass().add("info-dialog");
+            favouritesImportError.showAndWait();
         }
     }
 
@@ -551,10 +554,11 @@ public class Controller {
             Gson gson = new GsonBuilder().setPrettyPrinting().create();
             gson.toJson(favourites, writer);
         } catch (IOException e) {
-            Alert unknownCityAlert = new Alert(Alert.AlertType.ERROR);
-            unknownCityAlert.setHeaderText("Error Occurred During Favourites Setup");
-            unknownCityAlert.setContentText("There was an error exporting the saved favourites.");
-            unknownCityAlert.showAndWait();
+            Alert favouritesExportError = new Alert(Alert.AlertType.ERROR);
+            favouritesExportError.setHeaderText("Error Occurred During Favourites Setup");
+            favouritesExportError.setContentText("There was an error exporting the saved favourites.");
+            favouritesExportError.getDialogPane().getStyleClass().add("error-dialog");
+            favouritesExportError.showAndWait();
         }
     }
 
@@ -595,10 +599,11 @@ public class Controller {
                         .toURI().toString());
             }
         } catch (Exception e) {
-            Alert unknownCityAlert = new Alert(Alert.AlertType.ERROR);
-            unknownCityAlert.setHeaderText("Error Occurred During UI Setup");
-            unknownCityAlert.setContentText("There was an error setting the correct day theme.");
-            unknownCityAlert.showAndWait();
+            Alert lightThemeError = new Alert(Alert.AlertType.ERROR);
+            lightThemeError.setHeaderText("Error Occurred During UI Setup");
+            lightThemeError.setContentText("There was an error setting the correct day theme.");
+            lightThemeError.getDialogPane().getStyleClass().add("error-dialog");
+            lightThemeError.showAndWait();
         }
     }
 
@@ -639,10 +644,11 @@ public class Controller {
                         .toURI().toString());
             }
         } catch (Exception e) {
-            Alert unknownCityAlert = new Alert(Alert.AlertType.ERROR);
-            unknownCityAlert.setHeaderText("Error Occurred During UI Setup");
-            unknownCityAlert.setContentText("There was an error setting the correct night theme.");
-            unknownCityAlert.showAndWait();
+            Alert darkThemeError = new Alert(Alert.AlertType.ERROR);
+            darkThemeError.setHeaderText("Error Occurred During UI Setup");
+            darkThemeError.setContentText("There was an error setting the correct night theme.");
+            darkThemeError.getDialogPane().getStyleClass().add("error-dialog");
+            darkThemeError.showAndWait();
         }
     }
 }
