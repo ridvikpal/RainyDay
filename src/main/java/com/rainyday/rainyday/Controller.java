@@ -384,7 +384,7 @@ public class Controller {
                             + weather.getLocation().getRegion() + ", "
                             + weather.getLocation().getCountry()
             );
-            lastUpdatedTimeText.setText("Updated at "  + formatDateTime(weather.getCurrent().getLast_updated()));
+            lastUpdatedTimeText.setText("Updated at "  + weather.getCurrent().getLast_updated());
 
             // set the air quality
             int epaIndex = weather.getCurrent().getAir_quality().getUs_epa_index();
@@ -533,16 +533,6 @@ public class Controller {
         windGraphCategoryAxis.setLabel("Hour");
         windGraphNumberAxis.setLabel("Kilometers Per Hour");
     }
-
-    String formatDateTime(String _dateTime){
-        DateTimeFormatter inputDateTimeFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
-        DateTimeFormatter outputDateTimeFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd (h:mm a)");
-        LocalDateTime dateTime = LocalDateTime.parse(_dateTime, inputDateTimeFormatter);
-        String formattedString = dateTime.format(outputDateTimeFormatter);
-        return formattedString.toUpperCase();
-    }
-
-
 
     void importFavourites(){
         try (Reader reader = new FileReader("src/main/resources/com/rainyday/rainyday/favourites.json")) {
