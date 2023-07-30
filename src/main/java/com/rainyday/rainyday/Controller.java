@@ -436,13 +436,13 @@ public class Controller {
             fadeIn.playFromStart();
         }catch (NullPointerException e){
             Alert unknownCityAlert = new Alert(Alert.AlertType.ERROR);
-            unknownCityAlert.setHeaderText("Error Occured Utilizing WeatherAPI");
+            unknownCityAlert.setHeaderText("Error Occurred Utilizing WeatherAPI");
             unknownCityAlert.setContentText("Unknown city name was entered.");
             unknownCityAlert.showAndWait();
         } catch (Exception e) {
             Alert apiConnectionError = new Alert(Alert.AlertType.ERROR);
-            apiConnectionError.setHeaderText("Error Occured Connecting to WeatherAPI");
-            apiConnectionError.setContentText("Connection timeout occured");
+            apiConnectionError.setHeaderText("Error Occurred Connecting to WeatherAPI");
+            apiConnectionError.setContentText("Connection timeout occurred");
             apiConnectionError.showAndWait();
         }
     }
@@ -541,7 +541,10 @@ public class Controller {
             favourites = gson.fromJson(reader, stringType);
             favouritesList.setItems(FXCollections.observableArrayList(favourites));
         } catch (IOException e) {
-            System.out.println("Error importing favourites from Json!");
+            Alert unknownCityAlert = new Alert(Alert.AlertType.ERROR);
+            unknownCityAlert.setHeaderText("Error Occurred During Favourites Setup");
+            unknownCityAlert.setContentText("There was an error importing the saved favourites.");
+            unknownCityAlert.showAndWait();
         }
     }
 
@@ -550,7 +553,10 @@ public class Controller {
             Gson gson = new GsonBuilder().setPrettyPrinting().create();
             gson.toJson(favourites, writer);
         } catch (IOException e) {
-            System.out.println("Error exporting favourites to Json!");
+            Alert unknownCityAlert = new Alert(Alert.AlertType.ERROR);
+            unknownCityAlert.setHeaderText("Error Occurred During Favourites Setup");
+            unknownCityAlert.setContentText("There was an error exporting the saved favourites.");
+            unknownCityAlert.showAndWait();
         }
     }
 
@@ -591,7 +597,10 @@ public class Controller {
                         .toURI().toString());
             }
         } catch (Exception e) {
-            System.out.println("Error setting light theme");
+            Alert unknownCityAlert = new Alert(Alert.AlertType.ERROR);
+            unknownCityAlert.setHeaderText("Error Occurred During UI Setup");
+            unknownCityAlert.setContentText("There was an error setting the correct day theme.");
+            unknownCityAlert.showAndWait();
         }
     }
 
@@ -632,7 +641,10 @@ public class Controller {
                         .toURI().toString());
             }
         } catch (Exception e) {
-            System.out.println("Error setting dark theme");
+            Alert unknownCityAlert = new Alert(Alert.AlertType.ERROR);
+            unknownCityAlert.setHeaderText("Error Occurred During UI Setup");
+            unknownCityAlert.setContentText("There was an error setting the correct night theme.");
+            unknownCityAlert.showAndWait();
         }
     }
 }
