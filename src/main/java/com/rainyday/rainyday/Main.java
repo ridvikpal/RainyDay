@@ -2,6 +2,7 @@ package com.rainyday.rainyday;
 
 import javafx.application.Application;
 import javafx.scene.Parent;
+import javafx.scene.image.Image;
 import javafx.stage.Stage;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -17,6 +18,7 @@ public class Main extends Application {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("ui_config.fxml"));
         Parent root = fxmlLoader.load();
         stage.setTitle("RainyDay");
+        stage.getIcons().add(new Image(getClass().getResourceAsStream("RainyDay_Icon.png")));
         Scene scene = new Scene(root);
         scene.getStylesheets().setAll(Objects.requireNonNull(getClass()
                 .getResource("styles/startup_theme.css"))
