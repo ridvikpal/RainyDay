@@ -86,7 +86,7 @@
 }
 
 .chart {
-    -fx-background-color: -fx-background-colour-default;
+    -fx-background-color: transparent;
     -fx-text-fill: -fx-text-fill-default;
     -fx-stroke: -fx-text-fill-default;
 }
@@ -223,7 +223,7 @@
 
 /* TABS */
 .tab-pane {
-    -fx-background-color: transparent;
+    -fx-background-color: -fx-background-colour-default;
 }
 
 .tab-header-area .tab-header-background {
@@ -232,7 +232,7 @@
 }
 
 .tab {
-    -fx-background-color: -fx-background-colour-default;
+    -fx-background-color: transparent;
     -fx-border-color: transparent;
 }
 
