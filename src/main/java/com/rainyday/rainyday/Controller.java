@@ -448,11 +448,11 @@ public class Controller {
             }
 
             // setup the alerts button
-//            if (weather.getAlerts().getAlert().isEmpty()){
-//                alertButton.setVisible(false);
-//            }else{
-            alertButton.setVisible(true);
-//            }
+            if (weather.getAlerts().getAlert().isEmpty()){
+                alertButton.setVisible(false);
+            }else{
+                alertButton.setVisible(true);
+            }
 
             fadeIn.playFromStart();
         }catch (NullPointerException e){
