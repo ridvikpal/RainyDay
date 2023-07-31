@@ -17,6 +17,7 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
 import javafx.util.Duration;
+import org.rainyday.AlertSubClass;
 import org.rainyday.Connection;
 import org.rainyday.Hour;
 import org.rainyday.Weather;
@@ -364,7 +365,15 @@ public class Controller {
 
     @FXML
     void handleAlert(){
-
+        Alert weatherAlert = new Alert(Alert.AlertType.WARNING);
+//        AlertSubClass newAlert = new AlertSubClass();
+//        weather.getAlerts().getAlert().add(newAlert);
+//        weather.getAlerts().getAlert().get(0).setHeadline("Flood Warning issued January 05 at 9:47PM EST until January 07 at 6:15AM EST by NWS");
+//        weather.getAlerts().getAlert().get(0).setInstruction("A Flood Warning means that flooding is imminent or occurring. All\ninterested parties should take necessary precautions immediately.\nMotorists should not attempt to drive around barricades or drive\ncars through flooded areas.\nCaution is urged when walking near riverbanks.\nAdditional information is available at www.weather.gov.\nThe next statement will be issued Wednesday morning at 1000 AM EST.");
+        weatherAlert.setHeaderText(weather.getAlerts().getAlert().get(0).getHeadline());
+        weatherAlert.setContentText(weather.getAlerts().getAlert().get(0).getInstruction());
+        weatherAlert.getDialogPane().getStyleClass().add("warning-dialog");
+        weatherAlert.showAndWait();
     }
 
     void updateData(String _city){
@@ -439,11 +448,11 @@ public class Controller {
             }
 
             // setup the alerts button
-            if (weather.getAlerts().getAlert().isEmpty()){
-                alertButton.setVisible(false);
-            }else{
-                alertButton.setVisible(true);
-            }
+//            if (weather.getAlerts().getAlert().isEmpty()){
+//                alertButton.setVisible(false);
+//            }else{
+            alertButton.setVisible(true);
+//            }
 
             fadeIn.playFromStart();
         }catch (NullPointerException e){
@@ -459,10 +468,6 @@ public class Controller {
             apiConnectionError.getDialogPane().getStyleClass().add("error-dialog");
             apiConnectionError.showAndWait();
         }
-    }
-    
-    void showAlert(){
-//        System.out.println(weather.getAlerts().getAlert());
     }
 
     void setTempGraph() {
