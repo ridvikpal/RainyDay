@@ -11,11 +11,13 @@ import javafx.scene.chart.CategoryAxis;
 import javafx.scene.chart.NumberAxis;
 import javafx.scene.chart.XYChart;
 import javafx.scene.control.*;
+import javafx.scene.image.Image;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
+import javafx.stage.Stage;
 import javafx.util.Duration;
 import org.rainyday.AlertSubClass;
 import org.rainyday.Connection;
@@ -373,6 +375,8 @@ public class Controller {
         weatherAlert.setHeaderText(weather.getAlerts().getAlert().get(0).getHeadline());
         weatherAlert.setContentText(weather.getAlerts().getAlert().get(0).getInstruction());
         weatherAlert.getDialogPane().getStyleClass().add("warning-dialog");
+        Stage stage = (Stage) weatherAlert.getDialogPane().getScene().getWindow();
+        stage.getIcons().add(new Image(getClass().getResourceAsStream("RainyDay_Icon.png")));
         weatherAlert.showAndWait();
     }
 
@@ -460,12 +464,16 @@ public class Controller {
             unknownCityAlert.setHeaderText("Error Occurred Utilizing WeatherAPI");
             unknownCityAlert.setContentText("Unknown city name was entered.");
             unknownCityAlert.getDialogPane().getStyleClass().add("error-dialog");
+            Stage stage = (Stage) unknownCityAlert.getDialogPane().getScene().getWindow();
+            stage.getIcons().add(new Image(getClass().getResourceAsStream("RainyDay_Icon.png")));
             unknownCityAlert.showAndWait();
         } catch (Exception e) {
             Alert apiConnectionError = new Alert(Alert.AlertType.ERROR);
             apiConnectionError.setHeaderText("Error Occurred Connecting to WeatherAPI");
             apiConnectionError.setContentText("Connection timeout occurred");
             apiConnectionError.getDialogPane().getStyleClass().add("error-dialog");
+            Stage stage = (Stage) apiConnectionError.getDialogPane().getScene().getWindow();
+            stage.getIcons().add(new Image(getClass().getResourceAsStream("RainyDay_Icon.png")));
             apiConnectionError.showAndWait();
         }
     }
@@ -568,6 +576,8 @@ public class Controller {
             favouritesImportError.setHeaderText("Saved Favourites Not Found");
             favouritesImportError.setContentText("A new favourites.json file will be created");
             favouritesImportError.getDialogPane().getStyleClass().add("info-dialog");
+            Stage stage = (Stage) favouritesImportError.getDialogPane().getScene().getWindow();
+            stage.getIcons().add(new Image(getClass().getResourceAsStream("RainyDay_Icon.png")));
             favouritesImportError.showAndWait();
         }
     }
@@ -581,6 +591,8 @@ public class Controller {
             favouritesExportError.setHeaderText("Error Occurred During Favourites Setup");
             favouritesExportError.setContentText("There was an error exporting the saved favourites.");
             favouritesExportError.getDialogPane().getStyleClass().add("error-dialog");
+            Stage stage = (Stage) favouritesExportError.getDialogPane().getScene().getWindow();
+            stage.getIcons().add(new Image(getClass().getResourceAsStream("RainyDay_Icon.png")));
             favouritesExportError.showAndWait();
         }
     }
@@ -626,6 +638,8 @@ public class Controller {
             lightThemeError.setHeaderText("Error Occurred During UI Setup");
             lightThemeError.setContentText("There was an error setting the correct day theme.");
             lightThemeError.getDialogPane().getStyleClass().add("error-dialog");
+            Stage stage = (Stage) lightThemeError.getDialogPane().getScene().getWindow();
+            stage.getIcons().add(new Image(getClass().getResourceAsStream("RainyDay_Icon.png")));
             lightThemeError.showAndWait();
         }
     }
@@ -671,6 +685,8 @@ public class Controller {
             darkThemeError.setHeaderText("Error Occurred During UI Setup");
             darkThemeError.setContentText("There was an error setting the correct night theme.");
             darkThemeError.getDialogPane().getStyleClass().add("error-dialog");
+            Stage stage = (Stage) darkThemeError.getDialogPane().getScene().getWindow();
+            stage.getIcons().add(new Image(getClass().getResourceAsStream("RainyDay_Icon.png")));
             darkThemeError.showAndWait();
         }
     }
