@@ -4,7 +4,6 @@ module com.rainyday.rainyday {
     requires javafx.web;
 
     requires org.kordamp.ikonli.javafx;
-    requires eu.hansolo.tilesfx;
     requires com.google.gson;
     requires java.net.http;
     requires javafx.graphics;
