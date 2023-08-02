@@ -39,10 +39,14 @@ RESTful APIs!
 ## External Packages
 RainyDay utilizes the following external packages:
 
+<div align="center">
+
 | Package                                                                                                | Used for                               |
 |--------------------------------------------------------------------------------------------------------|----------------------------------------|
 | `com.google.gson`                                                                                      | JSON serialization and deserialization |
 | `javafx.scene`, `javafx.stage`, `javafx.util`, `javafx.animation`, `javafx.fxml`, `javafx.collections` | GUI creation                           |
+
+</div>
 
 ## Code Files
 The program java source code has been broken down into two packages:
@@ -52,6 +56,8 @@ The program java source code has been broken down into two packages:
 [RainyDayConsoleClientAPI](https://github.com/ridvikpal/RainyDayConsoleClientAPI).
 
 These files are:
+
+<div align="center">
 
 | File                       | Description                                                                                       | Package                 |
 |----------------------------|---------------------------------------------------------------------------------------------------|-------------------------|
@@ -72,6 +78,8 @@ These files are:
 | `AirQuality.java`          | Class that stores the air quality information                                                     | `org.rainyday`          |
 | `Hour.java`                | Class that stores the weather for particular hour in the forecast                                 | `org.rainyday`          |
 | `Day.java`                 | Class that stores the weather for a particular day                                                | `org.rainyday`          |
+
+</div>
 
 In addition to these packages under the `java` directory, the CSS themes, images, and backgrounds can be found under
 the `resources` directory.
@@ -139,6 +147,8 @@ RainyDay supports this with the "View Alerts" Button:
 ### Error/Exception Handling
 RainyDay includes exception handling and checks for the following errors:
 
+<div align="center">
+
 | Type        | Description                                                      |
 |-------------|------------------------------------------------------------------|
 | Information | No valid `favourites.json` file found                            |
@@ -147,6 +157,8 @@ RainyDay includes exception handling and checks for the following errors:
 | Error       | Error exporting favourites list to `favourites.json` file        |
 | Error       | Error setting the correct daytime (light) theme                  |
 | Error       | Error setting the correct nighttime (dark) theme                 |
+
+</div>
 
 Each time one of these errors occurs, the user is notified via dialog boxes.
 
