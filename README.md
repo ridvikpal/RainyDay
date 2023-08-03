@@ -28,7 +28,13 @@ RainyDay is a weather app written in pure Java and styled with CSS, utilizing th
 designed. In addition to a full application, RainyDay also has a 
 console client and API counterpart ([RainyDayConsoleClientAPI](https://github.com/ridvikpal/RainyDayConsoleClientAPI)).
 This is if you want a console version of RainyDay or a Java API to use in your own code. I have extensively detailed 
-the backend API design for RainyDay in that github repo, if you would like to study that.
+the backend API design for RainyDay in that GitHub repo, if you would like to study that.
+
+<div align="center">
+
+![Thunderstorm_main_screen.png](src/main/resources/com/rainyday/rainyday/Images/Thunderstorm_main_screen.png)
+
+</div>
 
 ## Goals
 The goal of RainyDay was to create a great looking and functional weather application. I was inspired by the Apple's
@@ -102,6 +108,12 @@ RainyDay allows you to search through almost any city in the world, and accepts 
 * Latitude/longitude
 * IP Addresses
 
+<div align="center">
+
+![search_bar.png](src/main/resources/com/rainyday/rainyday/Images/search_bar.png)
+
+</div>
+
 A future modification will include adding autocomplete support for the searchbar. The RainyDay API already includes 
 this functionality with the `getAutoCompleteTerm()` method, but it is yet to be implemented in the full GUI application. 
 
@@ -120,19 +132,25 @@ information:
 9. Visibility
 10. Air Quality
 
-For the user's reference it also provides the location and last updated time for the current weather information.
+For the user's reference it also provides the location and last updated time for the current weather information:
+
+![current_weather_info.png](src/main/resources/com/rainyday/rainyday/Images/current_weather_info.png)
 
 ### 3-day Forecast
 RainyDay provides the 3-day (the current day and 2 days ahead) forecast via the graph tabs on the bottom of the
 application. The days can be toggled via the radio buttons on the bottom of the graph, and the type of graph via the
 individual tabs.
 
+![graph.png](src/main/resources/com/rainyday/rainyday/Images/graph.png)
+
 ### Beautiful themes and User Interface
-Since RainyDay was inspired by iOS, it had to look good, and therefore I designed 15 individual themes, 8 being
+Since RainyDay was inspired by iOS, it had to look good, and therefore I designed 15 individual CSS themes, 8 being
 light (daytime) themes and 7 dark (nighttime) themes. Each of these themes include edited backgrounds originally from
 [Unsplash](https://unsplash.com/). The themes automatically switch depending on the weather condition (for example,
 thunderstorm theme for when a thunderstorm is happening) and between light and dark depending on whether it is daytime
 or nighttime for the location being viewed.
+
+
 
 ### Touch Screen Compatability
 RainyDay is fully compatible with touchscreen devices, since it utlizes JavaFX for the user interface, which natively
@@ -143,6 +161,8 @@ but due to native touch screen event compatibility it should be easy to port.
 ### Weather Alerts
 An important feature of a weather app is the ability to see weather alerts, such as flooding or hurricane alerts.
 RainyDay supports this with the "View Alerts" Button:
+
+![flood_warning.png](src/main/resources/com/rainyday/rainyday/Images/flood_warning.png)
 
 ### Error/Exception Handling
 RainyDay includes exception handling and checks for the following errors:
