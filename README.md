@@ -159,7 +159,7 @@ individual tabs.
 </div>
 
 ### Beautiful themes and User Interface
-Since RainyDay was inspired by iOS, it had to look good, and therefore I designed 15 individual CSS themes, 8 being
+Since RainyDay was inspired by iOS, it had to look good. Therefore, I designed 15 individual CSS themes, 8 being
 light (daytime) themes and 7 dark (nighttime) themes. Each of these themes include edited backgrounds originally from
 [Unsplash](https://unsplash.com/). The themes automatically switch depending on the weather condition (for example,
 thunderstorm theme for when a thunderstorm is happening) and between light and dark depending on whether it is daytime
