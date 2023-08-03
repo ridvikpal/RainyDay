@@ -165,7 +165,7 @@ light (daytime) themes and 7 dark (nighttime) themes. Each of these themes inclu
 thunderstorm theme for when a thunderstorm is happening) and between light and dark depending on whether it is daytime
 or nighttime for the location being viewed.
 
-
+![all_themes.png](src/main/resources/com/rainyday/rainyday/Images/all_themes.png)
 
 ### Touch Screen Compatability
 RainyDay is fully compatible with touchscreen devices, since it utlizes JavaFX for the user interface, which natively
