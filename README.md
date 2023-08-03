@@ -184,14 +184,14 @@ RainyDay includes exception handling and checks for the following errors:
 
 <div align="center">
 
-| Type        | Description                                                      |
-|-------------|------------------------------------------------------------------|
-| Information | No valid `favourites.json` file found                            |
-| Error       | No valid city name entered in search bar (not found in database) |
-| Error       | Error connecting to WeatherAPI (connection timeout)              |
-| Error       | Error exporting favourites list to `favourites.json` file        |
-| Error       | Error setting the correct daytime (light) theme                  |
-| Error       | Error setting the correct nighttime (dark) theme                 |
+| Type        | Description                                                                                                                                                 |
+|-------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Information | No valid `favourites.json` file found                                                                                                                       |
+| Error       | No valid city name entered in search bar (not found in database)                                                                                            |
+| Error       | Error connecting to WeatherAPI (connection timeout)                                                                                                         |
+| Error       | Error exporting favourites list to `favourites.json` file <br/> (most likely insufficient write permissions in the directory where the JAR file is located) |
+| Error       | Error setting the correct daytime (light) theme                                                                                                             |
+| Error       | Error setting the correct nighttime (dark) theme                                                                                                            |
 
 </div>
 
