@@ -96,6 +96,17 @@ and that a new favourites file will be created for you instead. This file simply
 quickly access weather information for. Just click "Ok" to dismiss this dialog and begin searching for cities to find
 the weather of!
 
+<div align="center">
+
+![initial_setup.png](src/main/resources/com/rainyday/rainyday/Images/initial_setup.png)
+
+</div>
+
+### Start Screen
+The start screen does not show all the UI elements, just the search bar and favourites pane to not confuse the user.
+Upon entering or selecting a valid favourite, all weather data and ui elements will be visible.
+![start_screen.png](src/main/resources/com/rainyday/rainyday/Images/start_screen.png)
+
 ## Features
 RainyDay was primarily inspired by the iOS weather app, so it has various similarities in design and features. In
 general RainyDay has all the essential features a weather app would need!
@@ -141,7 +152,11 @@ RainyDay provides the 3-day (the current day and 2 days ahead) forecast via the 
 application. The days can be toggled via the radio buttons on the bottom of the graph, and the type of graph via the
 individual tabs.
 
+<div align="center">"
+
 ![graph.png](src/main/resources/com/rainyday/rainyday/Images/graph.png)
+
+</div>
 
 ### Beautiful themes and User Interface
 Since RainyDay was inspired by iOS, it had to look good, and therefore I designed 15 individual CSS themes, 8 being
