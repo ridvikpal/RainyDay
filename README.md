@@ -27,7 +27,7 @@ RainyDay is a weather app written in pure Java and styled with CSS, utilizing th
 [WeatherAPI](https://www.weatherapi.com/) for data. It is fully featured, easy to use, and beautifully 
 designed. In addition to a full application, RainyDay also has a 
 console client and API counterpart ([RainyDayConsoleClientAPI](https://github.com/ridvikpal/RainyDayConsoleClientAPI)).
-This is if you want a console version of RainyDay or a Java API to use in your own code. I have extensively detailed 
+That is if you want a console version of RainyDay or a Java API to use in your own code. I have extensively detailed 
 the backend API design for RainyDay in that GitHub repo, if you would like to study that.
 
 <div align="center">
